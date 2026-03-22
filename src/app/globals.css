@@ -178,6 +178,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 400; }
   cursor: pointer;
   white-space: nowrap;
 }
+@media (max-width: 639px) { .btn { white-space: normal; } }
 .btn--primary {
   background: var(--color-primary-container);
   color: var(--color-on-primary);

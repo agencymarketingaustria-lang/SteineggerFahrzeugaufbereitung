@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -110,14 +109,12 @@ export default function Home() {
             </div>
           </ScrollReveal>
           <div className="services-grid">
-            <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)', gridColumn: '1' }}>Innenraum Veredelung</h3>
-            <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)', gridColumn: '2' }}>Exterieur Veredelung</h3>
-            {interiorPackages.map((pkg, i) => {
-              const ext = exteriorPackages[i];
-              return (
-                <React.Fragment key={pkg.name}>
-                  <ScrollReveal delay={i * 0.1}>
-                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`} style={{ height: '100%' }}>
+            <div>
+              <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Innenraum Veredelung</h3>
+              <div className="services-cat__cards">
+                {interiorPackages.map((pkg, i) => (
+                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
+                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
                       <div className="card__header">
                         <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
                         <span className="card__price">ab {pkg.prices.klein}</span>
@@ -125,24 +122,29 @@ export default function Home() {
                       <p className="card__desc">{pkg.description}</p>
                     </div>
                   </ScrollReveal>
-                  {ext && (
-                    <ScrollReveal delay={i * 0.1 + 0.05}>
-                      <div className={`card${i === 1 ? ' card--highlighted' : ''}`} style={{ height: '100%' }}>
-                        <div className="card__header">
-                          <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{ext.name}</h4>
-                          <span className="card__price">ab {ext.prices.klein}</span>
-                        </div>
-                        <p className="card__desc">{ext.description}</p>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur Veredelung</h3>
+              <div className="services-cat__cards">
+                {exteriorPackages.map((pkg, i) => (
+                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
+                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+                      <div className="card__header">
+                        <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
+                        <span className="card__price">ab {pkg.prices.klein}</span>
                       </div>
-                    </ScrollReveal>
-                  )}
-                </React.Fragment>
-              );
-            })}
+                      <p className="card__desc">{pkg.description}</p>
+                    </div>
+                  </ScrollReveal>
+                ))}
+              </div>
+            </div>
           </div>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginTop: 'var(--space-12)' }}>
-              <Link href="/leistungen" className="btn btn--secondary">Alle Leistungen &amp; Preise ansehen →</Link>
+              <Link href="/leistungen" className="btn btn--secondary" style={{ whiteSpace: 'normal' }}>Alle Leistungen &amp; Preise ansehen →</Link>
             </div>
           </ScrollReveal>
         </div>
