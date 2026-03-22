@@ -40,7 +40,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="hero__title" style={{ fontFamily: 'var(--font-headline)' }}>
-              Dein Auto verdient mehr als eine <span className="hero__accent">Waschanlage.</span>
+              Dein Auto verdient <span className="hero__accent">mehr.</span>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
