@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STEINEGGER | Fahrzeugaufbereitung Nettelkofen</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#231919",
+              "secondary": "#695b5b",
+              "outline-variant": "#e2beba",
+              "primary": "#650006",
+              "on-primary-container": "#ff958b",
+              "secondary-fixed-dim": "#d4c2c2",
+              "on-surface": "#1b1c19",
+              "inverse-primary": "#ffb4ac",
+              "tertiary-fixed": "#d9e2ff",
+              "on-tertiary-fixed": "#001946",
+              "surface-container-high": "#eae8e3",
+              "on-tertiary-fixed-variant": "#06429b",
+              "on-primary-fixed-variant": "#92030f",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#410003",
+              "surface-container-low": "#f5f3ee",
+              "error": "#ba1a1a",
+              "secondary-container": "#f1dede",
+              "on-secondary-fixed-variant": "#504444",
+              "tertiary-fixed-dim": "#b1c6ff",
+              "surface-dim": "#dcdad5",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#b52524",
+              "on-tertiary-container": "#91b0ff",
+              "primary-fixed": "#ffdad6",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#003f98",
+              "surface-variant": "#e4e2dd",
+              "inverse-surface": "#30312e",
+              "on-background": "#1b1c19",
+              "surface-container-highest": "#e4e2dd",
+              "surface-container": "#f0eee9",
+              "surface": "#fbf9f4",
+              "tertiary": "#002a6b",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface-variant": "#5a403e",
+              "on-secondary-container": "#6f6161",
+              "outline": "#8e706d",
+              "background": "#fbf9f4",
+              "primary-container": "#8f000d",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-bright": "#fbf9f4",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f2f1ec",
+              "secondary-fixed": "#f1dede"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-glass {
+            background-color: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Execution -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center h-20 px-8 md:px-16 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-serif tracking-tight text-[#1b1c19]">STEINEGGER</div>
+<div class="hidden md:flex gap-12 items-center">
+<a class="text-[#1b1c19]/70 hover:text-[#8f000d] transition-colors text-xs uppercase tracking-widest" href="#expertise">Expertise</a>
+<a class="text-[#1b1c19]/70 hover:text-[#8f000d] transition-colors text-xs uppercase tracking-widest" href="#services">Services</a>
+<a class="text-[#1b1c19]/70 hover:text-[#8f000d] transition-colors text-xs uppercase tracking-widest" href="#process">Process</a>
+<a class="text-[#1b1c19]/70 hover:text-[#8f000d] transition-colors text-xs uppercase tracking-widest" href="#gallery">Gallery</a>
+<a class="text-[#1b1c19]/70 hover:text-[#8f000d] transition-colors text-xs uppercase tracking-widest" href="#contact">Contact</a>
+</div>
+<button class="bg-[#8f000d] text-on-primary px-6 py-2.5 rounded-md text-xs uppercase tracking-widest font-semibold hover:shadow-lg transition-all active:scale-95">
+                Book Atelier
+            </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- HERO SECTION -->
+<section class="relative min-h-[921px] flex items-center px-8 md:px-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-90 scale-105" data-alt="Close up of a luxury car reflecting soft sunset light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASrDaRJ-hpg7nNRvJo_gd5O6yHPjO4Uk0sjph_vOlz1GzGInAVUQdBhpw8IrdAQa4aTkmUZLbeYvQe9xKFHim3txtNu7aXxAeof4LiixNlH4viIuhcS6MGyKjjV_040Uya8DyHbY42CWwe8SqvHGc4IssxXOTYEX7CNCdcRO9B5TjpzmuFpCNO2JFRajw2HcUrgaT33EKBOrTWKTNfNzrhQaSMMlLDch_jUJjpO37RvL0O1kxFjsw9iatKjCnm13_7itWGlLO2TGE"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="label-md text-primary font-semibold tracking-[0.2em] uppercase block mb-6">Willkommen im Atelier</span>
+<h1 class="font-headline text-6xl md:text-8xl italic font-light leading-tight mb-8 text-on-surface">
+                    Dein Auto verdient mehr als eine <span class="text-primary-container">Waschanlage.</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+                    Professionelle Fahrzeugveredelung mit Liebe zum Detail und handwerklicher Präzision in Nettelkofen bei Grafing.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary-container text-on-primary px-10 py-4 rounded-md font-medium tracking-wide hover:shadow-xl transition-all">
+                        Termin anfragen
+                    </button>
+<button class="bg-surface-container-high text-on-surface px-10 py-4 rounded-md font-medium tracking-wide hover:bg-surface-container-highest transition-all">
+                        Unsere Expertise
+                    </button>
+</div>
+</div>
+</section>
+<!-- TRUST METRICS -->
+<section class="bg-surface-container-low py-20 px-8 md:px-16">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline italic mb-2">500+</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-light">Fahrzeuge veredelt</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline italic mb-2">10+ Jahre</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-light">Erfahrung</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline italic mb-2">100%</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-light">Zufriedene Kunden</div>
+</div>
+<div class="text-center md:text-left">
+<div class="text-3xl font-headline italic mb-2">Nettelkofen</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-light">Lokal verwurzelt</div>
+</div>
+</div>
+</section>
+<!-- BRAND STORY -->
+<section class="py-32 px-8 md:px-16 max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center" id="expertise">
+<div class="relative group">
+<div class="absolute -inset-4 bg-surface-container-low rounded-xl -rotate-2 transition-transform group-hover:rotate-0"></div>
+<img class="relative rounded-lg shadow-2xl z-10 w-full aspect-[4/5] object-cover" data-alt="Detailer cleaning a car leather seat with a soft brush" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrjI0VxvjNL3KvbPZyRsqEwTQhif7oZN84wzFKxcyBBaCfNGJuB83ObSRrucVfe-mM2d3YucIoQhgBOW1KV7GGHpdBuM8T60FMGl3-ULLx7IZSyDhxRD7oPIETT4GltThKPkNIhOtzOXaTaztRXrymNpQNIXdpmmmhoV5Phv_G4V1OgODCuYvLKg0EcPnPv9kjq6ZhyFRKm-h45MeypsFOEqf8925Y5R7yi8bIBe2R8j1ZJ344p9znikPxpgj85xZ10L2ftv4s4bc"/>
+</div>
+<div>
+<span class="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">Das Atelier Steinegger</span>
+<h2 class="font-headline text-5xl mb-8 leading-tight">Wer steckt hinter Steinegger?</h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+<p>
+                        In unserem Familienbetrieb in Nettelkofen betrachten wir die Fahrzeugpflege nicht als Arbeit, sondern als eine Form der Meditation. Jede Kurve, jede Naht und jeder Quadratzentimeter Lack erhält unsere ungeteilte Aufmerksamkeit.
+                    </p>
+<p>
+                        Bayerische Handwerkskunst trifft auf modernste Techniken der Oberflächenveredelung. Wir nehmen uns die Zeit, die Ihr Fahrzeug benötigt – ganz ohne Zeitdruck, dafür mit höchster Präzision.
+                    </p>
+</div>
+<div class="mt-12">
+<div class="font-headline text-2xl italic">"Qualität ist kein Zufall; sie ist das Ergebnis von Hingabe."</div>
+<div class="mt-2 text-sm uppercase tracking-widest">— Maximilian Steinegger</div>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section class="bg-surface-container-low py-32 px-8 md:px-16" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<h2 class="font-headline text-5xl mb-4">Exzellenz in jedem Bereich</h2>
+<p class="text-on-surface-variant tracking-wide">Wählen Sie das Niveau der Pflege, das Ihr Fahrzeug verdient.</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-x-16 gap-y-20">
+<!-- Interior -->
+<div>
+<h3 class="font-headline text-3xl mb-10 pb-4 border-b border-outline-variant/30 italic">Innenraum Veredelung</h3>
+<div class="grid grid-cols-1 gap-6">
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/10 flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Bronze</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 70€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Grundreinigung, Aussaugen, Scheibenreinigung &amp; Cockpitpflege.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl shadow-md border border-primary/20 transition-all flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Silber</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 150€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Inkl. Polster- oder Leder-Tiefenreinigung, Desinfektion &amp; Geruchseliminierung.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/10 flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Gold</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 280€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Komplettes Detailing inkl. Lederpflege-Versiegelung &amp; Detailreinigung aller Ritzen.</p>
+</div>
+</div>
+</div>
+<!-- Exterior -->
+<div>
+<h3 class="font-headline text-3xl mb-10 pb-4 border-b border-outline-variant/30 italic">Exterieur Veredelung</h3>
+<div class="grid grid-cols-1 gap-6">
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/10 flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Bronze</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 90€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Schonende Handwäsche, Felgenreinigung &amp; Lack-Schnellversiegelung.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl shadow-md border border-primary/20 transition-all flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Silber</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 190€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Inkl. Glanzpolitur (1-stufig), Knetbehandlung &amp; Hartwachs-Schutz.</p>
+</div>
+<div class="bg-surface-container-lowest p-10 rounded-xl hover:shadow-lg transition-all border border-transparent hover:border-primary/10 flex flex-col min-h-[180px]">
+<div class="flex justify-between items-start mb-6">
+<h4 class="text-xl font-headline font-bold">Gold</h4>
+<span class="text-primary font-medium text-sm tracking-wider">ab 300€</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Mehrstufige Defektkorrektur &amp; Langzeit-Keramikversiegelung.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PROCESS COMPONENT -->
+<section class="py-32 px-8 md:px-16 max-w-7xl mx-auto" id="process">
+<h2 class="font-headline text-5xl mb-20 text-center">Der Weg zur Perfektion</h2>
+<div class="grid md:grid-cols-4 gap-4 relative">
+<!-- Connector Line -->
+<div class="hidden md:block absolute top-12 left-0 w-full h-px bg-outline-variant/30 z-0"></div>
+<div class="relative z-10 text-center px-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center mx-auto mb-8 shadow-lg">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h5 class="font-headline text-xl mb-3">01. Buchung</h5>
+<p class="text-sm text-on-surface-variant">Einfache Online-Anfrage oder ein kurzes Telefonat.</p>
+</div>
+<div class="relative z-10 text-center px-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mx-auto mb-8">
+<span class="material-symbols-outlined">car_repair</span>
+</div>
+<h5 class="font-headline text-xl mb-3">02. Empfang</h5>
+<p class="text-sm text-on-surface-variant">Gemeinsame Begutachtung im Atelier in Nettelkofen.</p>
+</div>
+<div class="relative z-10 text-center px-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mx-auto mb-8">
+<span class="material-symbols-outlined">auto_fix_high</span>
+</div>
+<h5 class="font-headline text-xl mb-3">03. Veredelung</h5>
+<p class="text-sm text-on-surface-variant">Präzise Arbeit nach höchsten Qualitätsstandards.</p>
+</div>
+<div class="relative z-10 text-center px-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mx-auto mb-8">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<h5 class="font-headline text-xl mb-3">04. Übergabe</h5>
+<p class="text-sm text-on-surface-variant">Ein strahlendes Ergebnis und Tipps zur Nachpflege.</p>
+</div>
+</div>
+</section>
+<!-- BUNDLES -->
+<section class="bg-[#8f000d] py-32 px-8 md:px-16 text-on-primary overflow-hidden relative">
+<div class="absolute right-0 top-0 w-1/3 h-full bg-white/5 -skew-x-12 transform translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="mb-20 max-w-xl">
+<h2 class="font-headline text-5xl mb-6">Unsere Empfehlungen für dich</h2>
+<p class="opacity-80">Speziell zusammengestellte Pakete für maximale Wirkung zum fairen Preis.</p>
+</div>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="bg-surface/10 backdrop-blur-md p-8 rounded-xl border border-white/10 hover:bg-surface/20 transition-all">
+<h4 class="font-headline text-2xl mb-2">Kombi-Pflege</h4>
+<div class="text-3xl font-light mb-6">ab 200€</div>
+<ul class="space-y-3 text-sm opacity-90 mb-8">
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> Innenreinigung Basis</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> Handwäsche &amp; Wachs</li>
+</ul>
+</div>
+<div class="bg-surface p-8 rounded-xl border-4 border-primary-fixed shadow-2xl transform md:-translate-y-4 text-on-surface">
+<div class="bg-primary text-on-primary text-[10px] uppercase tracking-widest px-3 py-1 rounded-full w-fit mb-4">Bestseller</div>
+<h4 class="font-headline text-2xl mb-2">Rundum-Sorglos</h4>
+<div class="text-3xl font-light mb-6 text-primary">ab 330€</div>
+<ul class="space-y-3 text-sm text-on-surface-variant mb-8">
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Tiefenreinigung Silber</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Hochglanzpolitur</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Felgenversiegelung</li>
+</ul>
+<button class="w-full bg-primary text-on-primary py-3 rounded-md font-semibold text-sm uppercase tracking-widest">Jetzt buchen</button>
+</div>
+<div class="bg-surface/10 backdrop-blur-md p-8 rounded-xl border border-white/10 hover:bg-surface/20 transition-all">
+<h4 class="font-headline text-2xl mb-2">Premium Komplett</h4>
+<div class="text-3xl font-light mb-6">ab 380€</div>
+<ul class="space-y-3 text-sm opacity-90 mb-8">
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> Lederversiegelung</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> 2-Stufen Politur</li>
+</ul>
+</div>
+<div class="bg-surface/10 backdrop-blur-md p-8 rounded-xl border border-white/10 hover:bg-surface/20 transition-all">
+<h4 class="font-headline text-2xl mb-2">Familien-Spezial</h4>
+<div class="text-3xl font-light mb-6">ab 210€</div>
+<ul class="space-y-3 text-sm opacity-90 mb-8">
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> Fleckenentfernung</li>
+<li class="flex gap-2"><span class="material-symbols-outlined text-sm">check</span> Geruchseliminierung</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="py-32 px-8 md:px-16 max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline text-5xl mb-4 italic">Was unsere Kunden sagen</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<div class="p-10 bg-surface-container-low rounded-2xl">
+<div class="flex gap-1 text-[#8f000d] mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-lg mb-8 leading-relaxed">"Mein Oldtimer sah noch nie so gut aus. Die Liebe zum Detail bei Steinegger ist wirklich außergewöhnlich."</p>
+<div class="text-xs uppercase tracking-widest font-semibold">— Hans-Georg M.</div>
+</div>
+<div class="p-10 bg-surface-container-low rounded-2xl">
+<div class="flex gap-1 text-[#8f000d] mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-lg mb-8 leading-relaxed">"Endlich keine Flecken mehr von den Kindern auf den Rücksitzen. Professionell, freundlich und absolut sauber."</p>
+<div class="text-xs uppercase tracking-widest font-semibold">— Sarah K.</div>
+</div>
+<div class="p-10 bg-surface-container-low rounded-2xl">
+<div class="flex gap-1 text-[#8f000d] mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="italic text-lg mb-8 leading-relaxed">"Unkomplizierte Terminvergabe und ein Ergebnis, das meine Erwartungen bei Weitem übertroffen hat."</p>
+<div class="text-xs uppercase tracking-widest font-semibold">— Thomas W.</div>
+</div>
+</div>
+</section>
+<!-- GALLERY -->
+<section class="py-32 px-8 md:px-16 bg-surface-container-low" id="gallery">
+<div class="max-w-[1400px] mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline text-5xl mb-4 italic">Impressionen unserer Arbeit</h2>
+<p class="text-on-surface-variant">Ein Einblick in unser Atelier in Nettelkofen.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+<img class="w-full aspect-square object-cover rounded hover:opacity-90 transition-opacity" data-alt="Shiny black sports car in a clean studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPiiFf21QpOVMEPht16BuVNZ-G9cZjFE1C5wHBx7giM5aSIcDlKjF0OVOvU-ggovlkL-w0_EH7y-y6TgG5KHzkGBHUUNnqL3PTC4M1F6IHPQcO1RUesdgyy7a6bV-KclSJANGEK7p4FBHlIe8umA1rjjyRkSGUGoXiKDW6uaX0B8Lir1NCVsyTuJ1DfVf0SClF5xgIWf5menxn9-waTLi4EAtw5U5j16ceTWtwR2XHZTxRo3oviCulwxN6_92xdV0JWiHD7FaNaII"/>
+<img class="w-full aspect-[3/4] object-cover rounded hover:opacity-90 transition-opacity md:translate-y-12" data-alt="Red car hood reflection after polishing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-2wG1xx4_Dr72KUPgh16Y_m81PWOXcD_XCymyibHHiuuX-ItSNitJkjRgG3ngJzxZFBjcgXDZCMI9tkyYfciybjqzROKjuTZU_YIGpNRiNyxsXgNr_9SH_yUCEEPvC7OgccAFM7vN_CqO-VGBVeCCQVB22yg6-PDQQ-aqMVKtpVf6g1naGsBQ4uaw6BZ8E_qLcNcq9ekTkCkXgMI_P8GgXt_5CHXnmAR8NX6sDY6DDK2cuuyXJHJiwnXAJ09RldkxFssbhqmfS70"/>
+<img class="w-full aspect-[3/4] object-cover rounded hover:opacity-90 transition-opacity" data-alt="Detailer cleaning car dashboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCPN_511ZsoArzGKqSxe-lKGwgTpv5JDEQE3L-n_DFu5VVxmIOeUSRurwFudlaqGhITVR76HDAAQwzflTdodlUk46JSfbWxiOydyBRocYCm1nD-KtIKOkeaySWLbeyqZT496BexLpIArfQJ9dy5viGAYZJLnpRuuFHVwaHXhC0L--jqaAU_tOdAlYiKQ-bT7fhr3X4zex1h4qt_47eGFmIH3YIFZ_LHo3yQj_QBK7wQ31EMDFIo7OKqs0-rPij11mA7pmAZC58iEQ"/>
+<img class="w-full aspect-square object-cover rounded hover:opacity-90 transition-opacity md:translate-y-12" data-alt="Clean classic white car interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmhOM05pXqtDW21LLwgnrol4-BaUXeso8rNIoJ1BJyYQj2gNlJ4rb_lEr2vdkHCHKGlb0GTp-mkT3MmbMglU_bi-72oym-wmOo_L0S51ZlbI1Pmyp1-namYdQwDCXZOf1fQnKQws6azZHh7uPDcNEDEBLvwlaUt3CXkSNJAChLUQuL_wD8niFmRof-_LxOgC_z61AMtatUf1aPC5jS4YtS-dHGXtpXBm13oFHWKELvjfd-Hm5vZtvwIu8IGx6mg64A9P_ZRx8cpI4"/>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-32 px-8 md:px-16 max-w-3xl mx-auto">
+<h2 class="font-headline text-4xl mb-16 text-center italic">Fragen zum Atelier</h2>
+<div class="space-y-6">
+<details class="group bg-surface-container-low p-6 rounded-lg cursor-pointer transition-all">
+<summary class="flex justify-between items-center list-none font-headline text-xl">
+                        Wie lange dauert eine Aufbereitung?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Je nach Paket zwischen 4 Stunden und 2 Werktagen. Bei einer Keramikversiegelung benötigen wir das Fahrzeug meist für 48 Stunden.</p>
+</details>
+<details class="group bg-surface-container-low p-6 rounded-lg cursor-pointer transition-all">
+<summary class="flex justify-between items-center list-none font-headline text-xl">
+                        Muss ich den Termin vorab buchen?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Ja, um jedem Fahrzeug die nötige Aufmerksamkeit schenken zu können, arbeiten wir ausschließlich nach Terminvereinbarung.</p>
+</details>
+<details class="group bg-surface-container-low p-6 rounded-lg cursor-pointer transition-all">
+<summary class="flex justify-between items-center list-none font-headline text-xl">
+                        Bieten Sie einen Hol- und Bringservice an?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant leading-relaxed">Innerhalb von Grafing und Ebersberg bieten wir gegen einen kleinen Aufpreis gerne einen komfortablen Hol- und Bringservice an.</p>
+</details>
+</div>
+</section>
+<!-- CONTACT CTA -->
+<section class="py-32 px-8 md:px-16 bg-surface-container-highest" id="contact">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="font-headline text-5xl mb-8 italic">Lass uns über dein Auto reden</h2>
+<p class="text-xl text-on-surface-variant mb-12">Ob Oldtimer, Sportwagen oder Alltagsheld – wir beraten dich gerne persönlich in Nettelkofen.</p>
+<div class="flex flex-col md:flex-row justify-center gap-8">
+<a class="flex items-center justify-center gap-3 bg-primary-container text-on-primary px-12 py-5 rounded-md font-semibold tracking-widest text-sm hover:shadow-xl transition-all" href="#">
+<span class="material-symbols-outlined">call</span>
+                        ANRUFEN
+                    </a>
+<a class="flex items-center justify-center gap-3 border border-primary-container text-primary-container px-12 py-5 rounded-md font-semibold tracking-widest text-sm hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined">chat</span>
+                        WHATSAPP
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Execution -->
+<footer class="w-full py-16 px-8 md:px-24 bg-[#f5f3ee] text-[#1b1c19]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-start text-left max-w-[1920px] mx-auto">
+<div class="col-span-1">
+<div class="text-xl font-serif text-[#1b1c19] mb-6">STEINEGGER</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                    Fahrzeugaufbereitung mit Herz &amp; Seele.<br/>
+                    Nettelkofen 4, 85567 Grafing.
+                </p>
+</div>
+<div>
+<h5 class="font-light tracking-wide text-xs uppercase mb-6 opacity-60">Öffnungszeiten</h5>
+<ul class="text-sm space-y-2 text-[#1b1c19]/60">
+<li>Mo - Fr: 08:00 - 18:00</li>
+<li>Sa: 09:00 - 14:00</li>
+</ul>
+</div>
+<div>
+<h5 class="font-light tracking-wide text-xs uppercase mb-6 opacity-60">Navigation</h5>
+<div class="flex flex-col gap-4">
+<a class="text-[#1b1c19]/60 hover:text-[#1b1c19] transition-colors underline underline-offset-4 text-sm" href="#">Expertise</a>
+<a class="text-[#1b1c19]/60 hover:text-[#1b1c19] transition-colors underline underline-offset-4 text-sm" href="#">Gallerie</a>
+<a class="text-[#1b1c19]/60 hover:text-[#1b1c19] transition-colors underline underline-offset-4 text-sm" href="#">Impressum</a>
+</div>
+</div>
+<div>
+<h5 class="font-light tracking-wide text-xs uppercase mb-6 opacity-60">Social Media</h5>
+<div class="flex flex-col gap-4">
+<a class="text-[#1b1c19]/60 hover:text-[#1b1c19] transition-colors underline underline-offset-4 text-sm" href="#">Instagram</a>
+<a class="text-[#1b1c19]/60 hover:text-[#1b1c19] transition-colors underline underline-offset-4 text-sm" href="#">Facebook</a>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-[#1b1c19]/5 text-[10px] uppercase tracking-[0.2em] text-[#1b1c19]/40 flex flex-col md:flex-row justify-between gap-4">
+<div>2024 STEINEGGER Fahrzeugaufbereitung. All rights reserved.</div>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Imprint</a>
+</div>
+</div>
+</footer>
+</body></html>
