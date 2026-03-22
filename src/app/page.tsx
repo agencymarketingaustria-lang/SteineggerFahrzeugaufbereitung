@@ -19,7 +19,18 @@ export default function Home() {
       {/* ═══ HERO ═══ */}
       <section className="hero">
         <div className="hero__bg">
-          <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" fill className="hero__img" priority sizes="100vw" />
+          <video
+            className="hero__video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/images/Hero-Sektion.webp"
+            preload="auto"
+          >
+            <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          </video>
+          <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" fill className="hero__img hero__img--fallback" priority sizes="100vw" />
           <div className="hero__overlay" />
         </div>
         <div className="hero__content">
