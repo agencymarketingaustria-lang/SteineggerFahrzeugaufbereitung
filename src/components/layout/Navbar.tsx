@@ -79,6 +79,11 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div className={`mobile-menu${mobileOpen ? ' is-open' : ''}`} role="dialog" aria-modal="true">
+        <button
+          className="mobile-menu__close"
+          onClick={() => { setMobileOpen(false); document.body.style.overflow = ''; }}
+          aria-label="Menü schließen"
+        />
         {links.map((l) => (
           <Link key={l.href} href={l.href} className="mobile-menu__link" onClick={() => { setMobileOpen(false); document.body.style.overflow = ''; }}>
             {l.label}

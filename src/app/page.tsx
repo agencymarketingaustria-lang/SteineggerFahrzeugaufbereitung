@@ -308,19 +308,19 @@ export default function Home() {
           <ScrollReveal>
             <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', textAlign: 'center', fontStyle: 'italic', marginBottom: 'var(--space-16)' }}>Fragen zum Atelier</h2>
           </ScrollReveal>
-          <div className="faq__list">
-            {faqs.map((faq, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <details className="faq__item">
+          <ScrollReveal>
+            <div className="faq__list">
+              {faqs.map((faq, i) => (
+                <details key={i} className="faq__item">
                   <summary className="faq__question" style={{ fontFamily: 'var(--font-headline)' }}>
                     {faq.question}
                     <Icon name="expand_more" className="faq__icon" />
                   </summary>
                   <p className="faq__answer">{faq.answer}</p>
                 </details>
-              </ScrollReveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
