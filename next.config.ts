@@ -10,8 +10,22 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'], // Prefer AVIF > WebP > JPEG
   },
 
-  // ── Security Headers ──────────────────────────
+  // ── Headers ───────────────────────────────────
   headers: async () => [
+    // Cache static assets aggressively
+    {
+      source: '/images/:path*',
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+    {
+      source: '/videos/:path*',
+      headers: [
+        { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+      ],
+    },
+    // Security headers for all routes
     {
       source: '/(.*)',
       headers: [

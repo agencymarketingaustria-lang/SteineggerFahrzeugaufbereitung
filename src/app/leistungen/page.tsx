@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import ExpandableFeatures from '@/components/ui/ExpandableFeatures';
+import Icon from '@/components/ui/Icon';
 import { interiorPackages, exteriorPackages, bundles, einzelleistungen, SITE, SONDERFAHRZEUGE_HINWEIS } from '@/lib/data';
 import { generateServiceSchema } from '@/lib/structured-data';
 
@@ -69,7 +70,7 @@ export default function LeistungenPage() {
             ))}
           </div>
           <div className="sonderfahrzeuge-hint">
-            <span className="material-symbols-outlined">info</span>
+            <Icon name="info" />
             {SONDERFAHRZEUGE_HINWEIS}
           </div>
         </div>
@@ -91,14 +92,14 @@ export default function LeistungenPage() {
                 ))}
               </div>
               <div className="sonderfahrzeuge-hint">
-                <span className="material-symbols-outlined">info</span>
+                <Icon name="info" />
                 {SONDERFAHRZEUGE_HINWEIS}
               </div>
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div style={{ alignSelf: 'center' }}>
-              <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" width={800} height={450} className="exterior-img" sizes="(max-width: 1024px) 100vw, 66vw" />
+              <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" width={800} height={450} className="exterior-img" sizes="(max-width: 1024px) 100vw, 66vw" quality={75} loading="lazy" />
             </div>
           </ScrollReveal>
         </div>
@@ -182,7 +183,7 @@ export default function LeistungenPage() {
             </table>
           </ScrollReveal>
           <div className="sonderfahrzeuge-hint">
-            <span className="material-symbols-outlined">info</span>
+            <Icon name="info" />
             {SONDERFAHRZEUGE_HINWEIS}
           </div>
         </div>
@@ -201,11 +202,11 @@ export default function LeistungenPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)', justifyContent: 'center' }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', justifyContent: 'center' }}>
                 <a href={`tel:${SITE.phone}`} className="btn btn--secondary">
-                  <span className="material-symbols-outlined">call</span>
+                  <Icon name="call" />
                   Telefonisch beraten
                 </a>
                 <a href={`https://wa.me/${SITE.whatsapp}`} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
-                  <span className="material-symbols-outlined filled">chat_bubble</span>
+                  <Icon name="chat_bubble" />
                   WhatsApp Nachricht
                 </a>
               </div>

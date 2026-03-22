@@ -21,7 +21,7 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <h5 className="footer__heading">Öffnungszeiten</h5>
+          <h5 className="footer__heading">Termine</h5>
           <ul className="footer__list">
             <li>{SITE.openingHours.weekdays}</li>
             <li>{SITE.openingHours.saturday}</li>

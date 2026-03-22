@@ -9,8 +9,8 @@ export const SITE = {
   email: 'info@steinegger-aufbereitung.de',
   url: 'https://steinegger-aufbereitung.de',
   openingHours: {
-    weekdays: 'Mo – Fr: 08:00 – 18:00',
-    saturday: 'Sa: 09:00 – 14:00',
+    weekdays: 'Nur auf Anfrage',
+    saturday: 'Termin nach Vereinbarung',
   },
   geo: { lat: 48.05, lng: 11.97 },
 } as const;

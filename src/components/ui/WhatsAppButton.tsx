@@ -1,5 +1,3 @@
-'use client';
-
 import { SITE } from '@/lib/data';
 
 export default function WhatsAppButton() {

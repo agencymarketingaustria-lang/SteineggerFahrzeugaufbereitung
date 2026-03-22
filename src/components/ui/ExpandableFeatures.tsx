@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Icon from '@/components/ui/Icon';
 
 interface Props {
   features: string[];
@@ -15,13 +16,13 @@ export default function ExpandableFeatures({ features, moreFeatures }: Props) {
       <ul className="service-card__features">
         {features.map((f) => (
           <li key={f} className="service-card__feature">
-            <span className="material-symbols-outlined">check</span> {f}
+            <Icon name="check" className="icon--check" /> {f}
           </li>
         ))}
         {expanded &&
           moreFeatures.map((f) => (
             <li key={f} className="service-card__feature service-card__feature--extra">
-              <span className="material-symbols-outlined">check</span> {f}
+              <Icon name="check" className="icon--check" /> {f}
             </li>
           ))}
       </ul>
@@ -31,9 +32,7 @@ export default function ExpandableFeatures({ features, moreFeatures }: Props) {
           onClick={() => setExpanded(!expanded)}
           aria-expanded={expanded}
         >
-          <span className="material-symbols-outlined expand-features-btn__icon">
-            {expanded ? 'expand_less' : 'expand_more'}
-          </span>
+          <Icon name={expanded ? 'expand_less' : 'expand_more'} className="expand-features-btn__icon" />
           {expanded ? 'Weniger anzeigen' : `Alle anzeigen (+${moreFeatures.length})`}
         </button>
       )}

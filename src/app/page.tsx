@@ -1,8 +1,10 @@
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import GoogleMap from '@/components/GoogleMap';
+import Icon from '@/components/ui/Icon';
 import { trustMetrics, interiorPackages, exteriorPackages, bundles, testimonials, faqs, processSteps, SITE } from '@/lib/data';
 import { generateLocalBusinessSchema, generateReviewSchema } from '@/lib/structured-data';
 
@@ -26,7 +28,7 @@ export default function Home() {
             muted
             playsInline
             poster="/images/Hero-Sektion.webp"
-            preload="auto"
+            preload="none"
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
@@ -78,7 +80,7 @@ export default function Home() {
           <ScrollReveal direction="left">
             <div className="brand-story__img-wrap">
               <div className="brand-story__img-bg" />
-              <Image src="/images/brand-story.jpg" alt="Detailer reinigt Ledersitz" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" />
+              <Image src="/images/brand-story.jpg" alt="Detailer reinigt Ledersitz" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right">
@@ -108,12 +110,14 @@ export default function Home() {
             </div>
           </ScrollReveal>
           <div className="services-grid">
-            <div>
-              <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Innenraum Veredelung</h3>
-              <div className="services-cat__cards">
-                {interiorPackages.map((pkg, i) => (
-                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
-                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+            <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)', gridColumn: '1' }}>Innenraum Veredelung</h3>
+            <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)', gridColumn: '2' }}>Exterieur Veredelung</h3>
+            {interiorPackages.map((pkg, i) => {
+              const ext = exteriorPackages[i];
+              return (
+                <React.Fragment key={pkg.name}>
+                  <ScrollReveal delay={i * 0.1}>
+                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`} style={{ height: '100%' }}>
                       <div className="card__header">
                         <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
                         <span className="card__price">ab {pkg.prices.klein}</span>
@@ -121,25 +125,20 @@ export default function Home() {
                       <p className="card__desc">{pkg.description}</p>
                     </div>
                   </ScrollReveal>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur Veredelung</h3>
-              <div className="services-cat__cards">
-                {exteriorPackages.map((pkg, i) => (
-                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
-                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
-                      <div className="card__header">
-                        <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
-                        <span className="card__price">ab {pkg.prices.klein}</span>
+                  {ext && (
+                    <ScrollReveal delay={i * 0.1 + 0.05}>
+                      <div className={`card${i === 1 ? ' card--highlighted' : ''}`} style={{ height: '100%' }}>
+                        <div className="card__header">
+                          <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{ext.name}</h4>
+                          <span className="card__price">ab {ext.prices.klein}</span>
+                        </div>
+                        <p className="card__desc">{ext.description}</p>
                       </div>
-                      <p className="card__desc">{pkg.description}</p>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-            </div>
+                    </ScrollReveal>
+                  )}
+                </React.Fragment>
+              );
+            })}
           </div>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginTop: 'var(--space-12)' }}>
@@ -161,7 +160,7 @@ export default function Home() {
               <ScrollReveal key={step.num} delay={i * 0.15}>
                 <div className="process-step">
                   <div className={`process-step__icon process-step__icon--${step.primary ? 'primary' : 'neutral'}`}>
-                    <span className="material-symbols-outlined">{step.icon}</span>
+                    <Icon name={step.icon as import('@/components/ui/Icon').IconName} />
                   </div>
                   <h5 className="process-step__title" style={{ fontFamily: 'var(--font-headline)' }}>{step.num}. {step.title}</h5>
                   <p className="process-step__desc">{step.desc}</p>
@@ -195,7 +194,7 @@ export default function Home() {
                 <div className="bundle-glass__divider" />
                 <ul className="bundle-glass__list">
                   {bundles[0].features?.map((f) => (
-                    <li key={f}><span className="material-symbols-outlined check-icon">check_circle</span> {f}</li>
+                    <li key={f}><Icon name="check_circle" className="check-icon" /> {f}</li>
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
@@ -215,7 +214,7 @@ export default function Home() {
                 <div className="bundle-glass__divider" />
                 <ul className="bundle-glass__list">
                   {bundles[1].features?.map((f) => (
-                    <li key={f}><span className="material-symbols-outlined check-icon">check_circle</span> {f}</li>
+                    <li key={f}><Icon name="check_circle" className="check-icon" /> {f}</li>
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
@@ -234,7 +233,7 @@ export default function Home() {
                 <div className="bundle-glass__divider" />
                 <ul className="bundle-glass__list">
                   {bundles[2].features?.map((f) => (
-                    <li key={f}><span className="material-symbols-outlined check-icon">check_circle</span> {f}</li>
+                    <li key={f}><Icon name="check_circle" className="check-icon" /> {f}</li>
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
@@ -265,7 +264,7 @@ export default function Home() {
                 <div className="testimonial">
                   <div className="testimonial__stars">
                     {Array.from({ length: t.rating }).map((_, j) => (
-                      <span key={j} className="material-symbols-outlined filled">star</span>
+                      <Icon key={j} name="star" className="filled" />
                     ))}
                   </div>
                   <p className="testimonial__text">&ldquo;{t.text}&rdquo;</p>
@@ -296,7 +295,7 @@ export default function Home() {
               { src: '/images/gallery-4.jpg', alt: 'Sauberer weißer Innenraum', cls: ' gallery-grid__img--offset' },
             ].map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <Image src={img.src} alt={img.alt} width={400} height={i % 2 === 0 ? 400 : 533} className={`gallery-grid__img${img.cls}`} style={{ aspectRatio: i % 2 === 0 ? '1' : '3/4' }} sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src={img.src} alt={img.alt} width={400} height={i % 2 === 0 ? 400 : 533} className={`gallery-grid__img${img.cls}`} style={{ aspectRatio: i % 2 === 0 ? '1' : '3/4' }} sizes="(max-width: 768px) 50vw, 25vw" quality={75} loading="lazy" />
               </ScrollReveal>
             ))}
           </div>
@@ -315,7 +314,7 @@ export default function Home() {
                 <details className="faq__item">
                   <summary className="faq__question" style={{ fontFamily: 'var(--font-headline)' }}>
                     {faq.question}
-                    <span className="material-symbols-outlined faq__icon">expand_more</span>
+                    <Icon name="expand_more" className="faq__icon" />
                   </summary>
                   <p className="faq__answer">{faq.answer}</p>
                 </details>
@@ -337,11 +336,11 @@ export default function Home() {
           <ScrollReveal delay={0.2}>
             <div className="cta-section__actions">
               <a href={`tel:${SITE.phone}`} className="btn btn--primary">
-                <span className="material-symbols-outlined">call</span>
+                <Icon name="call" />
                 Anrufen
               </a>
               <a href={`https://wa.me/${SITE.whatsapp}`} className="btn btn--outline" target="_blank" rel="noopener noreferrer">
-                <span className="material-symbols-outlined">chat</span>
+                <Icon name="chat" />
                 WhatsApp
               </a>
             </div>

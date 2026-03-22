@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
 
 interface AnimatedCounterProps {
   value: string; // e.g. "500+", "100%", "10+ Jahre"
@@ -9,14 +8,30 @@ interface AnimatedCounterProps {
 }
 
 export default function AnimatedCounter({ value, className = '' }: AnimatedCounterProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(value);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const el = ref.current;
+    if (!el) return;
 
-    // Extract the numeric part
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(el);
+        }
+      },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+
     const match = value.match(/^(\d+)/);
     if (!match) {
       setDisplay(value);
@@ -25,32 +40,28 @@ export default function AnimatedCounter({ value, className = '' }: AnimatedCount
 
     const target = parseInt(match[1], 10);
     const suffix = value.slice(match[1].length);
-    const duration = 1500; // ms
-    const steps = 40;
-    const stepDuration = duration / steps;
-    let current = 0;
+    const duration = 1500;
+    let start: number | null = null;
 
-    const interval = setInterval(() => {
-      current += Math.ceil(target / steps);
-      if (current >= target) {
-        current = target;
-        clearInterval(interval);
-      }
+    const animate = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const current = Math.round(progress * target);
       setDisplay(`${current}${suffix}`);
-    }, stepDuration);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
 
-    return () => clearInterval(interval);
-  }, [isInView, value]);
+    requestAnimationFrame(animate);
+  }, [visible, value]);
 
   return (
-    <motion.span
+    <span
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-      className={className}
+      className={`sr sr--up ${visible ? 'sr--visible' : ''} ${className}`}
     >
       {display}
-    </motion.span>
+    </span>
   );
 }
