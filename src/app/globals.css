@@ -288,8 +288,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 400; }
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: var(--space-20) var(--section-px);
+    padding: 0 var(--section-px);
   }
+  .hero__label { display: none; }
 }
 .hero__bg { position: absolute; inset: 0; z-index: 0; }
 .hero__video {
