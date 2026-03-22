@@ -12,7 +12,7 @@ export const SITE = {
     weekdays: 'Nur auf Anfrage',
     saturday: 'Termin nach Vereinbarung',
   },
-  geo: { lat: 48.05, lng: 11.97 },
+  geo: { lat: 48.051087, lng: 11.942217 },
 } as const;
 
 export interface ServicePackage {
