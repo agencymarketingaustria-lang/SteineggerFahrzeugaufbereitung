@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import ExpandableFeatures from '@/components/ui/ExpandableFeatures';
@@ -78,30 +77,33 @@ export default function LeistungenPage() {
 
       {/* ═══ EXTERIEUR ═══ */}
       <section className="section section--alt" style={{ paddingTop: 'var(--section-py)', paddingBottom: 'var(--section-py)' }}>
-        <div className="container exterior-layout" style={{ alignItems: 'center' }}>
-          <ScrollReveal direction="left">
-            <div>
-              <h2 className="exterior-layout__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur-<br />Veredelung</h2>
-              <p className="exterior-layout__desc">Unsere Außenpflege geht über das Waschen hinaus. Wir konservieren den Glanz und schützen den Lack dauerhaft gegen Umwelteinflüsse.</p>
-              <div className="exterior-layout__tiers">
-                {exteriorPackages.map((pkg, i) => (
-                  <div key={pkg.name} className="exterior-card">
-                    <h4 className={`exterior-card__title${i === 0 ? ' exterior-card__title--primary' : ''}`} style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name} Exterieur</h4>
-                    <p className="exterior-card__info">{pkg.description}<br /><span className="exterior-card__price" style={{ fontFamily: 'var(--font-headline)' }}>ab {pkg.prices.klein} / {pkg.prices.kombi} / {pkg.prices.suv}</span></p>
+        <div className="container">
+          <ScrollReveal>
+            <div className="category-header">
+              <h2 className="category-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur-Veredelung</h2>
+              <span className="category-header__subtitle">Außenpflege &amp; Schutz</span>
+            </div>
+          </ScrollReveal>
+          <div className="services-page-grid">
+            {exteriorPackages.map((pkg, i) => (
+              <ScrollReveal key={pkg.name} delay={i * 0.1}>
+                <div className="service-card">
+                  <span className="service-card__label">Paket 0{i + 1}</span>
+                  <h3 className="service-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h3>
+                  <p className="service-card__desc">{pkg.description}</p>
+                  <ExpandableFeatures features={pkg.features} moreFeatures={pkg.moreFeatures} />
+                  <div className="service-card__pricing">
+                    <div className="service-card__size-label">KLEIN / KOMBI / SUV</div>
+                    <div className="service-card__prices" style={{ fontFamily: 'var(--font-headline)' }}>ab {pkg.prices.klein} / {pkg.prices.kombi} / {pkg.prices.suv}</div>
                   </div>
-                ))}
-              </div>
-              <div className="sonderfahrzeuge-hint">
-                <Icon name="info" />
-                {SONDERFAHRZEUGE_HINWEIS}
-              </div>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal direction="right">
-            <div style={{ alignSelf: 'center' }}>
-              <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" width={800} height={450} className="exterior-img" sizes="(max-width: 1024px) 100vw, 66vw" quality={75} loading="lazy" />
-            </div>
-          </ScrollReveal>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          <div className="sonderfahrzeuge-hint">
+            <Icon name="info" />
+            {SONDERFAHRZEUGE_HINWEIS}
+          </div>
         </div>
       </section>
 
