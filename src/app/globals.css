@@ -399,10 +399,13 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 400; }
 .services-paired-grid > .sr > .card { flex: 1; display: flex; flex-direction: column; }
 .services-paired-grid > .sr > .card .card__desc { flex: 1; }
 .services-paired-grid__header { margin-bottom: 0; }
-.services-paired-grid__label { display: none; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-primary); font-weight: 600; margin-bottom: var(--space-2); }
+.services-paired-grid__mobile-heading { margin-top: var(--space-8); }
+.services-paired-grid__mobile-heading:first-of-type { margin-top: 0; }
 @media (max-width: 1023px) {
   .services-paired-grid__header { display: none; }
-  .services-paired-grid__label { display: block; }
+}
+@media (min-width: 1024px) {
+  .services-paired-grid__mobile-heading { display: none; }
 }
 .services-grid > .sr { display: flex; flex-direction: column; }
 .services-grid > .sr > .card { flex: 1; }
