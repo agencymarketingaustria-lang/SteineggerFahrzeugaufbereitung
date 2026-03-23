@@ -287,3 +287,112 @@ export const processSteps = [
 ];
 
 export const SONDERFAHRZEUGE_HINWEIS = 'Motorräder, Wohnmobile, Transporter sowie Busse nach Absprache.' as const;
+
+// ── About Page ──────────────────────────────
+export const aboutValues = [
+  {
+    title: 'Handwerkskunst',
+    desc: 'Jedes Fahrzeug wird von Hand behandelt — mit Techniken, die über Jahre perfektioniert wurden.',
+    icon: 'auto_fix_high',
+  },
+  {
+    title: 'Liebe zum Detail',
+    desc: 'Wir sehen, was andere übersehen. Jede Naht, jede Ritze, jeder Quadratzentimeter zählt.',
+    icon: 'visibility',
+  },
+  {
+    title: 'Vertrauen',
+    desc: 'Dein Fahrzeug ist bei uns in den besten Händen. Transparenz und Ehrlichkeit sind unser Versprechen.',
+    icon: 'verified',
+  },
+] as const;
+
+// ── Extended Process Steps ──────────────────
+export const extendedProcessSteps = [
+  {
+    num: '01',
+    title: 'Buchung & Beratung',
+    desc: 'Kontaktiere uns per Telefon, WhatsApp oder über unsere Website. Wir besprechen gemeinsam den Zustand deines Fahrzeugs und empfehlen das passende Paket. Innerhalb von 24 Stunden erhältst du einen Terminvorschlag.',
+    icon: 'calendar_today',
+    primary: true,
+  },
+  {
+    num: '02',
+    title: 'Empfang & Inspektion',
+    desc: 'Bei der Fahrzeugübergabe in unserem Atelier in Nettelkofen begutachten wir dein Auto gemeinsam. Wir dokumentieren den Ist-Zustand und besprechen eventuelle Sonderwünsche oder besondere Stellen, die Aufmerksamkeit benötigen.',
+    icon: 'car_repair',
+    primary: false,
+  },
+  {
+    num: '03',
+    title: 'Veredelung',
+    desc: 'Jetzt beginnt die Verwandlung. Mit professionellen Produkten, modernsten Geräten und handwerklicher Präzision arbeiten wir Schritt für Schritt dein gewähltes Paket ab. Je nach Umfang dauert dies zwischen 4 Stunden und 2 Tagen.',
+    icon: 'auto_fix_high',
+    primary: false,
+  },
+  {
+    num: '04',
+    title: 'Qualitätskontrolle & Übergabe',
+    desc: 'Bevor du dein Fahrzeug zurückerhältst, durchläuft es unsere strenge Qualitätskontrolle unter Speziallicht. Bei der Übergabe erhältst du persönliche Pflegetipps, damit der Glanz möglichst lange erhalten bleibt.',
+    icon: 'verified',
+    primary: false,
+  },
+] as const;
+
+// ── Preparation Tips ────────────────────────
+export const prepTips = [
+  { title: 'Auto ausräumen', desc: 'Entferne bitte alle persönlichen Gegenstände aus dem Fahrzeug — Taschen, Kindersitze, Ladekabel etc.', icon: 'inventory_2' },
+  { title: 'Grobe Verschmutzung melden', desc: 'Sag uns vorher Bescheid, wenn besondere Verschmutzungen vorliegen (Tierhaare, Flecken, Lack-Kratzer).', icon: 'report' },
+  { title: 'Termin einplanen', desc: 'Je nach Paket kann die Aufbereitung 4 Stunden bis 2 Tage dauern. Plane den Zeitraum entsprechend ein.', icon: 'schedule' },
+  { title: 'Schlüssel bereithalten', desc: 'Wir benötigen alle Fahrzeugschlüssel, um Türen, Kofferraum und ggf. Tank öffnen zu können.', icon: 'key' },
+  { title: 'Tankstand beachten', desc: 'Ein halb voller Tank genügt. So können wir das Fahrzeug bei Bedarf bewegen.', icon: 'local_gas_station' },
+  { title: 'Waschanlagen vermeiden', desc: 'Bitte fahre vor dem Termin nicht durch eine Waschanlage. Wir reinigen dein Auto schonend von Hand.', icon: 'block' },
+] as const;
+
+// ── Extended FAQs ───────────────────────────
+export const extendedFaqs = [
+  ...faqs,
+  {
+    question: 'Wie kann ich den Glanz nach der Aufbereitung erhalten?',
+    answer: 'Wir empfehlen, das Fahrzeug regelmäßig von Hand zu waschen und auf automatische Waschanlagen zu verzichten. Bei einer Keramikversiegelung erhalten Sie von uns eine detaillierte Pflegeanleitung.',
+  },
+  {
+    question: 'Welche Zahlungsmethoden akzeptieren Sie?',
+    answer: 'Wir akzeptieren Barzahlung, EC-Karte und Überweisung. Die Bezahlung erfolgt nach der Aufbereitung bei der Fahrzeugübergabe.',
+  },
+  {
+    question: 'Kann ich während der Aufbereitung zuschauen?',
+    answer: 'Selbstverständlich! Du bist jederzeit willkommen, uns bei der Arbeit über die Schulter zu schauen. Alternativ kannst du dein Fahrzeug auch einfach abgeben und wir melden uns, wenn es fertig ist.',
+  },
+  {
+    question: 'Gibt es Rabatte für Stammkunden?',
+    answer: 'Ja, wir bieten für wiederkehrende Kunden attraktive Konditionen an. Sprich uns einfach darauf an.',
+  },
+] as const;
+
+// ── Gallery Items ───────────────────────────
+export const galleryItems = [
+  { src: '/images/gallery-1.jpg', alt: 'Glänzender schwarzer Sportwagen', caption: 'Schwarzer Sportwagen nach Vollaufbereitung', span: 'wide' as const },
+  { src: '/images/gallery-2.jpg', alt: 'Motorhaube nach Politur', caption: 'Spiegelglatte Motorhaube', span: 'tall' as const },
+  { src: '/images/gallery-3.jpg', alt: 'Armaturenbrett wird gereinigt', caption: 'Innenraum-Detailarbeit', span: 'normal' as const },
+  { src: '/images/gallery-4.jpg', alt: 'Sauberer weißer Innenraum', caption: 'Makelloser weißer Innenraum', span: 'normal' as const },
+  { src: '/images/gallery-1.jpg', alt: 'Detailansicht Felge', caption: 'Felgenreinigung mit Präzision', span: 'normal' as const },
+  { src: '/images/gallery-2.jpg', alt: 'Lackversiegelung', caption: 'Keramikversiegelung auf Hochglanz', span: 'wide' as const },
+  { src: '/images/gallery-3.jpg', alt: 'Lederreinigung', caption: 'Lederpflege & -aufbereitung', span: 'normal' as const },
+  { src: '/images/gallery-4.jpg', alt: 'Endergebnis', caption: 'Das Endergebnis — bereit zur Übergabe', span: 'tall' as const },
+] as const;
+
+// ── Legal Placeholder ───────────────────────
+export const LEGAL = {
+  ownerName: 'Kilian Steinegger',
+  companyName: 'Steinegger Fahrzeugaufbereitung',
+  street: '[STRASSE + HAUSNUMMER]', // ⚠️ Platzhalter
+  zip: '[PLZ]', // ⚠️ Platzhalter
+  city: '[ORT]', // ⚠️ Platzhalter
+  phone: SITE.phone,
+  email: SITE.email,
+  taxId: '[STEUERNUMMER / UST-ID]', // ⚠️ Platzhalter
+  registryCourt: '[REGISTERGERICHT]', // ⚠️ Platzhalter — falls Gewerbeanmeldung
+  registryNumber: '[HANDELSREGISTERNUMMER]', // ⚠️ Platzhalter — falls vorhanden
+} as const;
+

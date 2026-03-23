@@ -31,8 +31,11 @@ export default function Footer() {
           <h5 className="footer__heading">Navigation</h5>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
             <Link href="/" className="footer__link">Startseite</Link>
+            <Link href="/ueber-uns" className="footer__link">Über uns</Link>
             <Link href="/leistungen" className="footer__link">Leistungen</Link>
-            <Link href="/#kontakt" className="footer__link">Kontakt</Link>
+            <Link href="/ablauf" className="footer__link">Ablauf</Link>
+            <Link href="/galerie" className="footer__link">Galerie</Link>
+            <Link href="/kontakt" className="footer__link">Kontakt</Link>
           </div>
         </div>
         <div>
@@ -46,8 +49,8 @@ export default function Footer() {
       <div className="footer__bottom">
         <div>© 2026 STEINEGGER Fahrzeugaufbereitung. Alle Rechte vorbehalten.</div>
         <div className="footer__legal-links">
-          <Link href="#">Datenschutz</Link>
-          <Link href="#">Impressum</Link>
+          <Link href="/datenschutz">Datenschutz</Link>
+          <Link href="/impressum">Impressum</Link>
         </div>
       </div>
     </footer>

@@ -50,8 +50,8 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
             <div className="hero__actions">
-              <Link href="#kontakt" className="btn btn--primary">Termin anfragen</Link>
-              <Link href="#ueber-uns" className="btn btn--secondary">Unsere Expertise</Link>
+              <Link href="/kontakt" className="btn btn--primary">Termin anfragen</Link>
+              <Link href="/ueber-uns" className="btn btn--secondary">Unsere Expertise</Link>
             </div>
           </ScrollReveal>
         </div>
@@ -94,6 +94,9 @@ export default function Home() {
                 <div style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-2xl)', fontStyle: 'italic' }}>&ldquo;Qualität ist kein Zufall; sie ist das Ergebnis von Hingabe.&rdquo;</div>
                 <div style={{ marginTop: 'var(--space-2)', fontSize: 'var(--text-sm)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>— Steinegger Fahrzeugaufbereitung</div>
               </div>
+              <div style={{ marginTop: 'var(--space-12)' }}>
+                <Link href="/ueber-uns" className="btn btn--secondary">Mehr über uns erfahren →</Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>
@@ -108,39 +111,40 @@ export default function Home() {
               <p style={{ color: 'var(--color-on-surface-variant)', letterSpacing: '0.03em' }}>Wählen Sie das Niveau der Pflege, das Ihr Fahrzeug verdient.</p>
             </div>
           </ScrollReveal>
-          <div className="services-grid">
-            <div>
+          <div className="services-paired-grid">
+            {/* Column headers */}
+            <div className="services-paired-grid__header">
               <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Innenraum Veredelung</h3>
-              <div className="services-cat__cards">
-                {interiorPackages.map((pkg, i) => (
-                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
-                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
-                      <div className="card__header">
-                        <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
-                        <span className="card__price">ab {pkg.prices.klein}</span>
-                      </div>
-                      <p className="card__desc">{pkg.description}</p>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
             </div>
-            <div>
+            <div className="services-paired-grid__header">
               <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur Veredelung</h3>
-              <div className="services-cat__cards">
-                {exteriorPackages.map((pkg, i) => (
-                  <ScrollReveal key={pkg.name} delay={i * 0.1}>
-                    <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
-                      <div className="card__header">
-                        <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{pkg.name}</h4>
-                        <span className="card__price">ab {pkg.prices.klein}</span>
-                      </div>
-                      <p className="card__desc">{pkg.description}</p>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
             </div>
+            {/* Row-by-row: each pair shares a grid row */}
+            {interiorPackages.map((intPkg, i) => {
+              const extPkg = exteriorPackages[i];
+              return [
+                <ScrollReveal key={`int-${intPkg.name}`} delay={i * 0.1}>
+                  <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+                    <div className="services-paired-grid__label">Innenraum</div>
+                    <div className="card__header">
+                      <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{intPkg.name}</h4>
+                      <span className="card__price">ab {intPkg.prices.klein}</span>
+                    </div>
+                    <p className="card__desc">{intPkg.description}</p>
+                  </div>
+                </ScrollReveal>,
+                <ScrollReveal key={`ext-${extPkg.name}`} delay={i * 0.1 + 0.05}>
+                  <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+                    <div className="services-paired-grid__label">Exterieur</div>
+                    <div className="card__header">
+                      <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{extPkg.name}</h4>
+                      <span className="card__price">ab {extPkg.prices.klein}</span>
+                    </div>
+                    <p className="card__desc">{extPkg.description}</p>
+                  </div>
+                </ScrollReveal>,
+              ];
+            })}
           </div>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginTop: 'var(--space-12)' }}>
@@ -170,6 +174,11 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+          <ScrollReveal>
+            <div style={{ textAlign: 'center', marginTop: 'var(--space-12)' }}>
+              <Link href="/ablauf" className="btn btn--secondary">Ablauf im Detail ansehen →</Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -200,7 +209,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
-                  <Link href="#kontakt" className="btn btn--outline btn--full" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}>Anfragen</Link>
+                  <Link href="/kontakt" className="btn btn--outline btn--full" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}>Anfragen</Link>
                 </div>
               </div>
             </ScrollReveal>
@@ -220,7 +229,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
-                  <Link href="#kontakt" className="btn btn--primary btn--full">Jetzt buchen</Link>
+                  <Link href="/kontakt" className="btn btn--primary btn--full">Jetzt buchen</Link>
                 </div>
               </div>
             </ScrollReveal>
@@ -239,7 +248,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <div className="bundle-glass__cta">
-                  <Link href="#kontakt" className="btn btn--outline btn--full" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}>Anfragen</Link>
+                  <Link href="/kontakt" className="btn btn--outline btn--full" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)' }}>Anfragen</Link>
                 </div>
               </div>
             </ScrollReveal>
@@ -301,6 +310,11 @@ export default function Home() {
               </ScrollReveal>
             ))}
           </div>
+          <ScrollReveal>
+            <div style={{ textAlign: 'center', marginTop: 'var(--space-20)' }}>
+              <Link href="/galerie" className="btn btn--secondary">Alle Impressionen ansehen →</Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
