@@ -112,39 +112,39 @@ export default function Home() {
             </div>
           </ScrollReveal>
           <div className="services-paired-grid">
-            {/* Column headers */}
+            {/* Column headers (desktop only) */}
             <div className="services-paired-grid__header">
               <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Innenraum Veredelung</h3>
             </div>
             <div className="services-paired-grid__header">
               <h3 className="services-cat__title" style={{ fontFamily: 'var(--font-headline)' }}>Exterieur Veredelung</h3>
             </div>
-            {/* Row-by-row: each pair shares a grid row */}
-            {interiorPackages.map((intPkg, i) => {
-              const extPkg = exteriorPackages[i];
-              return [
-                <ScrollReveal key={`int-${intPkg.name}`} delay={i * 0.1}>
-                  <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
-                    <div className="services-paired-grid__label">Innenraum</div>
-                    <div className="card__header">
-                      <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{intPkg.name}</h4>
-                      <span className="card__price">ab {intPkg.prices.klein}</span>
-                    </div>
-                    <p className="card__desc">{intPkg.description}</p>
+            {/* Interior packages — column 1 on desktop, listed first on mobile */}
+            {interiorPackages.map((intPkg, i) => (
+              <ScrollReveal key={`int-${intPkg.name}`} delay={i * 0.1} className="services-paired-grid__interior">
+                <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+                  <div className="services-paired-grid__label">Innenraum</div>
+                  <div className="card__header">
+                    <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{intPkg.name}</h4>
+                    <span className="card__price">ab {intPkg.prices.klein}</span>
                   </div>
-                </ScrollReveal>,
-                <ScrollReveal key={`ext-${extPkg.name}`} delay={i * 0.1 + 0.05}>
-                  <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
-                    <div className="services-paired-grid__label">Exterieur</div>
-                    <div className="card__header">
-                      <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{extPkg.name}</h4>
-                      <span className="card__price">ab {extPkg.prices.klein}</span>
-                    </div>
-                    <p className="card__desc">{extPkg.description}</p>
+                  <p className="card__desc">{intPkg.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+            {/* Exterior packages — column 2 on desktop, listed after interior on mobile */}
+            {exteriorPackages.map((extPkg, i) => (
+              <ScrollReveal key={`ext-${extPkg.name}`} delay={i * 0.1 + 0.05} className="services-paired-grid__exterior">
+                <div className={`card${i === 1 ? ' card--highlighted' : ''}`}>
+                  <div className="services-paired-grid__label">Exterieur</div>
+                  <div className="card__header">
+                    <h4 className="card__title" style={{ fontFamily: 'var(--font-headline)' }}>{extPkg.name}</h4>
+                    <span className="card__price">ab {extPkg.prices.klein}</span>
                   </div>
-                </ScrollReveal>,
-              ];
-            })}
+                  <p className="card__desc">{extPkg.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginTop: 'var(--space-12)' }}>
