@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import GlassCard from '@/components/ui/GlassCard';
 import MagneticButton from '@/components/ui/MagneticButton';
 import GoogleMap from '@/components/GoogleMap';
 import Icon from '@/components/ui/Icon';
@@ -40,45 +39,54 @@ export default function KontaktPage() {
       {/* ═══ CONTACT CARDS ═══ */}
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
         <div className="container">
-          <div className="contact-grid">
-            {/* Email zuerst */}
+          <div className="contact-editorial">
+            {/* Email */}
             <ScrollReveal delay={0}>
-              <GlassCard>
-                <a href={`mailto:${SITE.email}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
-                  <div className="contact-card__icon">
+              <a href={`mailto:${SITE.email}`} className="contact-editorial__item">
+                <span className="contact-editorial__num">01</span>
+                <div className="contact-editorial__line" />
+                <div className="contact-editorial__content">
+                  <div className="contact-editorial__icon-wrap">
                     <Icon name="mail" />
                   </div>
-                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>E-Mail</h3>
-                  <p className="contact-card__value" style={{ fontSize: 'var(--text-sm)' }}>{SITE.email}</p>
-                </a>
-              </GlassCard>
+                  <h3 className="contact-editorial__title">E-Mail</h3>
+                  <p className="contact-editorial__value">{SITE.email}</p>
+                  <span className="contact-editorial__cta">Schreiben →</span>
+                </div>
+              </a>
             </ScrollReveal>
+
             {/* Telefon */}
             <ScrollReveal delay={0.1}>
-              <GlassCard>
-                <a href={`tel:${SITE.phone}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
-                  <div className="contact-card__icon">
+              <a href={`tel:${SITE.phone}`} className="contact-editorial__item">
+                <span className="contact-editorial__num">02</span>
+                <div className="contact-editorial__line" />
+                <div className="contact-editorial__content">
+                  <div className="contact-editorial__icon-wrap">
                     <Icon name="call" />
                   </div>
-                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>Telefon</h3>
-                  <p className="contact-card__value">{formattedPhone}</p>
-                  <p className="contact-card__note" style={{ fontSize: 'var(--text-xs)', color: 'var(--color-on-surface-variant)', marginTop: 'var(--space-2)' }}>
-                    Erreichbar: {SITE.phoneHours}
-                  </p>
-                </a>
-              </GlassCard>
+                  <h3 className="contact-editorial__title">Telefon</h3>
+                  <p className="contact-editorial__value">{formattedPhone}</p>
+                  <p className="contact-editorial__meta">Erreichbar: {SITE.phoneHours}</p>
+                  <span className="contact-editorial__cta">Anrufen →</span>
+                </div>
+              </a>
             </ScrollReveal>
+
             {/* WhatsApp */}
             <ScrollReveal delay={0.2}>
-              <GlassCard>
-                <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hallo! Ich würde gerne einen Termin für eine Fahrzeugaufbereitung vereinbaren.')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
-                  <div className="contact-card__icon" style={{ background: '#25D366', color: '#fff' }}>
+              <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hallo! Ich würde gerne einen Termin für eine Fahrzeugaufbereitung vereinbaren.')}`} target="_blank" rel="noopener noreferrer" className="contact-editorial__item contact-editorial__item--wa">
+                <span className="contact-editorial__num">03</span>
+                <div className="contact-editorial__line" />
+                <div className="contact-editorial__content">
+                  <div className="contact-editorial__icon-wrap contact-editorial__icon-wrap--wa">
                     <Icon name="chat" />
                   </div>
-                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>WhatsApp</h3>
-                  <p className="contact-card__value">Nachricht senden</p>
-                </a>
-              </GlassCard>
+                  <h3 className="contact-editorial__title">WhatsApp</h3>
+                  <p className="contact-editorial__value">Nachricht senden</p>
+                  <span className="contact-editorial__cta">Chat öffnen →</span>
+                </div>
+              </a>
             </ScrollReveal>
           </div>
         </div>

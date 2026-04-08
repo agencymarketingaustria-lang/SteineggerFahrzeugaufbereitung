@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import GlassCard from '@/components/ui/GlassCard';
 import MagneticButton from '@/components/ui/MagneticButton';
 import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
+import ProcessAccordion from '@/components/ui/ProcessAccordion';
 import { extendedProcessSteps, prepTips, extendedFaqs } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -34,54 +34,39 @@ export default function AblaufPage() {
         </div>
       </header>
 
-      {/* ═══ TIMELINE ═══ */}
+      {/* ═══ DER ABLAUF ═══ */}
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
-        <div className="container">
-          <div className="timeline">
-            <div className="timeline__line" />
-            {extendedProcessSteps.map((step, i) => (
-              <ScrollReveal key={step.num} delay={i * 0.12} direction={i % 2 === 0 ? 'left' : 'right'}>
-                <div className="timeline-step">
-                  <div className={`timeline-step__dot${step.primary ? ' timeline-step__dot--active' : ''}`}>
-                    {step.primary && <span className="timeline-step__dot-inner" />}
-                  </div>
-                  <div className="timeline-step__num">Schritt {step.num}</div>
-                  <h3 className="timeline-step__title" style={{ fontFamily: 'var(--font-headline)' }}>
-                    {step.title}
-                  </h3>
-                  <p className="timeline-step__desc">{step.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
+        <ScrollReveal>
+          <ProcessAccordion steps={extendedProcessSteps} />
+        </ScrollReveal>
       </section>
 
-      {/* ═══ PREPARATION TIPS ═══ */}
+      {/* ═══ TIPPS ZUR VORBEREITUNG ═══ */}
       <section className="section section--alt">
         <div className="container">
           <ScrollReveal>
-            <div style={{ textAlign: 'center', marginBottom: 'var(--space-20)', maxWidth: '40rem', margin: '0 auto var(--space-20)' }}>
-              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-6)' }}>
-                Tipps zur Vorbereitung
-              </h2>
-              <p style={{ color: 'var(--color-on-surface-variant)' }}>
+            <div className="prep-editorial__header">
+              <span className="prep-editorial__label">Vorbereitung</span>
+              <h2 className="prep-editorial__heading">Tipps zur Vorbereitung</h2>
+              <div className="prep-editorial__header-rule" />
+              <p className="prep-editorial__subline">
                 So bereitest du dein Fahrzeug optimal auf die Aufbereitung vor.
               </p>
             </div>
           </ScrollReveal>
-          <div className="prep-grid">
+          <div className="prep-editorial__grid">
             {prepTips.map((tip, i) => (
-              <ScrollReveal key={tip.title} delay={i * 0.08}>
-                <GlassCard>
-                  <div className="prep-card">
-                    <div className="prep-card__icon">
-                      <Icon name={tip.icon as IconName} />
-                    </div>
-                    <h3 className="prep-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{tip.title}</h3>
-                    <p className="prep-card__desc">{tip.desc}</p>
+              <ScrollReveal key={tip.title} delay={i * 0.06}>
+                <div className="prep-editorial__item">
+                  <div className="prep-editorial__index">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="prep-editorial__icon-wrap">
+                    <Icon name={tip.icon as IconName} />
                   </div>
-                </GlassCard>
+                  <div className="prep-editorial__content">
+                    <h3 className="prep-editorial__title">{tip.title}</h3>
+                    <p className="prep-editorial__desc">{tip.desc}</p>
+                  </div>
+                </div>
               </ScrollReveal>
             ))}
           </div>
