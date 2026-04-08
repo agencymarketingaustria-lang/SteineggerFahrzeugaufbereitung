@@ -26,9 +26,9 @@ export default function UeberUnsPage() {
           <ScrollReveal>
             <div style={{ maxWidth: '48rem' }}>
               <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Über uns</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Das Atelier Steinegger</h1>
+              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Dein Fahrzeugaufbereiter des Vertrauens</h1>
               <p className="page-header__desc">
-                Wo bayerische Handwerkskunst auf modernste Technik der Oberflächenveredelung trifft — mit Herz, Seele und einem Auge für das, was andere übersehen.
+                Keine große Firma, keine Fließbandarbeit — sondern Leidenschaft, Hingabe und ein Versprechen: Dein Auto verlässt uns erst, wenn wir selbst begeistert sind.
               </p>
             </div>
           </ScrollReveal>
@@ -50,17 +50,17 @@ export default function UeberUnsPage() {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div>
-              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Der Gründer</span>
+              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Der Mensch dahinter</span>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Kilian Steinegger</h2>
               <div className="brand-story__text">
                 <p>
-                  In unserem Familienbetrieb in Nettelkofen betrachten wir die Fahrzeugpflege nicht als Arbeit, sondern als eine Form der Meditation. Jede Kurve, jede Naht und jeder Quadratzentimeter Lack erhält unsere ungeteilte Aufmerksamkeit.
+                  Hier gibt es keinen anonymen Betrieb und keine wechselnden Mitarbeiter. Wenn du dein Auto bei Steinegger abgibst, weißt du genau, wer sich darum kümmert — und dass es jemand ist, der Fahrzeugpflege nicht als Job sieht, sondern als Berufung.
                 </p>
                 <p>
-                  Bayerische Handwerkskunst trifft auf modernste Techniken der Oberflächenveredelung. Wir nehmen uns die Zeit, die Ihr Fahrzeug benötigt — ganz ohne Zeitdruck, dafür mit höchster Präzision.
+                  Was als jugendliche Leidenschaft fürs Detailing begann, ist heute ein Atelier in Nettelkofen, in dem jedes Fahrzeug die Aufmerksamkeit bekommt, die es verdient. Kein Upselling, keine leeren Versprechen — nur ehrliche Arbeit und Ergebnisse, die für sich sprechen.
                 </p>
                 <p>
-                  Was als Leidenschaft begann, ist heute ein Atelier für Fahrzeugveredelung, das auf Qualität statt Quantität setzt. Jedes Fahrzeug wird individuell behandelt — ob Oldtimer, Sportwagen oder Alltagsheld.
+                  Jeder Kunde wird hier persönlich betreut und verwöhnt. Von der Beratung bis zur Übergabe stehe ich dir persönlich zur Seite. Denn am Ende des Tages geht es nicht nur um ein sauberes Auto — sondern um das Vertrauen, das du mir entgegenbringst.
                 </p>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function UeberUnsPage() {
         <div className="container" style={{ textAlign: 'center', maxWidth: '48rem', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', fontStyle: 'italic', lineHeight: 1.4, marginBottom: 'var(--space-6)' }}>
-              &ldquo;Qualität ist kein Zufall — sie ist das Ergebnis von Hingabe, Wissen und Respekt vor dem Fahrzeug.&rdquo;
+              &ldquo;Dein Auto verdient jemanden, dem es genauso wichtig ist wie dir.&rdquo;
             </div>
             <div style={{ fontSize: 'var(--text-sm)', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--color-on-surface-variant)' }}>
               — Kilian Steinegger
@@ -113,7 +113,7 @@ export default function UeberUnsPage() {
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-12)' }}>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-6)' }}>Unser Standort</h2>
               <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-lg)' }}>
-                Nettelkofen bei Grafing — eingebettet in die bayerische Landschaft, nur wenige Minuten von der A99 entfernt.
+                Nettelkofen bei Grafing — eingebettet in die bayerische Landschaft, weniger als 1 Minute von der B304 entfernt.
               </p>
             </div>
           </ScrollReveal>
@@ -125,7 +125,7 @@ export default function UeberUnsPage() {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
                 <Icon name="schedule" />
-                <span style={{ fontSize: 'var(--text-sm)' }}>Nur auf Anfrage / nach Vereinbarung</span>
+                <span style={{ fontSize: 'var(--text-sm)' }}>{SITE.openingHours.label}</span>
               </div>
             </div>
           </ScrollReveal>
@@ -149,10 +149,10 @@ export default function UeberUnsPage() {
           <ScrollReveal delay={0.1}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', justifyContent: 'center' }}>
               <MagneticButton href="/kontakt" className="btn btn--primary">
-                <Icon name="chat" /> Kontakt aufnehmen
+                <Icon name="mail" /> Kontakt aufnehmen
               </MagneticButton>
-              <MagneticButton href={`tel:${SITE.phone}`} className="btn btn--secondary">
-                <Icon name="call" /> Anrufen
+              <MagneticButton href="/ablauf" className="btn btn--secondary">
+                Ablauf ansehen →
               </MagneticButton>
             </div>
           </ScrollReveal>

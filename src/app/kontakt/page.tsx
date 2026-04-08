@@ -16,6 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function KontaktPage() {
+  const formattedPhone = SITE.phone
+    .replace('+49', '0')
+    .replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+
   return (
     <>
       {/* ═══ PAGE HEADER ═══ */}
@@ -37,38 +41,42 @@ export default function KontaktPage() {
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
         <div className="container">
           <div className="contact-grid">
+            {/* Email zuerst */}
             <ScrollReveal delay={0}>
-              <GlassCard>
-                <a href={`tel:${SITE.phone}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
-                  <div className="contact-card__icon">
-                    <Icon name="call" />
-                  </div>
-                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>Telefon</h3>
-                  <p className="contact-card__value">
-                    {SITE.phone.replace('+49', '0').replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3')}
-                  </p>
-                </a>
-              </GlassCard>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <GlassCard>
-                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
-                  <div className="contact-card__icon" style={{ background: '#25D366', color: '#fff' }}>
-                    <Icon name="chat" />
-                  </div>
-                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>WhatsApp</h3>
-                  <p className="contact-card__value">Nachricht senden</p>
-                </a>
-              </GlassCard>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
               <GlassCard>
                 <a href={`mailto:${SITE.email}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
                   <div className="contact-card__icon">
                     <Icon name="mail" />
                   </div>
                   <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>E-Mail</h3>
-                  <p className="contact-card__value">{SITE.email}</p>
+                  <p className="contact-card__value" style={{ fontSize: 'var(--text-sm)' }}>{SITE.email}</p>
+                </a>
+              </GlassCard>
+            </ScrollReveal>
+            {/* Telefon */}
+            <ScrollReveal delay={0.1}>
+              <GlassCard>
+                <a href={`tel:${SITE.phone}`} style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
+                  <div className="contact-card__icon">
+                    <Icon name="call" />
+                  </div>
+                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>Telefon</h3>
+                  <p className="contact-card__value">{formattedPhone}</p>
+                  <p className="contact-card__note" style={{ fontSize: 'var(--text-xs)', color: 'var(--color-on-surface-variant)', marginTop: 'var(--space-2)' }}>
+                    Erreichbar: {SITE.phoneHours}
+                  </p>
+                </a>
+              </GlassCard>
+            </ScrollReveal>
+            {/* WhatsApp */}
+            <ScrollReveal delay={0.2}>
+              <GlassCard>
+                <a href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hallo! Ich würde gerne einen Termin für eine Fahrzeugaufbereitung vereinbaren.')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }} className="contact-card">
+                  <div className="contact-card__icon" style={{ background: '#25D366', color: '#fff' }}>
+                    <Icon name="chat" />
+                  </div>
+                  <h3 className="contact-card__title" style={{ fontFamily: 'var(--font-headline)' }}>WhatsApp</h3>
+                  <p className="contact-card__value">Nachricht senden</p>
                 </a>
               </GlassCard>
             </ScrollReveal>
@@ -85,27 +93,18 @@ export default function KontaktPage() {
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <table className="hours-table">
-              <tbody>
-                <tr>
-                  <td>Montag – Freitag</td>
-                  <td>{SITE.openingHours.weekdays}</td>
-                </tr>
-                <tr>
-                  <td>Samstag</td>
-                  <td>{SITE.openingHours.saturday}</td>
-                </tr>
-                <tr>
-                  <td>Sonntag</td>
-                  <td>Geschlossen</td>
-                </tr>
-              </tbody>
-            </table>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2}>
-            <p style={{ textAlign: 'center', marginTop: 'var(--space-8)', fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', fontStyle: 'italic' }}>
-              Termine nur nach Vereinbarung — so können wir jedem Fahrzeug die Aufmerksamkeit schenken, die es verdient.
-            </p>
+            <div style={{ textAlign: 'center', padding: 'var(--space-8) var(--space-6)', background: 'var(--color-surface-container)', borderRadius: 'var(--radius-xl)', border: '1px solid rgba(226,190,186,0.1)' }}>
+              <Icon name="schedule" />
+              <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-2xl)', marginTop: 'var(--space-4)' }}>
+                {SITE.openingHours.label}
+              </p>
+              <p style={{ marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', fontStyle: 'italic' }}>
+                So können wir jedem Fahrzeug die Aufmerksamkeit schenken, die es verdient.
+              </p>
+              <p style={{ marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)' }}>
+                Telefonisch erreichbar: {SITE.phoneHours}
+              </p>
+            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -117,7 +116,7 @@ export default function KontaktPage() {
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-12)' }}>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-3xl)', marginBottom: 'var(--space-6)' }}>Anfahrt</h2>
               <p style={{ color: 'var(--color-on-surface-variant)' }}>
-                Unser Atelier befindet sich in Nettelkofen bei Grafing — eingebettet in die bayerische Landschaft, nur wenige Minuten von der A99 entfernt.
+                Unser Atelier befindet sich in Nettelkofen bei Grafing — eingebettet in die bayerische Landschaft, weniger als 1 Minute von der B304 entfernt.
               </p>
             </div>
           </ScrollReveal>
@@ -149,8 +148,8 @@ export default function KontaktPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', justifyContent: 'center' }}>
-              <MagneticButton href={`tel:${SITE.phone}`} className="btn btn--primary">
-                <Icon name="call" /> Jetzt anrufen
+              <MagneticButton href="/kontakt" className="btn btn--primary">
+                <Icon name="mail" /> Kontakt aufnehmen
               </MagneticButton>
               <MagneticButton href="/leistungen" className="btn btn--secondary">
                 Leistungen ansehen →

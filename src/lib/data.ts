@@ -4,13 +4,13 @@ export const SITE = {
   name: 'STEINEGGER Fahrzeugaufbereitung',
   tagline: 'Fahrzeugaufbereitung mit Herz & Seele',
   address: 'Nettelkofen 4, 85567 Grafing',
-  phone: '+4980921234567',
-  whatsapp: '4980921234567',
-  email: 'info@steinegger-aufbereitung.de',
+  phone: '+4915203053368',
+  whatsapp: '4915203053368',
+  email: 'Steinegger.fahrzeugaufbereitung@gmx.de',
   url: 'https://steinegger-aufbereitung.de',
+  phoneHours: 'Mo–Fr: 08:00–16:00 Uhr',
   openingHours: {
-    weekdays: 'Nur auf Anfrage',
-    saturday: 'Termin nach Vereinbarung',
+    label: 'Termin nach Vereinbarung',
   },
   geo: { lat: 48.051087, lng: 11.942217 },
 } as const;
@@ -222,6 +222,12 @@ export const einzelleistungen: Einzelleistung[] = [
     prices: { klein: '14,99 €', kombi: '19,99 €', suv: '24,99 €' },
   },
   {
+    name: 'Hol- & Bring-Service',
+    basePrice: 'kostenlos',
+    note: 'bis 5 km',
+    allPrice: 'ab 6 km: 0,75 €/km',
+  },
+  {
     name: 'Klimadesinfektion',
     basePrice: 'ab 34,99 €',
     note: 'pro Ausführung',
@@ -268,7 +274,7 @@ export const faqs: FAQ[] = [
   },
   {
     question: 'Bieten Sie einen Hol- und Bringservice an?',
-    answer: 'Innerhalb von Grafing und Ebersberg bieten wir gegen einen kleinen Aufpreis gerne einen komfortablen Hol- und Bringservice an.',
+    answer: 'Im Umkreis von 5 km bieten wir einen kostenlosen Hol- und Bringservice an. Ab 6 km berechnen wir 0,75 €/km — so bleibt der Service für dich unkompliziert und transparent.',
   },
 ];
 
@@ -280,7 +286,7 @@ export const trustMetrics = [
 ];
 
 export const processSteps = [
-  { num: '01', title: 'Buchung', desc: 'Einfache Online-Anfrage oder ein kurzes Telefonat.', icon: 'calendar_today', primary: true },
+  { num: '01', title: 'Terminanfrage', desc: 'Kurze Nachricht per WhatsApp, Telefon oder E-Mail — wir melden uns innerhalb von 24h.', icon: 'calendar_today', primary: true },
   { num: '02', title: 'Empfang', desc: 'Gemeinsame Begutachtung im Atelier in Nettelkofen.', icon: 'car_repair', primary: false },
   { num: '03', title: 'Veredelung', desc: 'Präzise Arbeit nach höchsten Qualitätsstandards.', icon: 'auto_fix_high', primary: false },
   { num: '04', title: 'Übergabe', desc: 'Ein strahlendes Ergebnis und Tipps zur Nachpflege.', icon: 'verified', primary: false },
@@ -292,17 +298,17 @@ export const SONDERFAHRZEUGE_HINWEIS = 'Motorräder, Wohnmobile, Transporter sow
 export const aboutValues = [
   {
     title: 'Handwerkskunst',
-    desc: 'Jedes Fahrzeug wird von Hand behandelt — mit Techniken, die über Jahre perfektioniert wurden.',
+    desc: 'Keine Fließbandarbeit, kein Zeitdruck. Jedes Fahrzeug bekommt genau die Aufmerksamkeit, die es verdient — von Hand, mit Können und Erfahrung.',
     icon: 'auto_fix_high',
   },
   {
     title: 'Liebe zum Detail',
-    desc: 'Wir sehen, was andere übersehen. Jede Naht, jede Ritze, jeder Quadratzentimeter zählt.',
+    desc: 'Wir sehen, was andere übersehen. Jede Naht, jede Ritze, jeder Quadratzentimeter zählt. Dein Fahrzeug verlässt uns erst, wenn wir selbst zufrieden sind.',
     icon: 'visibility',
   },
   {
     title: 'Vertrauen',
-    desc: 'Dein Fahrzeug ist bei uns in den besten Händen. Transparenz und Ehrlichkeit sind unser Versprechen.',
+    desc: 'Keine große Firma, sondern ein Mensch, der für sein Handwerk brennt. Du gibst dein Auto nicht an einen Betrieb ab — du gibst es in die Hände von jemandem, dem es genauso wichtig ist wie dir.',
     icon: 'verified',
   },
 ] as const;
@@ -311,29 +317,29 @@ export const aboutValues = [
 export const extendedProcessSteps = [
   {
     num: '01',
-    title: 'Buchung & Beratung',
-    desc: 'Kontaktiere uns per Telefon, WhatsApp oder über unsere Website. Wir besprechen gemeinsam den Zustand deines Fahrzeugs und empfehlen das passende Paket. Innerhalb von 24 Stunden erhältst du einen Terminvorschlag.',
+    title: 'Terminanfrage & persönliche Beratung',
+    desc: 'Schreib uns per WhatsApp, ruf an oder schick eine E-Mail. Wir nehmen uns Zeit, deinen Bedarf zu verstehen — und beraten dich ehrlich, welches Paket wirklich zu deinem Fahrzeug passt. Kein Upselling, sondern das, was Sinn macht. Innerhalb von 24 Stunden bekommst du einen Terminvorschlag.',
     icon: 'calendar_today',
     primary: true,
   },
   {
     num: '02',
-    title: 'Empfang & Inspektion',
-    desc: 'Bei der Fahrzeugübergabe in unserem Atelier in Nettelkofen begutachten wir dein Auto gemeinsam. Wir dokumentieren den Ist-Zustand und besprechen eventuelle Sonderwünsche oder besondere Stellen, die Aufmerksamkeit benötigen.',
+    title: 'Empfang & gemeinsame Inspektion',
+    desc: 'Bei der Fahrzeugübergabe in Nettelkofen schauen wir uns dein Auto zusammen an — ganz in Ruhe, ohne Hektik. Wir dokumentieren den Ist-Zustand, klären offene Fragen und besprechen, ob es Stellen gibt, die besondere Aufmerksamkeit brauchen.',
     icon: 'car_repair',
     primary: false,
   },
   {
     num: '03',
-    title: 'Veredelung',
-    desc: 'Jetzt beginnt die Verwandlung. Mit professionellen Produkten, modernsten Geräten und handwerklicher Präzision arbeiten wir Schritt für Schritt dein gewähltes Paket ab. Je nach Umfang dauert dies zwischen 4 Stunden und 2 Tagen.',
+    title: 'Die Veredelung',
+    desc: 'Jetzt beginnt die Verwandlung. Mit professionellen Produkten, modernsten Geräten und handwerklicher Präzision arbeiten wir Schritt für Schritt dein gewähltes Paket ab — mit derselben Sorgfalt, als wäre es unser eigenes Auto. Je nach Umfang dauert das zwischen 4 Stunden und 2 Tagen.',
     icon: 'auto_fix_high',
     primary: false,
   },
   {
     num: '04',
-    title: 'Qualitätskontrolle & Übergabe',
-    desc: 'Bevor du dein Fahrzeug zurückerhältst, durchläuft es unsere strenge Qualitätskontrolle unter Speziallicht. Bei der Übergabe erhältst du persönliche Pflegetipps, damit der Glanz möglichst lange erhalten bleibt.',
+    title: 'Übergabe & gemeinsames Staunen',
+    desc: 'Bevor du dein Fahrzeug zurückbekommst, durchläuft es unsere Qualitätskontrolle unter Speziallicht. Bei der Übergabe schauen wir uns das Ergebnis zusammen an — und stoßen bei einer Spezi, Apfelschorle oder einem kühlen Bier darauf an. Dazu bekommst du persönliche Pflegetipps, damit der Glanz möglichst lange hält.',
     icon: 'verified',
     primary: false,
   },

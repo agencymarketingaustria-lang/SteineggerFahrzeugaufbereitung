@@ -3,6 +3,10 @@ import Image from 'next/image';
 import { SITE } from '@/lib/data';
 
 export default function Footer() {
+  const formattedPhone = SITE.phone
+    .replace('+49', '0')
+    .replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -21,10 +25,24 @@ export default function Footer() {
           </p>
         </div>
         <div>
-          <h5 className="footer__heading">Termine</h5>
+          <h5 className="footer__heading">Kontakt</h5>
           <ul className="footer__list">
-            <li>{SITE.openingHours.weekdays}</li>
-            <li>{SITE.openingHours.saturday}</li>
+            <li>
+              <a href={`tel:${SITE.phone}`} className="footer__link">
+                Tel: {formattedPhone}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${SITE.email}`} className="footer__link">
+                {SITE.email}
+              </a>
+            </li>
+            <li style={{ marginTop: 'var(--space-2)', fontSize: 'var(--text-sm)', opacity: 0.6 }}>
+              Telefonisch erreichbar: {SITE.phoneHours}
+            </li>
+            <li style={{ fontSize: 'var(--text-sm)', opacity: 0.6 }}>
+              {SITE.openingHours.label}
+            </li>
           </ul>
         </div>
         <div>
@@ -36,13 +54,6 @@ export default function Footer() {
             <Link href="/ablauf" className="footer__link">Ablauf</Link>
             <Link href="/galerie" className="footer__link">Galerie</Link>
             <Link href="/kontakt" className="footer__link">Kontakt</Link>
-          </div>
-        </div>
-        <div>
-          <h5 className="footer__heading">Social Media</h5>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-            <a href="#" className="footer__link" aria-label="Instagram">Instagram</a>
-            <a href="#" className="footer__link" aria-label="Facebook">Facebook</a>
           </div>
         </div>
       </div>

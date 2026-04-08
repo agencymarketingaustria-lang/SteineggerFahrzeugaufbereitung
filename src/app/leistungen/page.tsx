@@ -40,6 +40,29 @@ export default function LeistungenPage() {
               </p>
             </div>
           </ScrollReveal>
+          {/* ── Rabatt-Hinweis ── */}
+          <ScrollReveal delay={0.1}>
+            <div className="discount-banner" style={{
+              marginTop: 'var(--space-8)',
+              padding: 'var(--space-6) var(--space-8)',
+              background: 'var(--color-surface-container)',
+              borderRadius: 'var(--radius-xl)',
+              border: '1px solid rgba(226,190,186,0.15)',
+              maxWidth: '48rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
+                <Icon name="star" />
+                <div>
+                  <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-2)' }}>
+                    Pakete frei kombinierbar — mit Rabatt
+                  </p>
+                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', lineHeight: 1.7 }}>
+                    Alle Innenraum- und Exterieur-Pakete sind miteinander kombinierbar. Bei jeder Kombination aus Bronze- und/oder Silber-Paketen erhältst du <strong>5% Rabatt</strong>. Sobald mindestens ein Gold-Paket (Innen oder Außen) enthalten ist, profitierst du von <strong>10% Rabatt</strong> auf die Gesamtsumme.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </header>
 
@@ -107,47 +130,7 @@ export default function LeistungenPage() {
         </div>
       </section>
 
-      {/* ═══ KOMBI-PAKETE ═══ */}
-      <section className="section">
-        <div className="container">
-          <ScrollReveal>
-            <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', textAlign: 'center', marginBottom: 'var(--space-16)' }}>Unsere Empfehlungen</h2>
-          </ScrollReveal>
-          <div className="bento-grid">
-            {/* Kombi-Pflege */}
-            <ScrollReveal className="bento--2">
-              <div className="bundle-card" style={{ height: '100%' }}>
-                <h3 className="bundle-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{bundles[0].name}</h3>
-                <p className="bundle-card__desc">{bundles[0].description}</p>
-                <div className="bundle-card__price" style={{ color: 'var(--color-primary)' }}>{bundles[0].price}</div>
-              </div>
-            </ScrollReveal>
-            {/* Bestseller */}
-            <ScrollReveal delay={0.1} className="bento--4">
-              <div className="bundle-card--bs" style={{ padding: 'clamp(1.5rem, 1rem + 2vw, 3rem)', display: 'flex', flexDirection: 'column', height: '100%' }}>
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                  <span className="badge" style={{ background: 'rgba(251,249,244,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(251,249,244,0.2)', marginBottom: 'var(--space-6)', display: 'inline-block' }}>Bestseller</span>
-                  <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-4)' }}>{bundles[1].name}</h3>
-                  <p style={{ opacity: 0.8, maxWidth: '32rem', marginBottom: 'var(--space-8)', lineHeight: 1.7 }}>{bundles[1].description}</p>
-                  <div style={{ fontSize: 'var(--text-4xl)', fontFamily: 'var(--font-headline)', fontStyle: 'italic' }}>{bundles[1].price}</div>
-                </div>
-              </div>
-            </ScrollReveal>
-            {/* Premium, Familien, Business */}
-            {bundles.slice(2).map((b, i) => (
-              <ScrollReveal key={b.name} delay={(i + 2) * 0.1} className="bento--2">
-                <div className="bundle-card" style={{ height: '100%' }}>
-                  <h3 className="bundle-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{b.name}</h3>
-                  <p className="bundle-card__desc">{b.description}</p>
-                  <div className="bundle-card__price">{b.price}</div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ EINZELLEISTUNGEN ═══ */}
+      {/* ═══ EINZELLEISTUNGEN (jetzt VOR den Kombipaketen) ═══ */}
       <section className="section" style={{ background: 'var(--color-surface)', borderTop: '1px solid rgba(226,190,186,0.1)', borderBottom: '1px solid rgba(226,190,186,0.1)' }}>
         <div className="container einzelleistungen">
           <ScrollReveal>
@@ -191,6 +174,46 @@ export default function LeistungenPage() {
         </div>
       </section>
 
+      {/* ═══ KOMBI-PAKETE (jetzt NACH den Einzelleistungen) ═══ */}
+      <section className="section section--alt">
+        <div className="container">
+          <ScrollReveal>
+            <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', textAlign: 'center', marginBottom: 'var(--space-16)' }}>Unsere Empfehlungen</h2>
+          </ScrollReveal>
+          <div className="bento-grid">
+            {/* Kombi-Pflege */}
+            <ScrollReveal className="bento--2">
+              <div className="bundle-card" style={{ height: '100%' }}>
+                <h3 className="bundle-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{bundles[0].name}</h3>
+                <p className="bundle-card__desc">{bundles[0].description}</p>
+                <div className="bundle-card__price" style={{ color: 'var(--color-primary)' }}>{bundles[0].price}</div>
+              </div>
+            </ScrollReveal>
+            {/* Bestseller */}
+            <ScrollReveal delay={0.1} className="bento--4">
+              <div className="bundle-card--bs" style={{ padding: 'clamp(1.5rem, 1rem + 2vw, 3rem)', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <span className="badge" style={{ background: 'rgba(251,249,244,0.1)', backdropFilter: 'blur(8px)', border: '1px solid rgba(251,249,244,0.2)', marginBottom: 'var(--space-6)', display: 'inline-block' }}>Bestseller</span>
+                  <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-4)' }}>{bundles[1].name}</h3>
+                  <p style={{ opacity: 0.8, maxWidth: '32rem', marginBottom: 'var(--space-8)', lineHeight: 1.7 }}>{bundles[1].description}</p>
+                  <div style={{ fontSize: 'var(--text-4xl)', fontFamily: 'var(--font-headline)', fontStyle: 'italic' }}>{bundles[1].price}</div>
+                </div>
+              </div>
+            </ScrollReveal>
+            {/* Premium, Familien, Business */}
+            {bundles.slice(2).map((b, i) => (
+              <ScrollReveal key={b.name} delay={(i + 2) * 0.1} className="bento--2">
+                <div className="bundle-card" style={{ height: '100%' }}>
+                  <h3 className="bundle-card__title" style={{ fontFamily: 'var(--font-headline)' }}>{b.name}</h3>
+                  <p className="bundle-card__desc">{b.description}</p>
+                  <div className="bundle-card__price">{b.price}</div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ BOTTOM CTA ═══ */}
       <section className="section" id="cta">
         <div className="container bottom-cta">
@@ -203,14 +226,10 @@ export default function LeistungenPage() {
           <ScrollReveal delay={0.2}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)', justifyContent: 'center' }}>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', justifyContent: 'center' }}>
-                <a href={`tel:${SITE.phone}`} className="btn btn--secondary">
-                  <Icon name="call" />
-                  Telefonisch beraten
-                </a>
-                <a href={`https://wa.me/${SITE.whatsapp}`} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
-                  <Icon name="chat_bubble" />
-                  WhatsApp Nachricht
-                </a>
+                <Link href="/kontakt" className="btn btn--primary">
+                  <Icon name="mail" />
+                  Kontakt aufnehmen
+                </Link>
               </div>
             </div>
           </ScrollReveal>

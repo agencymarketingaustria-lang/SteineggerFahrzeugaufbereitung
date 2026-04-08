@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import MagneticButton from '@/components/ui/MagneticButton';
 import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
-import { extendedProcessSteps, prepTips, extendedFaqs, SITE } from '@/lib/data';
+import { extendedProcessSteps, prepTips, extendedFaqs } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Ablauf',
@@ -125,11 +125,11 @@ export default function AblaufPage() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-6)', justifyContent: 'center' }}>
-              <MagneticButton href={`https://wa.me/${SITE.whatsapp}`} className="btn btn--primary" target="_blank" rel="noopener noreferrer">
-                <Icon name="chat" /> WhatsApp
+              <MagneticButton href="/kontakt" className="btn btn--primary">
+                <Icon name="mail" /> Kontakt aufnehmen
               </MagneticButton>
-              <MagneticButton href={`tel:${SITE.phone}`} className="btn btn--secondary">
-                <Icon name="call" /> Anrufen
+              <MagneticButton href="/leistungen" className="btn btn--secondary">
+                Leistungen ansehen →
               </MagneticButton>
             </div>
           </ScrollReveal>

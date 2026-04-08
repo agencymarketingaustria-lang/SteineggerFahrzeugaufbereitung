@@ -84,15 +84,15 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal direction="right">
             <div>
-              <span className="hero__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Das Atelier Steinegger</span>
-              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Wer steckt hinter Steinegger?</h2>
+              <span className="hero__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Dein Fahrzeugaufbereiter des Vertrauens</span>
+              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Kein Fließband. Keine Kompromisse.</h2>
               <div className="brand-story__text">
-                <p>In unserem Familienbetrieb in Nettelkofen betrachten wir die Fahrzeugpflege nicht als Arbeit, sondern als eine Form der Meditation. Jede Kurve, jede Naht und jeder Quadratzentimeter Lack erhält unsere ungeteilte Aufmerksamkeit.</p>
-                <p>Bayerische Handwerkskunst trifft auf modernste Techniken der Oberflächenveredelung. Wir nehmen uns die Zeit, die Ihr Fahrzeug benötigt – ganz ohne Zeitdruck, dafür mit höchster Präzision.</p>
+                <p>Hinter Steinegger steckt keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Jedes Auto, das unser Atelier betritt, bekommt die volle Aufmerksamkeit. Kein Zeitdruck, keine Abfertigung, sondern ehrliche Handwerkskunst mit Leidenschaft.</p>
+                <p>Hier zählt Vertrauen. Du gibst uns dein Auto — und bekommst es so zurück, wie du es dir immer gewünscht hast. Jeder Kunde wird persönlich betreut, jedes Ergebnis ist unser Aushängeschild. Qualität, die man sieht und fühlt — immer.</p>
               </div>
               <div style={{ marginTop: 'var(--space-12)' }}>
-                <div style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-2xl)', fontStyle: 'italic' }}>&ldquo;Qualität ist kein Zufall; sie ist das Ergebnis von Hingabe.&rdquo;</div>
-                <div style={{ marginTop: 'var(--space-2)', fontSize: 'var(--text-sm)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>— Steinegger Fahrzeugaufbereitung</div>
+                <div style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-2xl)', fontStyle: 'italic' }}>&ldquo;Dein Auto verdient jemanden, dem es genauso wichtig ist wie dir.&rdquo;</div>
+                <div style={{ marginTop: 'var(--space-2)', fontSize: 'var(--text-sm)', textTransform: 'uppercase', letterSpacing: '0.15em' }}>— Kilian Steinegger</div>
               </div>
               <div style={{ marginTop: 'var(--space-12)' }}>
                 <Link href="/ueber-uns" className="btn btn--secondary">Mehr über uns erfahren →</Link>
@@ -346,6 +346,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ VALUE PROPOSITION — Psychologische Kaufanreize ═══ */}
+      <section className="section section--alt" style={{ borderTop: '1px solid rgba(226,190,186,0.08)' }}>
+        <div className="container" style={{ maxWidth: '56rem', margin: '0 auto' }}>
+          <ScrollReveal>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-20)' }}>
+              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-6)' }}>Mehr als nur Optik</h2>
+              <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-lg)', maxWidth: '40rem', margin: '0 auto' }}>Professionelle Fahrzeugpflege ist kein Luxus — sie ist eine der klügsten Investitionen in den Werterhalt deines Autos.</p>
+            </div>
+          </ScrollReveal>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(16rem, 1fr))', gap: 'var(--space-8)' }}>
+            <ScrollReveal delay={0}>
+              <div className="value-card">
+                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>bis zu 30%</div>
+                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Höherer Verkaufspreis</h3>
+                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Statistische Erhebungen zeigen: Gepflegte Fahrzeuge erzielen beim Verkauf deutlich bessere Preise. Der erste Eindruck entscheidet — und ein makellos aufbereitetes Auto signalisiert dem Käufer: dieses Fahrzeug wurde geliebt.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <div className="value-card">
+                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>0 € Nachzahlung</div>
+                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Leasing-Rückgabe ohne Sorgen</h3>
+                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Kratzer im Lack, Flecken auf den Polstern — bei der Leasing-Rückgabe kann das teuer werden. Eine professionelle Aufbereitung vorher spart dir oft hunderte Euro an Nachforderungen.</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <div className="value-card">
+                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>Alltag & Genuss</div>
+                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Jedes Einsteigen wird zum Erlebnis</h3>
+                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Ob Familienkutsche, Pendlerfahrzeug oder Dienstwagen — ein sauberes, frisch duftendes Auto verändert dein Fahrgefühl. Für dich selbst, für deine Familie, für den Kunden auf dem Beifahrersitz.</p>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CONTACT CTA ═══ */}
       <section className="section section--cta section--vh" id="kontakt">
         <div className="container cta-section" style={{ maxWidth: '56rem' }}>
@@ -357,14 +392,10 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <div className="cta-section__actions">
-              <a href={`tel:${SITE.phone}`} className="btn btn--primary">
-                <Icon name="call" />
-                Anrufen
-              </a>
-              <a href={`https://wa.me/${SITE.whatsapp}`} className="btn btn--outline" target="_blank" rel="noopener noreferrer">
-                <Icon name="chat" />
-                WhatsApp
-              </a>
+              <Link href="/kontakt" className="btn btn--primary">
+                <Icon name="mail" />
+                Kontakt aufnehmen
+              </Link>
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.3}>
