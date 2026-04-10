@@ -131,29 +131,34 @@ export default function ProcessAccordion({
       container.classList.add('is-locked');
     };
 
-    /* ── Unlock: restore page scroll ── */
+    /* ── Unlock: restore page scroll (flash-free) ── */
     const unlock = (dir: 'up' | 'down') => {
       if (!state.locked) return;
       state.locked = false;
 
-      // Calculate target BEFORE removing styles
+      // Calculate target scroll position
       const targetY = dir === 'down'
         ? state.sectionTop + state.sectionHeight + 2
         : Math.max(0, state.sectionTop - 2);
 
-      // Remove lock: container back to flow first, then body
+      // Step 1: Move fixed body to target position visually (no flash)
       container.classList.remove('is-locked');
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      window.scrollTo(0, targetY);
+      document.body.style.top = `-${targetY}px`;
+
+      // Step 2: Next frame — remove fixed, set real scroll
+      requestAnimationFrame(() => {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        window.scrollTo(0, targetY);
+      });
 
       // Cooldown: prevent immediate re-lock
       state.cooldown = true;
       state.lastScrollY = targetY;
-      setTimeout(() => { state.cooldown = false; }, 600);
+      setTimeout(() => { state.cooldown = false; }, 800);
     };
 
     /* ── Advance by 1 step ── */
