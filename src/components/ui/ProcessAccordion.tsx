@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState, useCallback } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
@@ -32,15 +32,16 @@ export default function ProcessAccordion({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 767);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const check = () => setIsMobile(window.innerWidth <= 767);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
-  /* ── Desktop: closest-to-center scroll tracker ── */
+  /* ═══ Desktop: closest-to-center scroll tracker ═══ */
   useEffect(() => {
     if (isMobile) return;
 
@@ -70,7 +71,6 @@ export default function ProcessAccordion({
       }
 
       const next = minDist < vh * 0.45 ? closest : null;
-
       if (next !== activeRow) {
         activeRow?.classList.remove('is-active');
         next?.classList.add('is-active');
@@ -85,165 +85,157 @@ export default function ProcessAccordion({
 
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
-
     return () => {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
     };
   }, [isMobile]);
 
-  /* ── Mobile: scroll-hijack fullscreen slider ── */
-  const [activeIndex, setActiveIndex] = useState(0);
-  const isAnimating = useRef(false);
-  const isHijacked = useRef(false);
-  const touchStartY = useRef(0);
-  const total = steps.length;
-
-  const goTo = useCallback(
-    (direction: 'next' | 'prev') => {
-      if (isAnimating.current) return;
-
-      if (direction === 'next') {
-        if (activeIndex >= total - 1) {
-          // Last card → release scroll, let page continue
-          isHijacked.current = false;
-          return;
-        }
-        isAnimating.current = true;
-        setActiveIndex((i) => i + 1);
-      } else {
-        if (activeIndex <= 0) {
-          // First card → release scroll, let page go up
-          isHijacked.current = false;
-          return;
-        }
-        isAnimating.current = true;
-        setActiveIndex((i) => i - 1);
-      }
-
-      setTimeout(() => {
-        isAnimating.current = false;
-      }, TRANSITION_MS);
-    },
-    [activeIndex, total],
-  );
-
+  /* ═══ Mobile: scroll-hijack fullscreen slider ═══ */
   useEffect(() => {
     if (!isMobile) return;
 
     const container = containerRef.current;
     if (!container) return;
 
-    /* ── IntersectionObserver: detect when section is in viewport ── */
+    const total = steps.length;
+
+    /* ── Mutable state (refs avoid stale closures) ── */
+    const state = {
+      index: 0,
+      animating: false,
+      locked: false,
+      touchY: 0,
+      scrollYBefore: 0,
+    };
+
+    /* ── Lock: freeze page, go fullscreen ── */
+    const lock = () => {
+      if (state.locked) return;
+      state.locked = true;
+      state.scrollYBefore = window.scrollY;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${state.scrollYBefore}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      container.classList.add('is-locked');
+    };
+
+    /* ── Unlock: restore page scroll ── */
+    const unlock = () => {
+      if (!state.locked) return;
+      state.locked = false;
+      container.classList.remove('is-locked');
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      window.scrollTo(0, state.scrollYBefore);
+    };
+
+    /* ── Advance by 1 step ── */
+    const advance = (dir: 1 | -1) => {
+      if (state.animating) return;
+
+      const next = state.index + dir;
+
+      // Boundary: release scroll
+      if (next < 0) {
+        unlock();
+        // Scroll up a bit so user continues upward
+        requestAnimationFrame(() => window.scrollBy(0, -1));
+        return;
+      }
+      if (next >= total) {
+        // Move scroll position past the section before unlocking
+        const rect = container.getBoundingClientRect();
+        state.scrollYBefore += rect.height + 50;
+        unlock();
+        return;
+      }
+
+      state.animating = true;
+      state.index = next;
+      setActiveIndex(next);
+
+      setTimeout(() => {
+        state.animating = false;
+      }, TRANSITION_MS);
+    };
+
+    /* ── IntersectionObserver: detect when section enters viewport ── */
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          isHijacked.current = true;
+        if (entry.isIntersecting && !state.locked) {
+          // Reset to first card when entering from top
+          const rect = container.getBoundingClientRect();
+          if (rect.top >= -10) {
+            state.index = 0;
+            setActiveIndex(0);
+          }
+          lock();
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.3 },
     );
     io.observe(container);
 
-    /* ── Wheel handler ── */
-    const onWheel = (e: WheelEvent) => {
-      if (!isHijacked.current) return;
-
-      // Only hijack when the section is actually covering viewport
-      const rect = container.getBoundingClientRect();
-      const isCovering =
-        rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
-
-      if (!isCovering) {
-        // Section not covering viewport — check if we should re-engage
-        const isEnteringFromTop = rect.top < window.innerHeight * 0.5 && rect.top > -10;
-        if (!isEnteringFromTop) {
-          isHijacked.current = false;
-          return;
-        }
-      }
-
-      e.preventDefault();
-
-      if (isAnimating.current) return;
-
-      if (e.deltaY > 0) {
-        goTo('next');
-      } else if (e.deltaY < 0) {
-        goTo('prev');
-      }
-    };
-
     /* ── Touch handlers ── */
     const onTouchStart = (e: TouchEvent) => {
-      touchStartY.current = e.touches[0].clientY;
+      state.touchY = e.touches[0].clientY;
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      if (!isHijacked.current) return;
-
-      const rect = container.getBoundingClientRect();
-      const isCovering =
-        rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
-
-      if (!isCovering) return;
-
-      e.preventDefault();
+      if (state.locked) {
+        e.preventDefault();
+      }
     };
 
     const onTouchEnd = (e: TouchEvent) => {
-      if (!isHijacked.current) return;
-      if (isAnimating.current) return;
+      if (!state.locked || state.animating) return;
+      const dy = state.touchY - e.changedTouches[0].clientY;
+      if (Math.abs(dy) < TOUCH_THRESHOLD) return;
+      advance(dy > 0 ? 1 : -1);
+    };
 
-      const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+    /* ── Wheel handler ── */
+    const onWheel = (e: WheelEvent) => {
+      if (!state.locked) return;
+      e.preventDefault();
+      if (state.animating) return;
+      advance(e.deltaY > 0 ? 1 : -1);
+    };
 
-      if (Math.abs(deltaY) < TOUCH_THRESHOLD) return;
-
-      if (deltaY > 0) {
-        goTo('next');
-      } else {
-        goTo('prev');
+    /* ── Re-engage when scrolling back to section ── */
+    const onScroll = () => {
+      if (state.locked) return;
+      const rect = container.getBoundingClientRect();
+      if (rect.top >= -20 && rect.top <= 60 && rect.bottom > window.innerHeight * 0.5) {
+        lock();
       }
     };
 
-    window.addEventListener('wheel', onWheel, { passive: false });
+    /* ── Register listeners ── */
     window.addEventListener('touchstart', onTouchStart, { passive: true });
     window.addEventListener('touchmove', onTouchMove, { passive: false });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
       io.disconnect();
-      window.removeEventListener('wheel', onWheel);
+      unlock();
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('scroll', onScroll);
     };
-  }, [isMobile, goTo]);
+  }, [isMobile, steps.length]);
 
-  /* ── Re-engage hijack when scrolling back into the section ── */
-  useEffect(() => {
-    if (!isMobile) return;
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const onScroll = () => {
-      if (isHijacked.current) return;
-
-      const rect = container.getBoundingClientRect();
-      const isCovering =
-        rect.top <= 10 && rect.bottom >= window.innerHeight - 10;
-
-      if (isCovering) {
-        isHijacked.current = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [isMobile]);
-
-  /* ── Mobile render: fullscreen stacked cards ── */
+  /* ═══ Mobile render ═══ */
   if (isMobile) {
     return (
       <div
@@ -255,7 +247,6 @@ export default function ProcessAccordion({
             key={step.num}
             className={`process-accordion__row ${i === activeIndex ? 'is-active' : ''}`}
           >
-            {/* Background image */}
             <div className="process-accordion__bg" aria-hidden="true">
               <Image
                 src={STEP_IMAGES[i]}
@@ -268,20 +259,15 @@ export default function ProcessAccordion({
               <div className="process-accordion__bg-overlay" />
             </div>
 
-            {/* Content */}
             <div className="process-accordion__content">
               <span className="process-accordion__num">{step.num}</span>
-
               <div className="process-accordion__meta">
                 <div className="process-accordion__icon">
                   <Icon name={step.icon as IconName} />
                 </div>
                 <h3 className="process-accordion__title">{step.title}</h3>
               </div>
-
               <p className="process-accordion__desc">{step.desc}</p>
-
-              {/* Step indicator dots */}
               <div className="process-accordion__dots" aria-hidden="true">
                 {steps.map((_, j) => (
                   <span
@@ -297,12 +283,11 @@ export default function ProcessAccordion({
     );
   }
 
-  /* ── Desktop layout: flow rows ── */
+  /* ═══ Desktop render ═══ */
   return (
     <div ref={containerRef} className="process-accordion">
       {steps.map((step, i) => (
         <div key={step.num} className="process-accordion__row">
-          {/* Background image */}
           <div className="process-accordion__bg" aria-hidden="true">
             <Image
               src={STEP_IMAGES[i]}
@@ -314,8 +299,6 @@ export default function ProcessAccordion({
             />
             <div className="process-accordion__bg-overlay" />
           </div>
-
-          {/* Content grid */}
           <div className="process-accordion__content">
             <span className="process-accordion__num">{step.num}</span>
             <div className="process-accordion__meta">
@@ -332,8 +315,6 @@ export default function ProcessAccordion({
               </svg>
             </div>
           </div>
-
-          {/* Mobile image (not used on desktop) */}
           <div className="process-accordion__mobile-img">
             <Image
               src={STEP_IMAGES[i]}
