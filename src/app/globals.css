@@ -1186,21 +1186,14 @@ details[open] .faq__icon { transform: rotate(180deg); }
 }
 
 /* ═══════════════════════════════════════════════════════════════════ */
-/* ── Mobile (≤767px): Sticky Fullscreen Crossfade Cards           ── */
+/* ── Mobile (≤767px): Scroll-Hijack Fullscreen Slider             ── */
 /* ═══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
 
-  /* ── Spacer: creates scroll distance (set via inline style) ── */
-  .process-accordion-spacer {
-    position: relative;
-    width: 100%;
-  }
-
-  /* ── Sticky viewport: locks to screen while scrolling spacer ── */
+  /* ── Container: fullscreen viewport block ── */
   .process-accordion--mobile {
-    position: sticky;
-    top: 0;
+    position: relative;
     width: 100vw;
     height: 100svh;
     margin-left: 0;
@@ -1209,12 +1202,13 @@ details[open] .faq__icon { transform: rotate(180deg); }
     overflow: hidden;
   }
 
-  /* ── Each row: absolutely stacked, crossfade via opacity ── */
+  /* ── Each row: absolutely stacked, hidden by default ── */
   .process-accordion--mobile .process-accordion__row {
     position: absolute;
     inset: 0;
-    min-height: 100svh;
+    width: 100vw;
     height: 100svh;
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1222,15 +1216,16 @@ details[open] .faq__icon { transform: rotate(180deg); }
     border: none;
     border-top: none;
     border-radius: 0;
-    background: var(--color-surface-dim);
+    background: #111;
     box-shadow: none;
     scroll-snap-align: none;
+    z-index: 0;
 
-    /* Hidden by default — crossfade in */
+    /* Hidden — crossfade in */
     opacity: 0;
     transform: none !important;
     will-change: opacity;
-    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
 
     /* White text on dark bg */
     --pa-text: rgba(255, 255, 255, 1);
@@ -1249,25 +1244,26 @@ details[open] .faq__icon { transform: rotate(180deg); }
     z-index: 2;
   }
 
-  /* ── Shadow pseudo — not needed ── */
+  /* ── Shadow pseudo: not needed ── */
   .process-accordion--mobile .process-accordion__row::after {
     display: none;
   }
 
-  /* ── Background image: always visible on active card ── */
+  /* ── Background image: always rendered, visible via card opacity ── */
   .process-accordion--mobile .process-accordion__bg {
     display: block;
     opacity: 1;
     position: absolute;
     inset: 0;
+    z-index: 0;
     transition: none;
   }
   .process-accordion--mobile .process-accordion__bg-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.25) 0%,
-      rgba(0, 0, 0, 0.45) 50%,
-      rgba(0, 0, 0, 0.8) 100%
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.4) 45%,
+      rgba(0, 0, 0, 0.75) 100%
     );
   }
 
@@ -1276,7 +1272,7 @@ details[open] .faq__icon { transform: rotate(180deg); }
     display: none;
   }
 
-  /* ── Content: centered vertically ── */
+  /* ── Content: centered vertically, left-aligned text ── */
   .process-accordion--mobile .process-accordion__content {
     display: flex;
     flex-direction: column;
@@ -1284,14 +1280,14 @@ details[open] .faq__icon { transform: rotate(180deg); }
     justify-content: center;
     gap: 0;
     padding: var(--space-8) var(--space-6);
-    padding-bottom: calc(var(--space-10) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom, 0px));
     width: 100%;
     max-width: 28rem;
     position: relative;
     z-index: 2;
   }
 
-  /* ── Step number — large decorative ── */
+  /* ── Step number: large decorative ── */
   .process-accordion--mobile .process-accordion__num {
     font-size: clamp(4.5rem, 3.5rem + 4vw, 6rem);
     font-weight: 200;
@@ -1344,7 +1340,7 @@ details[open] .faq__icon { transform: rotate(180deg); }
     transition: none;
   }
 
-  /* ── Arrow — hidden on mobile ── */
+  /* ── Arrow: hidden on mobile ── */
   .process-accordion--mobile .process-accordion__arrow {
     display: none;
   }
@@ -1360,6 +1356,7 @@ details[open] .faq__icon { transform: rotate(180deg); }
     height: 6px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.3);
+    transition: width 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
   }
   .process-accordion__dot--current {
     background: rgba(255, 255, 255, 0.9);
