@@ -109,6 +109,7 @@ export default function ProcessAccordion({
       scrollYBefore: 0,
       sectionTop: 0,
       cooldown: false,
+      lastScrollY: window.scrollY,
     };
 
     /* ── Lock: freeze page, go fullscreen ── */
@@ -150,6 +151,7 @@ export default function ProcessAccordion({
         // Scroll to just above the section
         window.scrollTo(0, Math.max(0, state.sectionTop - 2));
       }
+      state.lastScrollY = window.scrollY;
     };
 
     /* ── Advance by 1 step ── */
@@ -201,13 +203,18 @@ export default function ProcessAccordion({
       advance(e.deltaY > 0 ? 1 : -1);
     };
 
-    /* ── Scroll: lock when section top hits viewport top ── */
+    /* ── Scroll: lock only when scrolling DOWN into section ── */
     const onScroll = () => {
+      const currentY = window.scrollY;
+      const scrollingDown = currentY > state.lastScrollY;
+      state.lastScrollY = currentY;
+
       if (state.locked || state.cooldown) return;
+      if (!scrollingDown) return; // Only lock when scrolling down
+
       const rect = container.getBoundingClientRect();
-      // Lock when section top is at or near viewport top
+      // Lock when section top reaches viewport top (scrolling down into it)
       if (rect.top <= 5 && rect.top >= -30 && rect.bottom > window.innerHeight * 0.8) {
-        // Reset to first card when scrolling down into section
         state.index = 0;
         setActiveIndex(0);
         lock();
