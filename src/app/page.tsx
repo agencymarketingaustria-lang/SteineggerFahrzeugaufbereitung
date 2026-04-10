@@ -348,33 +348,61 @@ export default function Home() {
 
       {/* ═══ VALUE PROPOSITION — Psychologische Kaufanreize ═══ */}
       <section className="section section--alt" style={{ borderTop: '1px solid rgba(226,190,186,0.08)' }}>
-        <div className="container" style={{ maxWidth: '56rem', margin: '0 auto' }}>
+        <div className="container" style={{ maxWidth: '72rem', margin: '0 auto' }}>
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-20)' }}>
-              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-6)' }}>Mehr als nur Optik</h2>
-              <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-lg)', maxWidth: '40rem', margin: '0 auto' }}>Professionelle Fahrzeugpflege ist kein Luxus — sie ist eine der klügsten Investitionen in den Werterhalt deines Autos.</p>
+              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-6)' }}>
+                Mehr als nur Optik. <br /><span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>Es ist eine Investition.</span>
+              </h2>
+              <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-lg)', maxWidth: '40rem', margin: '0 auto' }}>
+                Professionelle Fahrzeugpflege ist kein Luxus — sie ist die klügste Entscheidung für den Werterhalt deines Autos und deinen Seelenfrieden.
+              </p>
             </div>
           </ScrollReveal>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(16rem, 1fr))', gap: 'var(--space-8)' }}>
-            <ScrollReveal delay={0}>
-              <div className="value-card">
-                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>bis zu 30%</div>
-                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Höherer Verkaufspreis</h3>
-                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Statistische Erhebungen zeigen: Gepflegte Fahrzeuge erzielen beim Verkauf deutlich bessere Preise. Der erste Eindruck entscheidet — und ein makellos aufbereitetes Auto signalisiert dem Käufer: dieses Fahrzeug wurde geliebt.</p>
+          
+          <div className="val-bento-grid">
+            {/* Card 1: Leasing - Large */}
+            <ScrollReveal className="val-card val-card--large">
+              <Image src="/images/value_leasing.png" alt="Leasingrückgabe Inspektion" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 72rem" quality={85} />
+              <div className="val-card__overlay" />
+              <div className="val-card__content">
+                <div className="val-card__header">
+                  <span className="val-card__tag">Der Leasing-Rückläufer</span>
+                  <h3 className="val-card__title">Sichere Rückgabe ohne <br />böse Überraschungen</h3>
+                </div>
+                <p className="val-card__desc">
+                  Ein stumpfer Lack, Mikrokratzer oder hartnäckige Flecken kosten bei der Leasingrückgabe oft schnell vierstellige Beträge. Eine professionelle Aufbereitung vorher bewahrt dich nachweislich vor diesen überzogenen Nachforderungen. Wir holen den optischen Werkszustand zurück, bevor der Prüfer überhaupt das Klemmbrett zückt.
+                </p>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <div className="value-card">
-                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>0 € Nachzahlung</div>
-                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Leasing-Rückgabe ohne Sorgen</h3>
-                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Stumpfer Lack, Flecken auf den Polstern oder unangenehme Gerüche — bei der Leasing-Rückgabe kann das teuer werden. Eine professionelle Aufbereitung vorher spart dir oft hunderte Euro an Nachforderungen.</p>
+
+            {/* Card 2: Wert-Erhalt - Medium */}
+            <ScrollReveal className="val-card val-card--medium" delay={0.1}>
+              <Image src="/images/value_retention.png" alt="Perfekter Wassertropfen auf Autolack" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
+              <div className="val-card__overlay" />
+              <div className="val-card__content">
+                <div className="val-card__header">
+                  <span className="val-card__tag">Premium Werterhalt</span>
+                  <h3 className="val-card__title">Rendite in Blech</h3>
+                </div>
+                <p className="val-card__desc">
+                  Der erste Eindruck entscheidet über tausende Euro. Ein Fahrzeug mit tiefglänzendem, versiegeltem Lack und gepflegtem Interieur erzielt auf dem Gebrauchtwagenmarkt signifikant höhere Höchstpreise.
+                </p>
               </div>
             </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <div className="value-card">
-                <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>Alltag & Genuss</div>
-                <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Jedes Einsteigen wird zum Erlebnis</h3>
-                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Ob Familienkutsche, Pendlerfahrzeug oder Dienstwagen — ein sauberes, frisch duftendes Auto verändert dein Fahrgefühl. Für dich selbst, für deine Familie, für den Kunden auf dem Beifahrersitz.</p>
+
+            {/* Card 3: Neuwagen-Gefühl - Medium */}
+            <ScrollReveal className="val-card val-card--medium" delay={0.2}>
+              <Image src="/images/value_emotion.png" alt="Luxuriöses mattes Lederlenkrad" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
+              <div className="val-card__overlay" />
+              <div className="val-card__content">
+                <div className="val-card__header">
+                  <span className="val-card__tag">Das Erlebnis</span>
+                  <h3 className="val-card__title">Echtes Neuwagen-Gefühl</h3>
+                </div>
+                <p className="val-card__desc">
+                  Genieße den unnachahmlichen Duft nach reinem, werksfrischem Interieur. Jedes Mal, wenn du hinter das griffige, makellos matte Lederlenkrad greifst, wird jede Heimfahrt wieder zum Genuss.
+                </p>
               </div>
             </ScrollReveal>
           </div>

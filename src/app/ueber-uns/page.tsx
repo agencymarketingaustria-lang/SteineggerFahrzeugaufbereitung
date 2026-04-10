@@ -26,7 +26,7 @@ export default function UeberUnsPage() {
           <ScrollReveal>
             <div style={{ maxWidth: '48rem' }}>
               <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Über uns</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Dein Fahrzeugaufbereiter des Vertrauens</h1>
+              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)', wordWrap: 'break-word', hyphens: 'auto' }}>Dein Fahr&shy;zeug&shy;auf&shy;be&shy;reiter des Ver&shy;trauens</h1>
               <p className="page-header__desc">
                 Keine große Firma, keine Fließbandarbeit — sondern Leidenschaft, Hingabe und ein Versprechen: Dein Auto verlässt uns erst, wenn wir selbst begeistert sind.
               </p>

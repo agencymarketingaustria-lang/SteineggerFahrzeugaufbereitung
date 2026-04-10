@@ -5,6 +5,7 @@ import MagneticButton from '@/components/ui/MagneticButton';
 import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
 import ProcessAccordion from '@/components/ui/ProcessAccordion';
+import AblaufHero from './_components/AblaufHero';
 import { extendedProcessSteps, prepTips, extendedFaqs } from '@/lib/data';
 
 export const metadata: Metadata = {
@@ -20,19 +21,7 @@ export default function AblaufPage() {
   return (
     <>
       {/* ═══ PAGE HEADER ═══ */}
-      <header className="section" style={{ paddingTop: 'clamp(8rem, 6rem + 8vw, 12rem)', paddingBottom: 0 }}>
-        <div className="container">
-          <ScrollReveal>
-            <div style={{ maxWidth: '48rem' }}>
-              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Der Ablauf</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>In 4 Schritten zur Perfektion</h1>
-              <p className="page-header__desc">
-                Vom ersten Kontakt bis zur strahlenden Übergabe — transparent, unkompliziert und mit höchster Sorgfalt.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
-      </header>
+      <AblaufHero />
 
       {/* ═══ DER ABLAUF ═══ */}
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
