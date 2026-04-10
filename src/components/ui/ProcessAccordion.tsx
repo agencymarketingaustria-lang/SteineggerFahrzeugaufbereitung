@@ -107,13 +107,19 @@ export default function ProcessAccordion({
       locked: false,
       touchY: 0,
       scrollYBefore: 0,
+      sectionTop: 0,
+      cooldown: false,
     };
 
     /* ── Lock: freeze page, go fullscreen ── */
     const lock = () => {
-      if (state.locked) return;
+      if (state.locked || state.cooldown) return;
       state.locked = true;
+
+      // Store scroll position and section's document offset
       state.scrollYBefore = window.scrollY;
+      state.sectionTop = window.scrollY + container.getBoundingClientRect().top;
+
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${state.scrollYBefore}px`;
@@ -123,7 +129,7 @@ export default function ProcessAccordion({
     };
 
     /* ── Unlock: restore page scroll ── */
-    const unlock = () => {
+    const unlock = (dir: 'up' | 'down') => {
       if (!state.locked) return;
       state.locked = false;
       container.classList.remove('is-locked');
@@ -132,7 +138,18 @@ export default function ProcessAccordion({
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
-      window.scrollTo(0, state.scrollYBefore);
+
+      // Cooldown: prevent immediate re-lock
+      state.cooldown = true;
+      setTimeout(() => { state.cooldown = false; }, 600);
+
+      if (dir === 'down') {
+        // Scroll to just past the section
+        window.scrollTo(0, state.sectionTop + container.offsetHeight + 2);
+      } else {
+        // Scroll to just above the section
+        window.scrollTo(0, Math.max(0, state.sectionTop - 2));
+      }
     };
 
     /* ── Advance by 1 step ── */
@@ -143,16 +160,11 @@ export default function ProcessAccordion({
 
       // Boundary: release scroll
       if (next < 0) {
-        unlock();
-        // Scroll up a bit so user continues upward
-        requestAnimationFrame(() => window.scrollBy(0, -1));
+        unlock('up');
         return;
       }
       if (next >= total) {
-        // Move scroll position past the section before unlocking
-        const rect = container.getBoundingClientRect();
-        state.scrollYBefore += rect.height + 50;
-        unlock();
+        unlock('down');
         return;
       }
 
@@ -165,32 +177,13 @@ export default function ProcessAccordion({
       }, TRANSITION_MS);
     };
 
-    /* ── IntersectionObserver: detect when section enters viewport ── */
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !state.locked) {
-          // Reset to first card when entering from top
-          const rect = container.getBoundingClientRect();
-          if (rect.top >= -10) {
-            state.index = 0;
-            setActiveIndex(0);
-          }
-          lock();
-        }
-      },
-      { threshold: 0.3 },
-    );
-    io.observe(container);
-
     /* ── Touch handlers ── */
     const onTouchStart = (e: TouchEvent) => {
       state.touchY = e.touches[0].clientY;
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      if (state.locked) {
-        e.preventDefault();
-      }
+      if (state.locked) e.preventDefault();
     };
 
     const onTouchEnd = (e: TouchEvent) => {
@@ -208,11 +201,15 @@ export default function ProcessAccordion({
       advance(e.deltaY > 0 ? 1 : -1);
     };
 
-    /* ── Re-engage when scrolling back to section ── */
+    /* ── Scroll: lock when section top hits viewport top ── */
     const onScroll = () => {
-      if (state.locked) return;
+      if (state.locked || state.cooldown) return;
       const rect = container.getBoundingClientRect();
-      if (rect.top >= -20 && rect.top <= 60 && rect.bottom > window.innerHeight * 0.5) {
+      // Lock when section top is at or near viewport top
+      if (rect.top <= 5 && rect.top >= -30 && rect.bottom > window.innerHeight * 0.8) {
+        // Reset to first card when scrolling down into section
+        state.index = 0;
+        setActiveIndex(0);
         lock();
       }
     };
@@ -225,8 +222,15 @@ export default function ProcessAccordion({
     window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      io.disconnect();
-      unlock();
+      if (state.locked) {
+        state.locked = false;
+        container.classList.remove('is-locked');
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+      }
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
