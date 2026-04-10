@@ -28,7 +28,7 @@ export default function GalleryHero() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1] } // custom cubic-bezier for elegance
+      transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1] as const } // custom cubic-bezier for elegance
     }
   };
 
