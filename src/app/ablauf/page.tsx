@@ -20,7 +20,7 @@ export default function AblaufPage() {
   return (
     <>
       {/* ═══ PAGE HEADER ═══ */}
-      <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
+      <header className="section" style={{ paddingTop: 'clamp(8rem, 6rem + 8vw, 12rem)', paddingBottom: 0 }}>
         <div className="container">
           <ScrollReveal>
             <div style={{ maxWidth: '48rem' }}>

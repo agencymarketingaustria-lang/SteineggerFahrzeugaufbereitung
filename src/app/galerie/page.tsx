@@ -4,7 +4,10 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import GlassCard from '@/components/ui/GlassCard';
 import MagneticButton from '@/components/ui/MagneticButton';
 import Icon from '@/components/ui/Icon';
-import { galleryItems, testimonials, SITE } from '@/lib/data';
+import HorizontalScrollTunnel from './_components/HorizontalScrollTunnel';
+import AsymmetricGallery from './_components/AsymmetricGallery';
+import GalleryHero from './_components/GalleryHero';
+import { testimonials, SITE } from '@/lib/data';
 
 export const metadata: Metadata = {
   title: 'Galerie',
@@ -18,47 +21,24 @@ export const metadata: Metadata = {
 export default function GaleriePage() {
   return (
     <>
-      {/* ═══ PAGE HEADER ═══ */}
-      <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
-        <div className="container">
+      {/* ═══ CINEMATIC HERO ═══ */}
+      <GalleryHero />
+
+      {/* ═══ BEFORE / AFTER TUNNEL ═══ */}
+      <HorizontalScrollTunnel />
+
+      {/* ═══ ASYMMETRIC GALLERY (ATELIER IMPRESSIONEN) ═══ */}
+      <section className="section" style={{ paddingTop: 'var(--space-32)', paddingBottom: 'var(--space-32)' }}>
+        <div className="container container--wide">
           <ScrollReveal>
-            <div style={{ maxWidth: '48rem' }}>
-              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Galerie</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Impressionen unserer Arbeit</h1>
-              <p className="page-header__desc">
-                Ein Einblick in unser Atelier in Nettelkofen — wo jedes Fahrzeug die Aufmerksamkeit bekommt, die es verdient.
-              </p>
+            <div style={{ textAlign: 'center', marginBottom: 'var(--space-20)' }}>
+              <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', fontStyle: 'italic', maxWidth: '40rem', margin: '0 auto' }}>
+                Perfektion bis in die letzte Ritze
+              </h2>
+              <p style={{ color: 'var(--color-on-surface-variant)', marginTop: 'var(--space-4)' }}>Einblicke in unser Atelier in Nettelkofen.</p>
             </div>
           </ScrollReveal>
-        </div>
-      </header>
-
-      {/* ═══ BENTO GALLERY ═══ */}
-      <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
-        <div className="container container--wide">
-          <div className="bento-gallery">
-            {galleryItems.map((item, i) => (
-              <ScrollReveal
-                key={i}
-                delay={i * 0.06}
-                className={`bento-gallery__item${item.span === 'tall' ? ' bento-gallery__item--tall' : ''}${item.span === 'wide' ? ' bento-gallery__item--wide' : ''}`}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={item.span === 'wide' ? 800 : 400}
-                  height={item.span === 'tall' ? 800 : 400}
-                  className="bento-gallery__img"
-                  sizes={item.span === 'wide' ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
-                  quality={75}
-                  loading={i < 4 ? 'eager' : 'lazy'}
-                />
-                <div className="bento-gallery__overlay">
-                  <span className="bento-gallery__caption">{item.caption}</span>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <AsymmetricGallery />
         </div>
       </section>
 

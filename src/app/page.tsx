@@ -367,7 +367,7 @@ export default function Home() {
               <div className="value-card">
                 <div className="value-card__stat" style={{ fontFamily: 'var(--font-headline)' }}>0 € Nachzahlung</div>
                 <h3 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-xl)', marginBottom: 'var(--space-4)' }}>Leasing-Rückgabe ohne Sorgen</h3>
-                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Kratzer im Lack, Flecken auf den Polstern — bei der Leasing-Rückgabe kann das teuer werden. Eine professionelle Aufbereitung vorher spart dir oft hunderte Euro an Nachforderungen.</p>
+                <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-sm)', lineHeight: 1.7 }}>Stumpfer Lack, Flecken auf den Polstern oder unangenehme Gerüche — bei der Leasing-Rückgabe kann das teuer werden. Eine professionelle Aufbereitung vorher spart dir oft hunderte Euro an Nachforderungen.</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>

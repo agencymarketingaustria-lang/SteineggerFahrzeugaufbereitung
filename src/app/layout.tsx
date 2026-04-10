@@ -5,6 +5,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieConsent from '@/components/CookieConsent';
+import SmoothScroll from '@/components/ui/SmoothScroll';
 
 const newsreader = Newsreader({
   subsets: ['latin'],
@@ -53,11 +54,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className={`${newsreader.variable} ${manrope.variable}`}>
       <body>
         <a href="#main-content" className="skip-link">Zum Inhalt springen</a>
-        <Navbar />
-        <main id="main-content">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
         <WhatsAppButton />
         <CookieConsent />
       </body>

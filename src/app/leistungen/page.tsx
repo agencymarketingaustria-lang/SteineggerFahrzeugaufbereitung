@@ -31,38 +31,38 @@ export default function LeistungenPage() {
       {/* ═══ PAGE HEADER ═══ */}
       <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
         <div className="container">
-          <ScrollReveal>
-            <div style={{ maxWidth: '48rem' }}>
-              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Leistungen &amp; Preise</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Unsere Leistungen</h1>
-              <p className="page-header__desc">
-                Von der Basispflege bis zur Vollveredelung — wir haben das passende Paket für dich. Handwerkskunst trifft auf modernste Technik.
-              </p>
-            </div>
-          </ScrollReveal>
-          {/* ── Rabatt-Hinweis ── */}
-          <ScrollReveal delay={0.1}>
-            <div className="discount-banner" style={{
-              marginTop: 'var(--space-8)',
-              padding: 'var(--space-6) var(--space-8)',
-              background: 'var(--color-surface-container)',
-              borderRadius: 'var(--radius-xl)',
-              border: '1px solid rgba(226,190,186,0.15)',
-              maxWidth: '48rem',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
-                <Icon name="star" />
-                <div>
-                  <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-2)' }}>
-                    Pakete frei kombinierbar — mit Rabatt
-                  </p>
-                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', lineHeight: 1.7 }}>
-                    Alle Innenraum- und Exterieur-Pakete sind miteinander kombinierbar. Bei jeder Kombination aus Bronze- und/oder Silber-Paketen erhältst du <strong>5% Rabatt</strong>. Sobald mindestens ein Gold-Paket (Innen oder Außen) enthalten ist, profitierst du von <strong>10% Rabatt</strong> auf die Gesamtsumme.
-                  </p>
+          <div className="leistungen-hero">
+            <ScrollReveal className="leistungen-hero__text">
+              <div>
+                <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Leistungen &amp; Preise</span>
+                <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Unsere Leistungen & Preise im Überblick</h1>
+                <p className="page-header__desc">
+                  Von der Basispflege bis zur Vollveredelung — wir haben das passende Paket für dich. Handwerkskunst trifft auf modernste Technik.
+                </p>
+              </div>
+            </ScrollReveal>
+            {/* ── Rabatt-Hinweis ── */}
+            <ScrollReveal delay={0.1} className="leistungen-hero__discount">
+              <div className="discount-banner" style={{
+                padding: 'var(--space-6) var(--space-8)',
+                background: 'var(--color-surface-container)',
+                borderRadius: 'var(--radius-xl)',
+                border: '1px solid rgba(226,190,186,0.15)',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
+                  <Icon name="star" />
+                  <div>
+                    <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-2)' }}>
+                      Kombinieren &amp; sparen
+                    </p>
+                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', lineHeight: 1.7 }}>
+                      Innen + Außen frei wählbar. <strong>5 % Kombi-Rabatt</strong> auf Bronze- &amp; Silber-Pakete — mit einem Gold-Paket sogar <strong>10 %</strong>.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          </div>
         </div>
       </header>
 

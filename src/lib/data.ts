@@ -348,7 +348,7 @@ export const extendedProcessSteps = [
 // ── Preparation Tips ────────────────────────
 export const prepTips = [
   { title: 'Auto ausräumen', desc: 'Entferne bitte alle persönlichen Gegenstände aus dem Fahrzeug — Taschen, Kindersitze, Ladekabel etc.', icon: 'inventory_2' },
-  { title: 'Grobe Verschmutzung melden', desc: 'Sag uns vorher Bescheid, wenn besondere Verschmutzungen vorliegen (Tierhaare, Flecken, Lack-Kratzer).', icon: 'report' },
+  { title: 'Grobe Verschmutzung melden', desc: 'Sag uns vorher Bescheid, wenn besondere Verschmutzungen vorliegen (Tierhaare, starke Polsterflecken etc.).', icon: 'report' },
   { title: 'Termin einplanen', desc: 'Je nach Paket kann die Aufbereitung 4 Stunden bis 2 Tage dauern. Plane den Zeitraum entsprechend ein.', icon: 'schedule' },
   { title: 'Schlüssel bereithalten', desc: 'Wir benötigen alle Fahrzeugschlüssel, um Türen, Kofferraum und ggf. Tank öffnen zu können.', icon: 'key' },
   { title: 'Tankstand beachten', desc: 'Ein halb voller Tank genügt. So können wir das Fahrzeug bei Bedarf bewegen.', icon: 'local_gas_station' },
@@ -377,15 +377,40 @@ export const extendedFaqs = [
 ] as const;
 
 // ── Gallery Items ───────────────────────────
+export const beforeAfterGallery = [
+  {
+    title: 'Lackaufbereitung & Keramikversiegelung',
+    description: 'Intensive Lackreinigung und anschließende Versiegelung für ultimativen Tiefenglanz.',
+    beforeSrc: '/images/before_paint_v2.png',
+    afterSrc: '/images/after_paint_v2.png',
+  },
+  {
+    title: 'Intensive Felgenreinigung',
+    description: 'Rückstandslose Entfernung von eingebranntem Bremsstaub und hartnäckigem Flugrost.',
+    beforeSrc: '/images/before_rim.png',
+    afterSrc: '/images/after_rim.png',
+  },
+  {
+    title: 'Innenraum-Tiefenreinigung',
+    description: 'Von hartnäckigen Flecken auf den Polstern zu einem neuwertigen, frischen Interieur.',
+    beforeSrc: '/images/before_interior.png',
+    afterSrc: '/images/after_interior.png',
+  },
+  {
+    title: 'Premium Lederaufbereitung',
+    description: 'Porentiefe Schmutzentfernung aus speckigem Leder und Wiederherstellung des matten Werkszustands.',
+    beforeSrc: '/images/before_seat.png',
+    afterSrc: '/images/after_seat.png',
+  },
+] as const;
+
 export const galleryItems = [
-  { src: '/images/gallery-1.jpg', alt: 'Glänzender schwarzer Sportwagen', caption: 'Schwarzer Sportwagen nach Vollaufbereitung', span: 'wide' as const },
-  { src: '/images/gallery-2.jpg', alt: 'Motorhaube nach Politur', caption: 'Spiegelglatte Motorhaube', span: 'tall' as const },
-  { src: '/images/gallery-3.jpg', alt: 'Armaturenbrett wird gereinigt', caption: 'Innenraum-Detailarbeit', span: 'normal' as const },
-  { src: '/images/gallery-4.jpg', alt: 'Sauberer weißer Innenraum', caption: 'Makelloser weißer Innenraum', span: 'normal' as const },
-  { src: '/images/gallery-1.jpg', alt: 'Detailansicht Felge', caption: 'Felgenreinigung mit Präzision', span: 'normal' as const },
-  { src: '/images/gallery-2.jpg', alt: 'Lackversiegelung', caption: 'Keramikversiegelung auf Hochglanz', span: 'wide' as const },
-  { src: '/images/gallery-3.jpg', alt: 'Lederreinigung', caption: 'Lederpflege & -aufbereitung', span: 'normal' as const },
-  { src: '/images/gallery-4.jpg', alt: 'Endergebnis', caption: 'Das Endergebnis — bereit zur Übergabe', span: 'tall' as const },
+  { src: '/images/bento_garage.png', alt: 'Premium Detailing Garage', caption: 'Unser High-End Atelier', span: 'wide' as const },
+  { src: '/images/bento_working.png', alt: 'Detailer poliert Auto', caption: 'Leidenschaftliche Handarbeit', span: 'tall' as const },
+  { src: '/images/bento_tools.png', alt: 'Premium Werkzeuge', caption: 'Nur das beste Werkzeug', span: 'normal' as const },
+  { src: '/images/bento_customer.png', alt: 'Zufriedener Kunde', caption: 'Beratung auf Augenhöhe', span: 'normal' as const },
+  { src: '/images/after_paint_v2.png', alt: 'Lackversiegelung', caption: 'Keramikversiegelung auf Hochglanz', span: 'wide' as const },
+  { src: '/images/after_interior.png', alt: 'Sauberer Innenraum', caption: 'Makelloser Innenraum', span: 'tall' as const },
 ] as const;
 
 // ── Legal Placeholder ───────────────────────
