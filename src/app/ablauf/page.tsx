@@ -36,9 +36,7 @@ export default function AblaufPage() {
 
       {/* ═══ DER ABLAUF ═══ */}
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
-        <ScrollReveal>
           <ProcessAccordion steps={extendedProcessSteps} />
-        </ScrollReveal>
       </section>
 
       {/* ═══ TIPPS ZUR VORBEREITUNG ═══ */}
