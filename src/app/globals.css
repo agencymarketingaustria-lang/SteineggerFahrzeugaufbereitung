@@ -1236,7 +1236,7 @@ details[open] .faq__icon { transform: rotate(180deg); }
     inset: 0;
     width: 100vw;
     height: 100%;
-    margin-left: 0;
+    margin: 0;
     z-index: 40;
   }
 
