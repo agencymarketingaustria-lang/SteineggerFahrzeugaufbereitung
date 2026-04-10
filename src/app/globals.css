@@ -1122,6 +1122,11 @@ details[open] .faq__icon { transform: rotate(180deg); }
   display: none;
 }
 
+/* ── Dots (mobile only) ── */
+.process-accordion__dots {
+  display: none;
+}
+
 /* ═══════════════════════════════════════════════════════════════════ */
 /* ── Active state (.is-active via IntersectionObserver)            ── */
 /* ═══════════════════════════════════════════════════════════════════ */
@@ -1181,134 +1186,154 @@ details[open] .faq__icon { transform: rotate(180deg); }
 }
 
 /* ═══════════════════════════════════════════════════════════════════ */
-/* ── Mobile (≤767px): Fullscreen App-Style Cards                  ── */
+/* ── Mobile (≤767px): Sticky Fullscreen Crossfade Cards           ── */
 /* ═══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 767px) {
 
-  /* ── Container: edge-to-edge, no gaps ── */
-  .process-accordion {
-    gap: 0;
-    padding: 0;
+  /* ── Spacer: creates scroll distance (set via inline style) ── */
+  .process-accordion-spacer {
+    position: relative;
+    width: 100%;
+  }
+
+  /* ── Sticky viewport: locks to screen while scrolling spacer ── */
+  .process-accordion--mobile {
+    position: sticky;
+    top: 0;
     width: 100vw;
+    height: 100svh;
     margin-left: 0;
+    padding: 0;
+    gap: 0;
+    overflow: hidden;
   }
 
-  /* ── Disable desktop transitions/transforms ── */
-  .process-accordion__row,
-  .process-accordion__row::after,
-  .process-accordion__bg,
-  .process-accordion__arrow {
-    transition: none !important;
-  }
-
-  /* ── Each row = fullscreen card ── */
-  .process-accordion__row {
+  /* ── Each row: absolutely stacked, crossfade via opacity ── */
+  .process-accordion--mobile .process-accordion__row {
+    position: absolute;
+    inset: 0;
     min-height: 100svh;
     height: 100svh;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
-    position: relative;
     border: none;
     border-top: none;
     border-radius: 0;
     background: var(--color-surface-dim);
-    opacity: 1 !important;
-    transform: none !important;
     box-shadow: none;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    /* White text — always on dark bg image */
-    --pa-text: rgba(255, 255, 255, 1) !important;
-    --pa-desc: rgba(255, 255, 255, 0.75) !important;
-    --pa-num: rgba(255, 255, 255, 0.2) !important;
-    --pa-icon-bg: rgba(255, 255, 255, 0.12) !important;
-    --pa-icon-color: rgba(255, 255, 255, 1) !important;
+    scroll-snap-align: none;
+
+    /* Hidden by default — crossfade in */
+    opacity: 0;
+    transform: none !important;
+    will-change: opacity;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    /* White text on dark bg */
+    --pa-text: rgba(255, 255, 255, 1);
+    --pa-desc: rgba(255, 255, 255, 0.75);
+    --pa-num: rgba(255, 255, 255, 0.15);
+    --pa-icon-bg: rgba(255, 255, 255, 0.12);
+    --pa-icon-color: rgba(255, 255, 255, 1);
   }
-  .process-accordion__row:last-child {
+  .process-accordion--mobile .process-accordion__row:last-child {
     border-bottom: none;
   }
 
-  /* ── Shadow pseudo — not needed on mobile ── */
-  .process-accordion__row::after {
+  /* ── Active card: visible ── */
+  .process-accordion--mobile .process-accordion__row.is-active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* ── Shadow pseudo — not needed ── */
+  .process-accordion--mobile .process-accordion__row::after {
     display: none;
   }
 
-  /* ── Background image: VISIBLE on mobile (reuse desktop bg) ── */
-  .process-accordion__bg {
+  /* ── Background image: always visible on active card ── */
+  .process-accordion--mobile .process-accordion__bg {
     display: block;
     opacity: 1;
     position: absolute;
     inset: 0;
+    transition: none;
   }
-  .process-accordion__bg-overlay {
+  .process-accordion--mobile .process-accordion__bg-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.15) 0%,
-      rgba(0, 0, 0, 0.35) 40%,
-      rgba(0, 0, 0, 0.78) 100%
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.45) 50%,
+      rgba(0, 0, 0, 0.8) 100%
     );
   }
 
-  /* ── Hide mobile-specific image element (using desktop bg instead) ── */
-  .process-accordion__mobile-img {
+  /* ── Mobile-specific image: hidden (using desktop bg) ── */
+  .process-accordion--mobile .process-accordion__mobile-img {
     display: none;
   }
 
-  /* ── Content: stacked, bottom-aligned over image ── */
-  .process-accordion__content {
+  /* ── Content: centered vertically ── */
+  .process-accordion--mobile .process-accordion__content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     gap: 0;
-    padding: var(--space-6) var(--space-5);
-    padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+    padding: var(--space-8) var(--space-6);
+    padding-bottom: calc(var(--space-10) + env(safe-area-inset-bottom, 0px));
     width: 100%;
+    max-width: 28rem;
     position: relative;
     z-index: 2;
   }
 
-  /* ── Step number — large watermark behind content ── */
-  .process-accordion__num {
-    font-size: clamp(5rem, 4rem + 4vw, 7rem);
+  /* ── Step number — large decorative ── */
+  .process-accordion--mobile .process-accordion__num {
+    font-size: clamp(4.5rem, 3.5rem + 4vw, 6rem);
     font-weight: 200;
     text-align: left;
     color: var(--pa-num) !important;
     line-height: 0.85;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-5);
     opacity: 1;
+    transition: none;
   }
-  .process-accordion__num::after {
+  .process-accordion--mobile .process-accordion__num::after {
     content: '';
     display: block;
     width: 2.5rem;
     height: 2px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.35);
     margin-top: var(--space-3);
     border-radius: 1px;
   }
 
   /* ── Meta group ── */
-  .process-accordion__meta {
+  .process-accordion--mobile .process-accordion__meta {
     gap: var(--space-3);
     margin-top: 0;
   }
-  .process-accordion__icon {
+  .process-accordion--mobile .process-accordion__icon {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: var(--radius-md);
     background-color: var(--pa-icon-bg) !important;
     color: var(--pa-icon-color) !important;
+    transition: none;
   }
-  .process-accordion__title {
+  .process-accordion--mobile .process-accordion__title {
     font-size: clamp(1.15rem, 1rem + 0.5vw, 1.4rem);
     font-weight: 400;
     color: var(--pa-text) !important;
+    transition: none;
   }
 
   /* ── Description ── */
-  .process-accordion__desc {
+  .process-accordion--mobile .process-accordion__desc {
     display: block;
     margin-top: var(--space-3);
     color: var(--pa-desc) !important;
@@ -1316,11 +1341,30 @@ details[open] .faq__icon { transform: rotate(180deg); }
     max-width: none;
     line-height: 1.7;
     opacity: 1;
+    transition: none;
   }
 
   /* ── Arrow — hidden on mobile ── */
-  .process-accordion__arrow {
+  .process-accordion--mobile .process-accordion__arrow {
     display: none;
+  }
+
+  /* ── Step indicator dots ── */
+  .process-accordion__dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: var(--space-6);
+  }
+  .process-accordion__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .process-accordion__dot--current {
+    background: rgba(255, 255, 255, 0.9);
+    width: 20px;
+    border-radius: 3px;
   }
 }
 

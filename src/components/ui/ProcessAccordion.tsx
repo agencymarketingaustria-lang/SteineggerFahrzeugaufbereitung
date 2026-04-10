@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
@@ -28,8 +28,20 @@ export default function ProcessAccordion({
   steps: readonly ProcessStep[];
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 767);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  /* ── Desktop: closest-to-center scroll tracker ── */
+  useEffect(() => {
+    if (isMobile) return;
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -55,7 +67,6 @@ export default function ProcessAccordion({
         }
       }
 
-      // Only activate if section is reasonably near viewport center
       const next = minDist < vh * 0.45 ? closest : null;
 
       if (next !== activeRow) {
@@ -70,7 +81,6 @@ export default function ProcessAccordion({
       rafId = requestAnimationFrame(update);
     };
 
-    // Initial evaluation + listen for scroll
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -78,13 +88,122 @@ export default function ProcessAccordion({
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isMobile]);
 
+  /* ── Mobile: sticky scroller — track scroll progress through spacer ── */
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const container = containerRef.current;
+    const sticky = stickyRef.current;
+    if (!container || !sticky) return;
+
+    const rows = Array.from(
+      sticky.querySelectorAll<HTMLElement>('.process-accordion__row'),
+    );
+    const total = rows.length;
+    let rafId = 0;
+    let activeIndex = -1;
+
+    const update = () => {
+      const rect = container.getBoundingClientRect();
+      const scrollRange = container.offsetHeight - window.innerHeight;
+      // How far through the spacer we've scrolled (0 → 1)
+      const progress = Math.min(
+        1,
+        Math.max(0, -rect.top / scrollRange),
+      );
+      // Map progress to step index
+      const newIndex = Math.min(
+        total - 1,
+        Math.floor(progress * total),
+      );
+
+      if (newIndex !== activeIndex) {
+        rows.forEach((row, i) => {
+          row.classList.toggle('is-active', i === newIndex);
+        });
+        activeIndex = newIndex;
+      }
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, [isMobile, steps.length]);
+
+  /* ── Mobile layout: spacer + sticky viewport + stacked cards ── */
+  if (isMobile) {
+    return (
+      <div
+        ref={containerRef}
+        className="process-accordion-spacer"
+        style={{ height: `${steps.length * 100}svh` }}
+      >
+        <div ref={stickyRef} className="process-accordion process-accordion--mobile">
+          {steps.map((step, i) => (
+            <div
+              key={step.num}
+              className={`process-accordion__row ${i === 0 ? 'is-active' : ''}`}
+            >
+              {/* Background image */}
+              <div className="process-accordion__bg" aria-hidden="true">
+                <Image
+                  src={STEP_IMAGES[i]}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  priority
+                  className="process-accordion__bg-img"
+                />
+                <div className="process-accordion__bg-overlay" />
+              </div>
+
+              {/* Content */}
+              <div className="process-accordion__content">
+                <span className="process-accordion__num">{step.num}</span>
+
+                <div className="process-accordion__meta">
+                  <div className="process-accordion__icon">
+                    <Icon name={step.icon as IconName} />
+                  </div>
+                  <h3 className="process-accordion__title">{step.title}</h3>
+                </div>
+
+                <p className="process-accordion__desc">{step.desc}</p>
+
+                {/* Step indicator dots */}
+                <div className="process-accordion__dots" aria-hidden="true">
+                  {steps.map((_, j) => (
+                    <span
+                      key={j}
+                      className={`process-accordion__dot ${j === i ? 'process-accordion__dot--current' : ''}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  /* ── Desktop layout: flow rows ── */
   return (
     <div ref={containerRef} className="process-accordion">
       {steps.map((step, i) => (
         <div key={step.num} className="process-accordion__row">
-          {/* ── Background image (desktop) ── */}
+          {/* Background image */}
           <div className="process-accordion__bg" aria-hidden="true">
             <Image
               src={STEP_IMAGES[i]}
@@ -97,37 +216,25 @@ export default function ProcessAccordion({
             <div className="process-accordion__bg-overlay" />
           </div>
 
-          {/* ── Content grid ── */}
+          {/* Content grid */}
           <div className="process-accordion__content">
             <span className="process-accordion__num">{step.num}</span>
-
             <div className="process-accordion__meta">
               <div className="process-accordion__icon">
                 <Icon name={step.icon as IconName} />
               </div>
               <h3 className="process-accordion__title">{step.title}</h3>
             </div>
-
             <p className="process-accordion__desc">{step.desc}</p>
-
             <div className="process-accordion__arrow" aria-hidden="true">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="13 6 19 12 13 18" />
               </svg>
             </div>
           </div>
 
-          {/* ── Mobile image (visible on mobile only via CSS) ── */}
+          {/* Mobile image (not used on desktop) */}
           <div className="process-accordion__mobile-img">
             <Image
               src={STEP_IMAGES[i]}
