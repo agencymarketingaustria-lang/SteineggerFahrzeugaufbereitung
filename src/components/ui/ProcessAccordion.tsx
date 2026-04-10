@@ -108,6 +108,7 @@ export default function ProcessAccordion({
       touchY: 0,
       scrollYBefore: 0,
       sectionTop: 0,
+      sectionHeight: 0,
       cooldown: false,
       lastScrollY: window.scrollY,
     };
@@ -117,9 +118,10 @@ export default function ProcessAccordion({
       if (state.locked || state.cooldown) return;
       state.locked = true;
 
-      // Store scroll position and section's document offset
+      // Store BEFORE going fixed (while container is still in document flow)
       state.scrollYBefore = window.scrollY;
       state.sectionTop = window.scrollY + container.getBoundingClientRect().top;
+      state.sectionHeight = container.offsetHeight;
 
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
@@ -133,25 +135,25 @@ export default function ProcessAccordion({
     const unlock = (dir: 'up' | 'down') => {
       if (!state.locked) return;
       state.locked = false;
+
+      // Calculate target BEFORE removing styles
+      const targetY = dir === 'down'
+        ? state.sectionTop + state.sectionHeight + 2
+        : Math.max(0, state.sectionTop - 2);
+
+      // Remove lock: container back to flow first, then body
       container.classList.remove('is-locked');
       document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.left = '';
       document.body.style.right = '';
+      window.scrollTo(0, targetY);
 
       // Cooldown: prevent immediate re-lock
       state.cooldown = true;
+      state.lastScrollY = targetY;
       setTimeout(() => { state.cooldown = false; }, 600);
-
-      if (dir === 'down') {
-        // Scroll to just past the section
-        window.scrollTo(0, state.sectionTop + container.offsetHeight + 2);
-      } else {
-        // Scroll to just above the section
-        window.scrollTo(0, Math.max(0, state.sectionTop - 2));
-      }
-      state.lastScrollY = window.scrollY;
     };
 
     /* ── Advance by 1 step ── */
