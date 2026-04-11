@@ -10,7 +10,7 @@ import SmoothScroll from '@/components/ui/SmoothScroll';
 const newsreader = Newsreader({
   subsets: ['latin'],
   variable: '--font-headline',
-  display: 'swap',
+  display: 'optional',
   style: ['normal', 'italic'],
   weight: ['300', '400', '700'],
 });
@@ -18,7 +18,7 @@ const newsreader = Newsreader({
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-body',
-  display: 'swap',
+  display: 'optional',
 });
 
 export const metadata: Metadata = {
@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de',
   },
 };
 

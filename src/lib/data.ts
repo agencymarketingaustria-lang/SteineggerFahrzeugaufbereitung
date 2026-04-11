@@ -3,7 +3,7 @@
 export const SITE = {
   name: 'STEINEGGER Fahrzeugaufbereitung',
   tagline: 'Fahrzeugaufbereitung mit Herz & Seele',
-  address: 'Nettelkofen 4, 85567 Grafing',
+  address: 'Nettelkofen 21a, 85567 Grafing bei München',
   phone: '+4915203053368',
   whatsapp: '4915203053368',
   email: 'Steinegger.fahrzeugaufbereitung@gmx.de',
@@ -381,48 +381,53 @@ export const beforeAfterGallery = [
   {
     title: 'Lackaufbereitung & Keramikversiegelung',
     description: 'Intensive Lackreinigung und anschließende Versiegelung für ultimativen Tiefenglanz.',
-    beforeSrc: '/images/before_paint_v2.png',
-    afterSrc: '/images/after_paint_v2.png',
+    beforeSrc: '/images/before_paint_v2.webp',
+    afterSrc: '/images/after_paint_v2.webp',
   },
   {
     title: 'Intensive Felgenreinigung',
     description: 'Rückstandslose Entfernung von eingebranntem Bremsstaub und hartnäckigem Flugrost.',
-    beforeSrc: '/images/before_rim.png',
-    afterSrc: '/images/after_rim.png',
+    beforeSrc: '/images/before_rim.webp',
+    afterSrc: '/images/after_rim.webp',
   },
   {
     title: 'Innenraum-Tiefenreinigung',
     description: 'Von hartnäckigen Flecken auf den Polstern zu einem neuwertigen, frischen Interieur.',
-    beforeSrc: '/images/before_interior.png',
-    afterSrc: '/images/after_interior.png',
+    beforeSrc: '/images/before_interior.webp',
+    afterSrc: '/images/after_interior.webp',
   },
   {
     title: 'Premium Lederaufbereitung',
     description: 'Porentiefe Schmutzentfernung aus speckigem Leder und Wiederherstellung des matten Werkszustands.',
-    beforeSrc: '/images/before_seat.png',
-    afterSrc: '/images/after_seat.png',
+    beforeSrc: '/images/before_seat.webp',
+    afterSrc: '/images/after_seat.webp',
   },
 ] as const;
 
 export const galleryItems = [
-  { src: '/images/bento_garage.png', alt: 'Premium Detailing Garage', caption: 'Unser High-End Atelier', span: 'wide' as const },
-  { src: '/images/bento_working.png', alt: 'Detailer poliert Auto', caption: 'Leidenschaftliche Handarbeit', span: 'tall' as const },
-  { src: '/images/bento_tools.png', alt: 'Premium Werkzeuge', caption: 'Nur das beste Werkzeug', span: 'normal' as const },
-  { src: '/images/bento_customer.png', alt: 'Zufriedener Kunde', caption: 'Beratung auf Augenhöhe', span: 'normal' as const },
-  { src: '/images/after_paint_v2.png', alt: 'Lackversiegelung', caption: 'Keramikversiegelung auf Hochglanz', span: 'wide' as const },
-  { src: '/images/after_interior.png', alt: 'Sauberer Innenraum', caption: 'Makelloser Innenraum', span: 'tall' as const },
+  { src: '/images/bento_garage.webp', alt: 'Fahrzeugaufbereitung Atelier in Nettelkofen bei Grafing – professionelle Werkstatt', caption: 'Unser High-End Atelier', span: 'wide' as const },
+  { src: '/images/bento_working.webp', alt: 'Kilian Steinegger poliert Fahrzeuglack von Hand – Detailing Grafing', caption: 'Leidenschaftliche Handarbeit', span: 'tall' as const },
+  { src: '/images/bento_tools.webp', alt: 'Professionelle Poliermaschinen und Detailing-Werkzeuge bei Steinegger', caption: 'Nur das beste Werkzeug', span: 'normal' as const },
+  { src: '/images/bento_customer.webp', alt: 'Persönliche Beratung zur Fahrzeugaufbereitung bei Steinegger in Grafing', caption: 'Beratung auf Augenhöhe', span: 'normal' as const },
+  { src: '/images/after_interior.webp', alt: 'Makelloser Fahrzeuginnenraum nach professioneller Reinigung in Nettelkofen', caption: 'Makelloser Innenraum', span: 'tall' as const },
+  { src: '/images/detailing_polisher.webp', alt: 'Professionelle Exzenter-Poliermaschine für Lackaufbereitung – Steinegger Grafing', caption: 'Exzenter-Poliermaschine', span: 'normal' as const },
+  { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Keramikversiegelungen im Steinegger Atelier', caption: 'Nur Premium-Produkte', span: 'wide' as const },
+  { src: '/images/detailing_steam.webp', alt: 'Dampfreinigung von Ledersitzen – schonende Tiefenreinigung bei Steinegger', caption: 'Schonende Dampfreinigung', span: 'tall' as const },
+  { src: '/images/detailing_brushes.webp', alt: 'Organisierte Detailing-Pinsel und Schwämme für die Fahrzeugaufbereitung', caption: 'Präzision in jedem Pinsel', span: 'normal' as const },
+  { src: '/images/detailing_tornado.webp', alt: 'Tornado-Druckluftpistole bei der Reinigung von Fahrzeugritzen und Lüftungen', caption: 'Tornado-Druckluft', span: 'normal' as const },
+  { src: '/images/detailing_extraction.webp', alt: 'Sprühextraktion von Polstern – Tiefenreinigung der Fahrzeugsitze in Nettelkofen', caption: 'Polster-Sprühextraktion', span: 'wide' as const },
 ] as const;
 
 // ── Legal Placeholder ───────────────────────
 export const LEGAL = {
   ownerName: 'Kilian Steinegger',
   companyName: 'Steinegger Fahrzeugaufbereitung',
-  street: '[STRASSE + HAUSNUMMER]', // ⚠️ Platzhalter
-  zip: '[PLZ]', // ⚠️ Platzhalter
-  city: '[ORT]', // ⚠️ Platzhalter
+  street: 'Nettelkofen 21a',
+  zip: '85567',
+  city: 'Grafing bei München',
   phone: SITE.phone,
   email: SITE.email,
-  taxId: '[STEUERNUMMER / UST-ID]', // ⚠️ Platzhalter
+  taxId: '[STEUERNUMMER / UST-ID]', // ⚠️ Platzhalter — vor Go-Live ersetzen
   registryCourt: '[REGISTERGERICHT]', // ⚠️ Platzhalter — falls Gewerbeanmeldung
   registryNumber: '[HANDELSREGISTERNUMMER]', // ⚠️ Platzhalter — falls vorhanden
 } as const;

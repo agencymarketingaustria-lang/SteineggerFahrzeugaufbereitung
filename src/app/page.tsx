@@ -5,17 +5,28 @@ import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import GoogleMap from '@/components/GoogleMap';
 import Icon from '@/components/ui/Icon';
 import { trustMetrics, interiorPackages, exteriorPackages, bundles, testimonials, faqs, processSteps, SITE } from '@/lib/data';
-import { generateLocalBusinessSchema, generateReviewSchema } from '@/lib/structured-data';
+import { generateLocalBusinessSchema, generateReviewSchema, generateFAQSchema, generatePersonSchema, generateWebSiteSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export default function Home() {
-  const localBusinessSchema = generateLocalBusinessSchema();
-  const reviewSchema = generateReviewSchema(testimonials);
+  // Consolidate all schemas into a single @graph
+  const schemas = [
+    generateLocalBusinessSchema(),
+    generateReviewSchema(testimonials),
+    generateFAQSchema(faqs),
+    generatePersonSchema(),
+    generateWebSiteSchema(),
+    generateBreadcrumbSchema([{ name: 'Startseite', url: SITE.url }]),
+  ].map(({ '@context': _, ...rest }) => rest); // strip individual @context
+
+  const graphSchema = {
+    '@context': 'https://schema.org',
+    '@graph': schemas,
+  };
 
   return (
     <>
-      {/* JSON-LD */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+      {/* JSON-LD — consolidated @graph */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }} />
 
       {/* ═══ HERO ═══ */}
       <section className="hero">
@@ -31,17 +42,17 @@ export default function Home() {
           >
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
-          <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger" fill className="hero__img hero__img--fallback" priority sizes="100vw" />
+          <Image src="/images/Hero-Sektion.webp" alt="Professionelle Fahrzeugaufbereitung von Steinegger in Nettelkofen bei Grafing" fill className="hero__img hero__img--fallback" priority sizes="100vw" />
           <div className="hero__overlay" />
         </div>
         <div className="hero__content">
           <ScrollReveal>
-            <span className="hero__label" style={{ fontFamily: 'var(--font-body)' }}>Willkommen im Atelier</span>
+            <h1 className="hero__label" style={{ fontFamily: 'var(--font-body)', fontWeight: 'inherit', margin: 0 }}>Fahrzeugaufbereitung in Grafing</h1>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <h1 className="hero__title" style={{ fontFamily: 'var(--font-headline)' }}>
+            <div className="hero__title" style={{ fontFamily: 'var(--font-headline)' }}>
               Dein Auto verdient <span className="hero__accent">mehr.</span>
-            </h1>
+            </div>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <p className="hero__desc">
@@ -79,7 +90,7 @@ export default function Home() {
           <ScrollReveal direction="left">
             <div className="brand-story__img-wrap">
               <div className="brand-story__img-bg" />
-              <Image src="/images/brand-story.jpg" alt="Detailer reinigt Ledersitz" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
+              <Image src="/images/brand-story.webp" alt="Steinegger Fahrzeugaufbereitung — Detailer reinigt Ledersitz von Hand in Nettelkofen" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right">
@@ -87,7 +98,7 @@ export default function Home() {
               <span className="hero__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Dein Fahrzeugaufbereiter des Vertrauens</span>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Kein Fließband. Keine Kompromisse.</h2>
               <div className="brand-story__text">
-                <p>Hinter Steinegger steckt keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Jedes Auto, das unser Atelier betritt, bekommt die volle Aufmerksamkeit. Kein Zeitdruck, keine Abfertigung, sondern ehrliche Handwerkskunst mit Leidenschaft.</p>
+                <p>Hinter Steinegger steckt keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Jedes Auto, das unser Atelier in <Link href="/kontakt" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Nettelkofen</Link> betritt, bekommt die volle Aufmerksamkeit. Kein Zeitdruck, keine Abfertigung, sondern ehrliche <Link href="/ueber-uns" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Handwerkskunst</Link> mit Leidenschaft.</p>
                 <p>Hier zählt Vertrauen. Du gibst uns dein Auto — und bekommst es so zurück, wie du es dir immer gewünscht hast. Jeder Kunde wird persönlich betreut, jedes Ergebnis ist unser Aushängeschild. Qualität, die man sieht und fühlt — immer.</p>
               </div>
               <div style={{ marginTop: 'var(--space-12)' }}>
@@ -174,7 +185,7 @@ export default function Home() {
                   <div className={`process-step__icon process-step__icon--${step.primary ? 'primary' : 'neutral'}`}>
                     <Icon name={step.icon as import('@/components/ui/Icon').IconName} />
                   </div>
-                  <h5 className="process-step__title" style={{ fontFamily: 'var(--font-headline)' }}>{step.num}. {step.title}</h5>
+                  <h3 className="process-step__title" style={{ fontFamily: 'var(--font-headline)' }}>{step.num}. {step.title}</h3>
                   <p className="process-step__desc">{step.desc}</p>
                 </div>
               </ScrollReveal>
@@ -306,10 +317,10 @@ export default function Home() {
           </ScrollReveal>
           <div className="gallery-grid">
             {[
-              { src: '/images/gallery-1.jpg', alt: 'Glänzender schwarzer Sportwagen', cls: '' },
-              { src: '/images/gallery-2.jpg', alt: 'Motorhaube nach Politur', cls: ' gallery-grid__img--offset' },
-              { src: '/images/gallery-3.jpg', alt: 'Armaturenbrett wird gereinigt', cls: '' },
-              { src: '/images/gallery-4.jpg', alt: 'Sauberer weißer Innenraum', cls: ' gallery-grid__img--offset' },
+              { src: '/images/detailing_polisher.webp', alt: 'Professionelle Exzenter-Poliermaschine für Lackaufbereitung – Steinegger Grafing', cls: '' },
+              { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Keramikversiegelungen im Steinegger Atelier', cls: ' gallery-grid__img--offset' },
+              { src: '/images/detailing_steam.webp', alt: 'Dampfreinigung von Ledersitzen – schonende Tiefenreinigung bei Steinegger', cls: '' },
+              { src: '/images/detailing_brushes.webp', alt: 'Organisierte Detailing-Pinsel und Schwämme für die Fahrzeugaufbereitung', cls: ' gallery-grid__img--offset' },
             ].map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
                 <Image src={img.src} alt={img.alt} width={400} height={i % 2 === 0 ? 400 : 533} className={`gallery-grid__img${img.cls}`} style={{ aspectRatio: i % 2 === 0 ? '1' : '3/4' }} sizes="(max-width: 768px) 50vw, 25vw" quality={75} loading="lazy" />
@@ -363,7 +374,7 @@ export default function Home() {
           <div className="val-bento-grid">
             {/* Card 1: Leasing - Large */}
             <ScrollReveal className="val-card val-card--large">
-              <Image src="/images/value_leasing.png" alt="Leasingrückgabe Inspektion" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 72rem" quality={85} />
+              <Image src="/images/value_leasing.webp" alt="Leasingrückgabe — professionelle Fahrzeugaufbereitung vor der Inspektion spart Kosten" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 72rem" quality={85} />
               <div className="val-card__overlay" />
               <div className="val-card__content">
                 <div className="val-card__header">
@@ -378,7 +389,7 @@ export default function Home() {
 
             {/* Card 2: Wert-Erhalt - Medium */}
             <ScrollReveal className="val-card val-card--medium" delay={0.1}>
-              <Image src="/images/value_retention.png" alt="Perfekter Wassertropfen auf Autolack" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
+              <Image src="/images/value_retention.webp" alt="Wasserabperleffekt nach Keramikversiegelung — Werterhalt durch Steinegger Fahrzeugaufbereitung" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
               <div className="val-card__overlay" />
               <div className="val-card__content">
                 <div className="val-card__header">
@@ -393,7 +404,7 @@ export default function Home() {
 
             {/* Card 3: Neuwagen-Gefühl - Medium */}
             <ScrollReveal className="val-card val-card--medium" delay={0.2}>
-              <Image src="/images/value_emotion.png" alt="Luxuriöses mattes Lederlenkrad" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
+              <Image src="/images/value_emotion.webp" alt="Makelloses mattes Lederlenkrad nach Innenraumaufbereitung — Neuwagen-Gefühl" fill className="val-card__bg" sizes="(max-width: 1024px) 100vw, 36rem" quality={85} />
               <div className="val-card__overlay" />
               <div className="val-card__content">
                 <div className="val-card__header">

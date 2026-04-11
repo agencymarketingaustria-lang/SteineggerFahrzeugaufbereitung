@@ -6,20 +6,35 @@ import Icon from '@/components/ui/Icon';
 import type { IconName } from '@/components/ui/Icon';
 import ProcessAccordion from '@/components/ui/ProcessAccordion';
 import AblaufHero from './_components/AblaufHero';
-import { extendedProcessSteps, prepTips, extendedFaqs } from '@/lib/data';
+import { extendedProcessSteps, prepTips, extendedFaqs, SITE } from '@/lib/data';
+import { generateHowToSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Ablauf',
-  description: 'So läuft eine Fahrzeugaufbereitung bei Steinegger ab — von der Buchung bis zur Übergabe. In 4 einfachen Schritten zum perfekten Ergebnis.',
+  title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',
+  description: 'So läuft eine Fahrzeugaufbereitung bei Steinegger ab — von der Terminanfrage bis zur strahlenden Übergabe. In 4 einfachen Schritten zum perfekten Ergebnis. Jetzt informieren!',
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de/ablauf',
+  },
   openGraph: {
-    title: 'Ablauf | STEINEGGER Fahrzeugaufbereitung',
+    title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',
     description: 'In 4 Schritten zum perfekten Ergebnis. Buchung, Empfang, Veredelung, Übergabe.',
   },
 };
 
 export default function AblaufPage() {
+  const howToSchema = generateHowToSchema(extendedProcessSteps);
+  const faqSchema = generateFAQSchema(extendedFaqs);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Startseite', url: SITE.url },
+    { name: 'Ablauf', url: `${SITE.url}/ablauf` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ═══ PAGE HEADER ═══ */}
       <AblaufHero />
 

@@ -1014,15 +1014,13 @@ details[open] .faq__icon { transform: rotate(180deg); }
   --pa-icon-bg: rgba(234, 232, 227, 1);
   --pa-icon-color: rgba(143, 0, 13, 1);
 
-  /* Dimmed by default */
-  opacity: 0.45;
+  /* Dimmed by default — JS overrides via inline styles for smooth scroll */
+  opacity: 0.35;
   transform: scale(1) translateZ(0);
   will-change: opacity, transform;
 
-  /* 100% GPU-composited — zero layout work */
+  /* Only animate custom color properties (opacity/transform driven by JS) */
   transition:
-    opacity 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
-    transform 0.45s cubic-bezier(0.25, 0.1, 0.25, 1),
     --pa-text 0.35s ease,
     --pa-desc 0.35s ease,
     --pa-num 0.35s ease,

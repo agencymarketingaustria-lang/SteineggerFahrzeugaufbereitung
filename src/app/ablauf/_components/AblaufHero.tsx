@@ -51,7 +51,7 @@ export default function AblaufHero() {
     >
       {/* Background Image with Dark Overlay */}
       <Image 
-        src="/images/gallery-3.jpg" 
+        src="/images/gallery-3.webp" 
         alt="Fahrzeugaufbereitung Ablauf" 
         fill 
         style={{ objectFit: 'cover', opacity: 0.3, zIndex: 0 }}
@@ -81,23 +81,24 @@ export default function AblaufHero() {
         }}
       >
         <motion.div variants={itemVariants} style={{ marginBottom: 'var(--space-4)' }}>
-          <span style={{ 
+          <h1 style={{ 
             fontFamily: 'var(--font-body)', 
             color: 'var(--color-primary-fixed)', 
             letterSpacing: '0.3em', 
             textTransform: 'uppercase',
             fontSize: 'var(--text-xs)',
             fontWeight: 600,
-            opacity: 0.8
+            opacity: 0.8,
+            margin: 0
           }}>
-            Der Ablauf
-          </span>
+            Fahrzeugaufbereitung Ablauf – Grafing
+          </h1>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <h1 style={{ 
+          <div style={{ 
              fontFamily: 'var(--font-headline)', 
-             fontSize: 'clamp(3rem, 5vw + 2rem, 8rem)', // massive fluid text
+             fontSize: 'clamp(3rem, 5vw + 2rem, 8rem)',
              lineHeight: 1,
              margin: 0,
              fontWeight: 300,
@@ -112,7 +113,7 @@ export default function AblaufHero() {
             <span style={{ color: '#ffffff', transform: 'translateX(0.9em)' }}>
               für Schritt
             </span>
-          </h1>
+          </div>
         </motion.div>
 
         <motion.div variants={itemVariants} style={{ marginTop: 'var(--space-8)' }}>

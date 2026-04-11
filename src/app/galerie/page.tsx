@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import GlassCard from '@/components/ui/GlassCard';
 import MagneticButton from '@/components/ui/MagneticButton';
@@ -8,19 +7,30 @@ import HorizontalScrollTunnel from './_components/HorizontalScrollTunnel';
 import AsymmetricGallery from './_components/AsymmetricGallery';
 import GalleryHero from './_components/GalleryHero';
 import { testimonials, SITE } from '@/lib/data';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Galerie',
-  description: 'Impressionen unserer Arbeit — Vorher-Nachher-Bilder und Einblicke in unser Atelier in Nettelkofen bei Grafing.',
+  title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',
+  description: 'Vorher-Nachher-Bilder und Impressionen aus unserem Atelier in Nettelkofen bei Grafing. Überzeuge dich selbst von unserer Arbeit. Jetzt Galerie ansehen!',
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de/galerie',
+  },
   openGraph: {
-    title: 'Galerie | STEINEGGER Fahrzeugaufbereitung',
+    title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',
     description: 'Einblicke in unser Atelier — Fahrzeugveredelung auf höchstem Niveau.',
   },
 };
 
 export default function GaleriePage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Startseite', url: SITE.url },
+    { name: 'Galerie', url: `${SITE.url}/galerie` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ═══ CINEMATIC HERO ═══ */}
       <GalleryHero />
 

@@ -6,20 +6,31 @@ import MagneticButton from '@/components/ui/MagneticButton';
 import GoogleMap from '@/components/GoogleMap';
 import Icon from '@/components/ui/Icon';
 import { aboutValues, SITE } from '@/lib/data';
+import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import type { IconName } from '@/components/ui/Icon';
 
 export const metadata: Metadata = {
-  title: 'Über uns',
-  description: 'Erfahre mehr über Kilian Steinegger und die Philosophie hinter der Fahrzeugaufbereitung in Nettelkofen bei Grafing. Handwerkskunst, Liebe zum Detail und Vertrauen.',
+  title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
+  description: 'Erfahre mehr über Kilian Steinegger und die Philosophie hinter der Fahrzeugaufbereitung in Nettelkofen bei Grafing. Handwerkskunst, Leidenschaft und Vertrauen. Jetzt kennenlernen!',
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de/ueber-uns',
+  },
   openGraph: {
-    title: 'Über uns | STEINEGGER Fahrzeugaufbereitung',
+    title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
     description: 'Bayerische Handwerkskunst trifft auf modernste Technik. Lerne uns kennen.',
   },
 };
 
 export default function UeberUnsPage() {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Startseite', url: SITE.url },
+    { name: 'Über uns', url: `${SITE.url}/ueber-uns` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ═══ PAGE HEADER ═══ */}
       <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
         <div className="container">
@@ -57,7 +68,7 @@ export default function UeberUnsPage() {
                   Hier gibt es keinen anonymen Betrieb und keine wechselnden Mitarbeiter. Wenn du dein Auto bei Steinegger abgibst, weißt du genau, wer sich darum kümmert — und dass es jemand ist, der Fahrzeugpflege nicht als Job sieht, sondern als Berufung.
                 </p>
                 <p>
-                  Was als jugendliche Leidenschaft fürs Detailing begann, ist heute ein Atelier in Nettelkofen, in dem jedes Fahrzeug die Aufmerksamkeit bekommt, die es verdient. Kein Upselling, keine leeren Versprechen — nur ehrliche Arbeit und Ergebnisse, die für sich sprechen.
+                  Was als jugendliche Leidenschaft fürs Detailing begann, ist heute ein Atelier in Nettelkofen, in dem jedes Fahrzeug die Aufmerksamkeit bekommt, die es verdient. Kein Upselling, keine leeren Versprechen — nur ehrliche Arbeit und Ergebnisse, die für sich sprechen. Entdecke unsere <Link href="/leistungen" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Leistungen und Pakete</Link>.
                 </p>
                 <p>
                   Jeder Kunde wird hier persönlich betreut und verwöhnt. Von der Beratung bis zur Übergabe stehe ich dir persönlich zur Seite. Denn am Ende des Tages geht es nicht nur um ein sauberes Auto — sondern um das Vertrauen, das du mir entgegenbringst.

@@ -2,8 +2,9 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
-export default function GalleryHero() {
+export default function LeistungenHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -28,14 +29,14 @@ export default function GalleryHero() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1] as const } // custom cubic-bezier for elegance
+      transition: { duration: 1, ease: [0.215, 0.61, 0.355, 1] as const }
     }
   };
 
   return (
     <section 
       ref={containerRef}
-      className="gallery-hero section--dark"
+      className="section--dark"
       style={{
         position: 'relative',
         height: '100svh',
@@ -44,18 +45,24 @@ export default function GalleryHero() {
         alignItems: 'center',
         justifyContent: 'center',
         overflow: 'hidden',
-        // Make sure no margin/padding creates a white gap below
         marginBottom: 0,
         paddingBottom: 0,
       }}
     >
-      {/* Background radial gradient to give depth without needing a dedicated image */}
+      {/* Background Image with Dark Overlay */}
+      <Image 
+        src="/images/detailing_products.webp" 
+        alt="Professionelle Fahrzeugaufbereitung Leistungen und Preise" 
+        fill 
+        style={{ objectFit: 'cover', opacity: 0.3, zIndex: 0 }}
+        priority
+      />
       <div 
         style={{ 
           position: 'absolute', 
           inset: 0, 
-          background: 'radial-gradient(ellipse at center, rgba(143,0,13,0.15) 0%, transparent 60%)',
-          pointerEvents: 'none'
+          background: 'linear-gradient(to bottom, rgba(34,34,34,0.3) 0%, rgba(34,34,34,1) 100%)',
+          zIndex: 1
         }} 
       />
 
@@ -84,14 +91,14 @@ export default function GalleryHero() {
             opacity: 0.8,
             margin: 0
           }}>
-            Fahrzeugaufbereitung Galerie – Grafing
+            Fahrzeugaufbereitung Leistungen – Grafing
           </h1>
         </motion.div>
 
         <motion.div variants={itemVariants}>
           <div style={{ 
              fontFamily: 'var(--font-headline)', 
-             fontSize: 'clamp(3rem, 5vw + 2rem, 12rem)',
+             fontSize: 'clamp(3rem, 5vw + 2rem, 8rem)',
              lineHeight: 1,
              margin: 0,
              fontWeight: 300,
@@ -101,10 +108,10 @@ export default function GalleryHero() {
              gap: 'var(--space-2)'
           }}>
             <span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)', transform: 'translateX(-0.9em)' }}>
-              Vorher
+              Leistungen
             </span>
             <span style={{ color: '#ffffff', transform: 'translateX(0.9em)' }}>
-              Nachher
+              & Preise
             </span>
           </div>
         </motion.div>
@@ -117,7 +124,7 @@ export default function GalleryHero() {
             fontSize: 'var(--text-lg)',
             lineHeight: 1.6
           }}>
-            Entdecke den unglaublichen Unterschied. Bewege den Schieberegler, um zu sehen, was eine professionelle Aufbereitung ausmacht.
+            Von der Basispflege bis zur Vollveredelung — Handwerkskunst trifft auf modernste Technik.
           </p>
         </motion.div>
       </motion.div>
@@ -135,7 +142,8 @@ export default function GalleryHero() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 'var(--space-4)'
+          gap: 'var(--space-4)',
+          zIndex: 10
         }}
       >
         <span style={{ 

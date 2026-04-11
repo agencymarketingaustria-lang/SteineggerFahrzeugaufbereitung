@@ -23,6 +23,9 @@ export default function Footer() {
             Fahrzeugaufbereitung mit Herz &amp; Seele.<br />
             {SITE.address}
           </p>
+          <p className="footer__brand-desc" style={{ marginTop: 'var(--space-2)', fontSize: 'var(--text-xs)', opacity: 0.5 }}>
+            Fahrzeugaufbereitung für Grafing, Ebersberg, Kirchseeon, Poing und Umgebung.
+          </p>
         </div>
         <div>
           <h5 className="footer__heading">Kontakt</h5>

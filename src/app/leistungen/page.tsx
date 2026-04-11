@@ -4,13 +4,17 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 import ExpandableFeatures from '@/components/ui/ExpandableFeatures';
 import Icon from '@/components/ui/Icon';
 import { interiorPackages, exteriorPackages, bundles, einzelleistungen, SITE, SONDERFAHRZEUGE_HINWEIS } from '@/lib/data';
-import { generateServiceSchema } from '@/lib/structured-data';
+import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
+import LeistungenHero from './_components/LeistungenHero';
 
 export const metadata: Metadata = {
-  title: 'Leistungen & Preise',
-  description: 'Alle Leistungen und Preise der Steinegger Fahrzeugaufbereitung. Bronze, Silber & Gold Pakete für Innen- und Außenaufbereitung. Jetzt Preise vergleichen!',
+  title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',
+  description: 'Alle Preise für professionelle Fahrzeugaufbereitung in Grafing: Bronze, Silber & Gold Pakete für Innen- und Außenaufbereitung. Jetzt Preise vergleichen und Termin anfragen!',
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de/leistungen',
+  },
   openGraph: {
-    title: 'Leistungen & Preise | STEINEGGER Fahrzeugaufbereitung',
+    title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',
     description: 'Bronze, Silber & Gold Pakete für professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing.',
   },
 };
@@ -22,53 +26,46 @@ export default function LeistungenPage() {
     generateServiceSchema('Exterieur Gold', 'Komplettpaket mit Motorwäsche und Versiegelung', 'ab 160 €'),
   ];
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Startseite', url: SITE.url },
+    { name: 'Leistungen & Preise', url: `${SITE.url}/leistungen` },
+  ]);
+
   return (
     <>
       {serviceSchemas.map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      {/* ═══ PAGE HEADER ═══ */}
-      <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
-        <div className="container">
-          <div className="leistungen-hero">
-            <ScrollReveal className="leistungen-hero__text">
-              <div>
-                <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Leistungen &amp; Preise</span>
-                <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Unsere Leistungen & Preise im Überblick</h1>
-                <p className="page-header__desc">
-                  Von der Basispflege bis zur Vollveredelung — wir haben das passende Paket für dich. Handwerkskunst trifft auf modernste Technik.
-                </p>
-              </div>
-            </ScrollReveal>
-            {/* ── Rabatt-Hinweis ── */}
-            <ScrollReveal delay={0.1} className="leistungen-hero__discount">
-              <div className="discount-banner" style={{
-                padding: 'var(--space-6) var(--space-8)',
-                background: 'var(--color-surface-container)',
-                borderRadius: 'var(--radius-xl)',
-                border: '1px solid rgba(226,190,186,0.15)',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
-                  <Icon name="star" />
-                  <div>
-                    <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-2)' }}>
-                      Kombinieren &amp; sparen
-                    </p>
-                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', lineHeight: 1.7 }}>
-                      Innen + Außen frei wählbar. <strong>5 % Kombi-Rabatt</strong> auf Bronze- &amp; Silber-Pakete — mit einem Gold-Paket sogar <strong>10 %</strong>.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </header>
+      {/* ═══ HERO ═══ */}
+      <LeistungenHero />
 
       {/* ═══ INNENRAUM ═══ */}
       <section className="section" style={{ paddingTop: 'var(--space-20)' }}>
         <div className="container">
+          {/* Rabatt-Hinweis */}
+          <ScrollReveal>
+            <div className="discount-banner" style={{
+              padding: 'var(--space-6) var(--space-8)',
+              background: 'var(--color-surface-container)',
+              borderRadius: 'var(--radius-xl)',
+              border: '1px solid rgba(226,190,186,0.15)',
+              marginBottom: 'var(--space-16)',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)' }}>
+                <Icon name="star" />
+                <div>
+                  <p style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-lg)', marginBottom: 'var(--space-2)' }}>
+                    Kombinieren &amp; sparen
+                  </p>
+                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--color-on-surface-variant)', lineHeight: 1.7 }}>
+                    Innen + Außen frei wählbar. <strong>5 % Kombi-Rabatt</strong> auf Bronze- &amp; Silber-Pakete — mit einem Gold-Paket sogar <strong>10 %</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
           <ScrollReveal>
             <div className="category-header">
               <h2 className="category-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Innenraum-Veredelung</h2>

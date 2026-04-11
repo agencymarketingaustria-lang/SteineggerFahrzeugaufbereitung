@@ -1,15 +1,20 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import MagneticButton from '@/components/ui/MagneticButton';
 import GoogleMap from '@/components/GoogleMap';
 import Icon from '@/components/ui/Icon';
 import { SITE } from '@/lib/data';
+import { generateContactPointSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Kontakt',
-  description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing. Telefon, WhatsApp, E-Mail — wir beraten dich gerne.',
+  title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
+  description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing: Telefon, WhatsApp oder E-Mail. Jetzt kostenlos beraten lassen und Termin anfragen!',
+  alternates: {
+    canonical: 'https://steinegger-aufbereitung.de/kontakt',
+  },
   openGraph: {
-    title: 'Kontakt | STEINEGGER Fahrzeugaufbereitung',
+    title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
     description: 'Kontaktiere uns für eine kostenlose Beratung und einen Terminvorschlag.',
   },
 };
@@ -19,17 +24,26 @@ export default function KontaktPage() {
     .replace('+49', '0')
     .replace(/(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
 
+  const contactPointSchema = generateContactPointSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Startseite', url: SITE.url },
+    { name: 'Kontakt', url: `${SITE.url}/kontakt` },
+  ]);
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       {/* ═══ PAGE HEADER ═══ */}
       <header className="section" style={{ paddingTop: 'clamp(6rem, 5rem + 4vw, 8rem)', paddingBottom: 0 }}>
         <div className="container">
           <ScrollReveal>
             <div style={{ maxWidth: '48rem' }}>
-              <span className="page-header__label" style={{ fontFamily: 'var(--font-body)' }}>Kontakt</span>
-              <h1 className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Lass uns über dein Auto reden</h1>
+              <h1 className="page-header__label" style={{ fontFamily: 'var(--font-body)', fontWeight: 'inherit', margin: 0 }}>Kontakt – Fahrzeugaufbereitung Grafing</h1>
+              <div className="page-header__title" style={{ fontFamily: 'var(--font-headline)' }}>Lass uns über dein Auto reden</div>
               <p className="page-header__desc">
-                Ob Oldtimer, Sportwagen oder Alltagsheld — wir beraten dich gerne persönlich und finden das passende Paket für dein Fahrzeug.
+                Ob Oldtimer, Sportwagen oder Alltagsheld — wir beraten dich gerne persönlich und finden das passende <Link href="/leistungen" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Paket</Link> für dein Fahrzeug.
               </p>
             </div>
           </ScrollReveal>
@@ -49,7 +63,7 @@ export default function KontaktPage() {
                   <div className="contact-editorial__icon-wrap">
                     <Icon name="mail" />
                   </div>
-                  <h3 className="contact-editorial__title">E-Mail</h3>
+                  <h2 className="contact-editorial__title">E-Mail</h2>
                   <p className="contact-editorial__value">{SITE.email}</p>
                   <span className="contact-editorial__cta">Schreiben →</span>
                 </div>
@@ -65,7 +79,7 @@ export default function KontaktPage() {
                   <div className="contact-editorial__icon-wrap">
                     <Icon name="call" />
                   </div>
-                  <h3 className="contact-editorial__title">Telefon</h3>
+                  <h2 className="contact-editorial__title">Telefon</h2>
                   <p className="contact-editorial__value">{formattedPhone}</p>
                   <p className="contact-editorial__meta">Erreichbar: {SITE.phoneHours}</p>
                   <span className="contact-editorial__cta">Anrufen →</span>
@@ -82,7 +96,7 @@ export default function KontaktPage() {
                   <div className="contact-editorial__icon-wrap contact-editorial__icon-wrap--wa">
                     <Icon name="chat" />
                   </div>
-                  <h3 className="contact-editorial__title">WhatsApp</h3>
+                  <h2 className="contact-editorial__title">WhatsApp</h2>
                   <p className="contact-editorial__value">Nachricht senden</p>
                   <span className="contact-editorial__cta">Chat öffnen →</span>
                 </div>

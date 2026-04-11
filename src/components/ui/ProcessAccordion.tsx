@@ -15,10 +15,10 @@ interface ProcessStep {
 }
 
 const STEP_IMAGES = [
-  '/images/ablauf-01.png',
-  '/images/ablauf-02.png',
-  '/images/ablauf-03.png',
-  '/images/ablauf-04.png',
+  '/images/ablauf-01.webp',
+  '/images/ablauf-02.webp',
+  '/images/ablauf-03.webp',
+  '/images/ablauf-04.webp',
 ];
 
 const TRANSITION_MS = 550;
@@ -41,7 +41,7 @@ export default function ProcessAccordion({
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  /* ═══ Desktop: closest-to-center scroll tracker ═══ */
+  /* ═══ Desktop: continuous scroll-driven interpolation ═══ */
   useEffect(() => {
     if (isMobile) return;
 
@@ -52,30 +52,59 @@ export default function ProcessAccordion({
       container.querySelectorAll<HTMLElement>('.process-accordion__row'),
     );
     let rafId = 0;
-    let activeRow: HTMLElement | null = null;
+    let prevClosestIdx = -1;
 
     const update = () => {
       const vh = window.innerHeight;
       const center = vh / 2;
-      let closest: HTMLElement | null = null;
-      let minDist = Infinity;
 
+      // Calculate normalized distances for all rows
+      const distances: number[] = [];
       for (const row of rows) {
         const rect = row.getBoundingClientRect();
         const rowCenter = rect.top + rect.height / 2;
-        const dist = Math.abs(rowCenter - center);
-        if (dist < minDist) {
-          minDist = dist;
-          closest = row;
+        // Normalized distance: 0 = at center, 1 = one viewport away
+        distances.push(Math.abs(rowCenter - center) / vh);
+      }
+
+      // Find closest row
+      let closestIdx = 0;
+      let minDist = Infinity;
+      for (let i = 0; i < distances.length; i++) {
+        if (distances[i] < minDist) {
+          minDist = distances[i];
+          closestIdx = i;
         }
       }
 
-      const next = minDist < vh * 0.45 ? closest : null;
-      if (next !== activeRow) {
-        activeRow?.classList.remove('is-active');
-        next?.classList.add('is-active');
-        activeRow = next;
+      // Apply continuous styles to each row
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        const dist = distances[i];
+
+        // Smooth Gaussian-like falloff: fully active at 0, dimmed at distance
+        // clamp to [0, 1] range where 0 = fully active, 1 = fully dimmed
+        const t = Math.min(dist * 2.5, 1); // steepness factor
+        const ease = 1 - t * t; // quadratic ease-out for smooth falloff
+
+        // Interpolate values
+        const opacity = 0.35 + ease * 0.65; // 0.35 → 1.0
+        const scale = 1 + ease * 0.05;       // 1.0 → 1.05
+        const isActive = dist < 0.35;
+
+        row.style.opacity = `${opacity}`;
+        row.style.transform = `scale(${scale}) translateZ(0)`;
+        row.style.zIndex = isActive ? '2' : '1';
+
+        // Toggle class for bg/arrow/color transitions
+        if (isActive && i === closestIdx) {
+          row.classList.add('is-active');
+        } else {
+          row.classList.remove('is-active');
+        }
       }
+
+      prevClosestIdx = closestIdx;
     };
 
     const onScroll = () => {
@@ -88,6 +117,12 @@ export default function ProcessAccordion({
     return () => {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
+      // Clean up inline styles
+      for (const row of rows) {
+        row.style.opacity = '';
+        row.style.transform = '';
+        row.style.zIndex = '';
+      }
     };
   }, [isMobile]);
 
