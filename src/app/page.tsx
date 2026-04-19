@@ -98,8 +98,8 @@ export default function Home() {
               <span className="hero__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Dein Fahrzeugaufbereiter des Vertrauens</span>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Kein Fließband. Keine Kompromisse.</h2>
               <div className="brand-story__text">
-                <p>Hinter Steinegger steckt keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Jedes Auto, das unser Atelier in <Link href="/kontakt" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Nettelkofen</Link> betritt, bekommt die volle Aufmerksamkeit. Kein Zeitdruck, keine Abfertigung, sondern ehrliche <Link href="/ueber-uns" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Handwerkskunst</Link> mit Leidenschaft.</p>
-                <p>Hier zählt Vertrauen. Du gibst uns dein Auto — und bekommst es so zurück, wie du es dir immer gewünscht hast. Jeder Kunde wird persönlich betreut, jedes Ergebnis ist unser Aushängeschild. Qualität, die man sieht und fühlt — immer.</p>
+                <p>Hinter Steinegger steckt keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Jedes Auto, das meine Halle in <Link href="/kontakt" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Nettelkofen</Link> betritt, bekommt die volle Aufmerksamkeit. Kein Zeitdruck, keine Abfertigung, sondern ehrliche <Link href="/ueber-uns" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '0.2em', textDecorationColor: 'rgba(226,190,186,0.4)' }}>Handwerksarbeit</Link> mit Leidenschaft.</p>
+                <p>Du gibst mir dein Auto — und bekommst es so zurück, wie du es dir immer gewünscht hast. Jeder Kunde wird persönlich betreut, jedes Ergebnis ist mein Aushängeschild. Qualität, die man sieht und fühlt — immer.</p>
               </div>
               <div style={{ marginTop: 'var(--space-12)' }}>
                 <div style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-2xl)', fontStyle: 'italic' }}>&ldquo;Dein Auto verdient jemanden, dem es genauso wichtig ist wie dir.&rdquo;</div>
@@ -279,6 +279,7 @@ export default function Home() {
       </section>
 
       {/* ═══ TESTIMONIALS ═══ */}
+      {/* 
       <section className="section section--vh">
         <div className="container">
           <ScrollReveal>
@@ -303,6 +304,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ═══ GALLERY ═══ */}
       <section className="section section--alt" id="galerie">
@@ -311,7 +313,7 @@ export default function Home() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'var(--space-16)' }}>
               <div>
                 <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', fontStyle: 'italic', marginBottom: 'var(--space-4)' }}>Impressionen unserer Arbeit</h2>
-                <p style={{ color: 'var(--color-on-surface-variant)' }}>Ein Einblick in unser Atelier in Nettelkofen.</p>
+                <p style={{ color: 'var(--color-on-surface-variant)' }}>Ein Einblick in unsere Halle in Nettelkofen.</p>
               </div>
             </div>
           </ScrollReveal>
@@ -339,7 +341,7 @@ export default function Home() {
       <section className="section">
         <div className="container" style={{ maxWidth: '48rem' }}>
           <ScrollReveal>
-            <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', textAlign: 'center', fontStyle: 'italic', marginBottom: 'var(--space-16)' }}>Fragen zum Atelier</h2>
+            <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-4xl)', textAlign: 'center', fontStyle: 'italic', marginBottom: 'var(--space-16)' }}>Fragen zur Halle</h2>
           </ScrollReveal>
           <ScrollReveal>
             <div className="faq__list">
@@ -382,7 +384,7 @@ export default function Home() {
                   <h3 className="val-card__title">Sichere Rückgabe ohne <br />böse Überraschungen</h3>
                 </div>
                 <p className="val-card__desc">
-                  Ein stumpfer Lack, Mikrokratzer oder hartnäckige Flecken kosten bei der Leasingrückgabe oft schnell vierstellige Beträge. Eine professionelle Aufbereitung vorher bewahrt dich nachweislich vor diesen überzogenen Nachforderungen. Wir holen den optischen Werkszustand zurück, bevor der Prüfer überhaupt das Klemmbrett zückt.
+                  Eine professionelle Aufbereitung vor der Leasingrückgabe bewahrt dich nachweislich vor überzogenen Nachforderungen. Wir holen den optischen Werkszustand zurück, bevor der Prüfer überhaupt das Klemmbrett zückt.
                 </p>
               </div>
             </ScrollReveal>
@@ -397,7 +399,7 @@ export default function Home() {
                   <h3 className="val-card__title">Rendite in Blech</h3>
                 </div>
                 <p className="val-card__desc">
-                  Der erste Eindruck entscheidet über tausende Euro. Ein Fahrzeug mit tiefglänzendem, versiegeltem Lack und gepflegtem Interieur erzielt auf dem Gebrauchtwagenmarkt signifikant höhere Höchstpreise.
+                  Der erste Eindruck entscheidet über tausende Euro. Ein Fahrzeug mit tiefglänzendem Lack und gepflegtem Interieur erzielt auf dem Gebrauchtwagenmarkt signifikant höhere Preise.
                 </p>
               </div>
             </ScrollReveal>

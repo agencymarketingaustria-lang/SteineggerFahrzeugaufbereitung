@@ -6,7 +6,7 @@ export const SITE = {
   address: 'Nettelkofen 21a, 85567 Grafing bei München',
   phone: '+4915203053368',
   whatsapp: '4915203053368',
-  email: 'Steinegger.fahrzeugaufbereitung@gmx.de',
+  email: 'steinegger.fahrzeugaufbereitung@gmx.de',
   url: 'https://steinegger-aufbereitung.de',
   phoneHours: 'Mo–Fr: 08:00–16:00 Uhr',
   openingHours: {
@@ -135,14 +135,14 @@ export const bundles: Bundle[] = [
   {
     name: 'Rundum-Sorglos',
     description: 'Gold Innen + Silber Außen — umfassende Aufbereitung für ein „Neues Auto"-Gefühl.',
-    price: 'ab 330 €',
+    price: 'ab 340 €',
     bestseller: true,
     features: ['Gold Innenreinigung', 'Silber Außenaufbereitung', 'Felgenreinigung'],
   },
   {
     name: 'Premium Komplett',
     description: 'Gold Innen + Gold Außen — das komplette Programm für höchste Ansprüche.',
-    price: 'ab 380 €',
+    price: 'ab 340 €',
     features: ['Gold Innen + Außen', 'Motorwäsche'],
   },
   {
@@ -266,7 +266,7 @@ export interface FAQ {
 export const faqs: FAQ[] = [
   {
     question: 'Wie lange dauert eine Aufbereitung?',
-    answer: 'Je nach Paket zwischen 4 Stunden und 2 Werktagen. Bei einer Keramikversiegelung benötigen wir das Fahrzeug meist für 48 Stunden.',
+    answer: 'Je nach Paket zwischen 4 Stunden und 2 Werktagen.',
   },
   {
     question: 'Muss ich den Termin vorab buchen?',
@@ -279,15 +279,13 @@ export const faqs: FAQ[] = [
 ];
 
 export const trustMetrics = [
-  { value: '500+', label: 'Fahrzeuge veredelt' },
-  { value: '10+ Jahre', label: 'Erfahrung' },
   { value: '100%', label: 'Zufriedene Kunden' },
   { value: 'Nettelkofen', label: 'Lokal verwurzelt' },
 ];
 
 export const processSteps = [
-  { num: '01', title: 'Terminanfrage', desc: 'Kurze Nachricht per WhatsApp, Telefon oder E-Mail — wir melden uns innerhalb von 24h.', icon: 'calendar_today', primary: true },
-  { num: '02', title: 'Empfang', desc: 'Gemeinsame Begutachtung im Atelier in Nettelkofen.', icon: 'car_repair', primary: false },
+  { num: '01', title: 'Terminanfrage', desc: 'Kurze Nachricht per WhatsApp, Telefon oder e-mail — wir melden uns innerhalb von 24h.', icon: 'calendar_today', primary: true },
+  { num: '02', title: 'Empfang', desc: 'Gemeinsame Begutachtung in der Halle in Nettelkofen.', icon: 'car_repair', primary: false },
   { num: '03', title: 'Veredelung', desc: 'Präzise Arbeit nach höchsten Qualitätsstandards.', icon: 'auto_fix_high', primary: false },
   { num: '04', title: 'Übergabe', desc: 'Ein strahlendes Ergebnis und Tipps zur Nachpflege.', icon: 'verified', primary: false },
 ];
@@ -318,7 +316,7 @@ export const extendedProcessSteps = [
   {
     num: '01',
     title: 'Terminanfrage & persönliche Beratung',
-    desc: 'Schreib uns per WhatsApp, ruf an oder schick eine E-Mail. Wir nehmen uns Zeit, deinen Bedarf zu verstehen — und beraten dich ehrlich, welches Paket wirklich zu deinem Fahrzeug passt. Kein Upselling, sondern das, was Sinn macht. Innerhalb von 24 Stunden bekommst du einen Terminvorschlag.',
+    desc: 'Schreib uns per WhatsApp, ruf an oder schick eine e-mail. Wir nehmen uns Zeit, deinen Bedarf zu verstehen — und beraten dich ehrlich, welches Paket wirklich zu deinem Fahrzeug passt. Kein Upselling, sondern das, was Sinn macht. Innerhalb von 24 Stunden bekommst du einen Terminvorschlag.',
     icon: 'calendar_today',
     primary: true,
   },
@@ -360,7 +358,7 @@ export const extendedFaqs = [
   ...faqs,
   {
     question: 'Wie kann ich den Glanz nach der Aufbereitung erhalten?',
-    answer: 'Wir empfehlen, das Fahrzeug regelmäßig von Hand zu waschen und auf automatische Waschanlagen zu verzichten. Bei einer Keramikversiegelung erhalten Sie von uns eine detaillierte Pflegeanleitung.',
+    answer: 'Wir empfehlen, das Fahrzeug regelmäßig von Hand zu waschen und auf automatische Waschanlagen zu verzichten.',
   },
   {
     question: 'Welche Zahlungsmethoden akzeptieren Sie?',
@@ -379,7 +377,7 @@ export const extendedFaqs = [
 // ── Gallery Items ───────────────────────────
 export const beforeAfterGallery = [
   {
-    title: 'Lackaufbereitung & Keramikversiegelung',
+    title: 'Lackaufbereitung & Versiegelung',
     description: 'Intensive Lackreinigung und anschließende Versiegelung für ultimativen Tiefenglanz.',
     beforeSrc: '/images/before_paint_v2.webp',
     afterSrc: '/images/after_paint_v2.webp',
@@ -405,13 +403,13 @@ export const beforeAfterGallery = [
 ] as const;
 
 export const galleryItems = [
-  { src: '/images/bento_garage.webp', alt: 'Fahrzeugaufbereitung Atelier in Nettelkofen bei Grafing – professionelle Werkstatt', caption: 'Unser High-End Atelier', span: 'wide' as const },
+  { src: '/images/bento_garage.webp', alt: 'Fahrzeugaufbereitung Halle in Nettelkofen bei Grafing – professionelle Werkstatt', caption: 'Unsere High-End Halle', span: 'wide' as const },
   { src: '/images/bento_working.webp', alt: 'Kilian Steinegger poliert Fahrzeuglack von Hand – Detailing Grafing', caption: 'Leidenschaftliche Handarbeit', span: 'tall' as const },
   { src: '/images/bento_tools.webp', alt: 'Professionelle Poliermaschinen und Detailing-Werkzeuge bei Steinegger', caption: 'Nur das beste Werkzeug', span: 'normal' as const },
   { src: '/images/bento_customer.webp', alt: 'Persönliche Beratung zur Fahrzeugaufbereitung bei Steinegger in Grafing', caption: 'Beratung auf Augenhöhe', span: 'normal' as const },
   { src: '/images/after_interior.webp', alt: 'Makelloser Fahrzeuginnenraum nach professioneller Reinigung in Nettelkofen', caption: 'Makelloser Innenraum', span: 'tall' as const },
   { src: '/images/detailing_polisher.webp', alt: 'Professionelle Exzenter-Poliermaschine für Lackaufbereitung – Steinegger Grafing', caption: 'Exzenter-Poliermaschine', span: 'normal' as const },
-  { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Keramikversiegelungen im Steinegger Atelier', caption: 'Nur Premium-Produkte', span: 'wide' as const },
+  { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Versiegelungen in der Steinegger Halle', caption: 'Nur Premium-Produkte', span: 'wide' as const },
   { src: '/images/detailing_steam.webp', alt: 'Dampfreinigung von Ledersitzen – schonende Tiefenreinigung bei Steinegger', caption: 'Schonende Dampfreinigung', span: 'tall' as const },
   { src: '/images/detailing_brushes.webp', alt: 'Organisierte Detailing-Pinsel und Schwämme für die Fahrzeugaufbereitung', caption: 'Präzision in jedem Pinsel', span: 'normal' as const },
   { src: '/images/detailing_tornado.webp', alt: 'Tornado-Druckluftpistole bei der Reinigung von Fahrzeugritzen und Lüftungen', caption: 'Tornado-Druckluft', span: 'normal' as const },

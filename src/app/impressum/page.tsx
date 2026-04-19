@@ -37,7 +37,7 @@ export default function ImpressumPage() {
               <h2>Kontakt</h2>
               <p>
                 Telefon: {LEGAL.phone}<br />
-                E-Mail: {LEGAL.email}
+                e-mail: {LEGAL.email}
               </p>
 
               <h2>Umsatzsteuer-Identifikationsnummer</h2>

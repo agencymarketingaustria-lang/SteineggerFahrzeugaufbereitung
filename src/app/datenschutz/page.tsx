@@ -34,7 +34,7 @@ export default function DatenschutzPage() {
                 {LEGAL.zip} {LEGAL.city}<br />
                 <br />
                 Telefon: {LEGAL.phone}<br />
-                E-Mail: {LEGAL.email}
+                e-mail: {LEGAL.email}
               </address>
 
               <h2>2. Übersicht der Verarbeitungen</h2>
@@ -45,7 +45,7 @@ export default function DatenschutzPage() {
               <h3>Arten der verarbeiteten Daten</h3>
               <ul>
                 <li>Bestandsdaten (z.B. Namen, Adressen)</li>
-                <li>Kontaktdaten (z.B. E-Mail, Telefonnummern)</li>
+                <li>Kontaktdaten (z.B. e-mail, Telefonnummern)</li>
                 <li>Inhaltsdaten (z.B. Eingaben in Formularen)</li>
                 <li>Nutzungsdaten (z.B. besuchte Seiten, Zugriffszeiten)</li>
                 <li>Meta-/Kommunikationsdaten (z.B. Geräte-Informationen, IP-Adressen)</li>
@@ -69,7 +69,7 @@ export default function DatenschutzPage() {
 
               <h2>5. Kontaktaufnahme</h2>
               <p>
-                Wenn Sie uns per Telefon, WhatsApp oder E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+                Wenn Sie uns per Telefon, WhatsApp oder e-mail kontaktieren, werden Ihre Angaben zur Bearbeitung Ihrer Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
               </p>
               <p>
                 Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt, oder auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, wenn die Anfrage zur Wahrung unserer berechtigten Interessen erforderlich ist.

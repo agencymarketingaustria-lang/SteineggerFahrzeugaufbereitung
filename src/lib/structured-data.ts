@@ -7,7 +7,7 @@ export function generateLocalBusinessSchema() {
     '@type': 'AutoRepair',
     '@id': `${SITE.url}/#business`,
     name: SITE.name,
-    description: 'Professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing — Innen- und Außenaufbereitung, Keramikversiegelung, Lackpolitur.',
+    description: 'Professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing — Innen- und Außenaufbereitung, Lackpolitur.',
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,
@@ -40,7 +40,7 @@ export function generateLocalBusinessSchema() {
       'https://maps.app.goo.gl/TPyGwn36juxcXcyJ7',
     ],
     priceRange: '€€',
-    knowsAbout: ['Fahrzeugaufbereitung', 'Keramikversiegelung', 'Lackpolitur', 'Innenraumreinigung', 'Autoaufbereitung'],
+    knowsAbout: ['Fahrzeugaufbereitung', 'Lackpolitur', 'Innenraumreinigung', 'Autoaufbereitung'],
     image: `${SITE.url}/images/Hero-Sektion.webp`,
   };
 }

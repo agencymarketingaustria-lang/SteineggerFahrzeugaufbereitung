@@ -9,7 +9,7 @@ import { generateContactPointSchema, generateBreadcrumbSchema } from '@/lib/stru
 
 export const metadata: Metadata = {
   title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
-  description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing: Telefon, WhatsApp oder E-Mail. Jetzt kostenlos beraten lassen und Termin anfragen!',
+  description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing: Telefon, WhatsApp oder e-mail. Jetzt kostenlos beraten lassen und Termin anfragen!',
   alternates: {
     canonical: 'https://steinegger-aufbereitung.de/kontakt',
   },
@@ -63,7 +63,7 @@ export default function KontaktPage() {
                   <div className="contact-editorial__icon-wrap">
                     <Icon name="mail" />
                   </div>
-                  <h2 className="contact-editorial__title">E-Mail</h2>
+                  <h2 className="contact-editorial__title">e-mail</h2>
                   <p className="contact-editorial__value">{SITE.email}</p>
                   <span className="contact-editorial__cta">Schreiben →</span>
                 </div>
