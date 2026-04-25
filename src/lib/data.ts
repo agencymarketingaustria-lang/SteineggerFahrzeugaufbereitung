@@ -377,28 +377,28 @@ export const extendedFaqs = [
 // ── Gallery Items ───────────────────────────
 export const beforeAfterGallery = [
   {
-    title: 'Lackaufbereitung & Versiegelung',
-    description: 'Intensive Lackreinigung und anschließende Versiegelung für ultimativen Tiefenglanz.',
-    beforeSrc: '/images/before_paint_v2.webp',
-    afterSrc: '/images/after_paint_v2.webp',
+    title: 'Fußraum- & Mattenreinigung',
+    description: 'Gründliche Entfernung von festsitzendem Schmutz, Sand und Laub für einen gepflegten Einstiegsbereich.',
+    beforeSrc: '/images/1a.webp',
+    afterSrc: '/images/1b.webp',
   },
   {
-    title: 'Intensive Felgenreinigung',
-    description: 'Rückstandslose Entfernung von eingebranntem Bremsstaub und hartnäckigem Flugrost.',
-    beforeSrc: '/images/before_rim.webp',
-    afterSrc: '/images/after_rim.webp',
+    title: 'Intensive Cockpit-Pflege',
+    description: 'Detailgetreue Reinigung von Pedalerie, Verkleidungen und Böden, um das Neuwagen-Gefühl zurückzuholen.',
+    beforeSrc: '/images/2a.webp',
+    afterSrc: '/images/2b.webp',
   },
   {
-    title: 'Innenraum-Tiefenreinigung',
-    description: 'Von hartnäckigen Flecken auf den Polstern zu einem neuwertigen, frischen Interieur.',
-    beforeSrc: '/images/before_interior.webp',
-    afterSrc: '/images/after_interior.webp',
+    title: 'Tiefenreinigung im Fond',
+    description: 'Restlose Beseitigung von Verschmutzungen im hinteren Fußraum durch professionelle Sauger und spezielle Bürsten.',
+    beforeSrc: '/images/3a.webp',
+    afterSrc: '/images/3b.webp',
   },
   {
-    title: 'Premium Lederaufbereitung',
-    description: 'Porentiefe Schmutzentfernung aus speckigem Leder und Wiederherstellung des matten Werkszustands.',
-    beforeSrc: '/images/before_seat.webp',
-    afterSrc: '/images/after_seat.webp',
+    title: 'Polsterreinigung & Fleckenentfernung',
+    description: 'Sprühextraktion löst selbst hartnäckige Ränder und tiefsitzenden Schmutz aus den Stoffsitzen.',
+    beforeSrc: '/images/4a.webp',
+    afterSrc: '/images/4b.webp',
   },
 ] as const;
 
