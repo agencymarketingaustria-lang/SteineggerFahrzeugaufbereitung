@@ -379,8 +379,8 @@ export const beforeAfterGallery = [
   {
     title: 'Fußraum- & Mattenreinigung',
     description: 'Gründliche Entfernung von festsitzendem Schmutz, Sand und Laub für einen gepflegten Einstiegsbereich.',
-    beforeSrc: '/images/1b.webp',
-    afterSrc: '/images/1a.webp',
+    beforeSrc: '/images/1a.webp',
+    afterSrc: '/images/1b.webp',
   },
   {
     title: 'Intensive Cockpit-Pflege',
@@ -391,14 +391,14 @@ export const beforeAfterGallery = [
   {
     title: 'Tiefenreinigung im Fond',
     description: 'Restlose Beseitigung von Verschmutzungen im hinteren Fußraum durch professionelle Sauger und spezielle Bürsten.',
-    beforeSrc: '/images/3b.webp',
-    afterSrc: '/images/3a.webp',
+    beforeSrc: '/images/3a.webp',
+    afterSrc: '/images/3b.webp',
   },
   {
     title: 'Polsterreinigung & Fleckenentfernung',
     description: 'Sprühextraktion löst selbst hartnäckige Ränder und tiefsitzenden Schmutz aus den Stoffsitzen.',
-    beforeSrc: '/images/4b.webp',
-    afterSrc: '/images/4a.webp',
+    beforeSrc: '/images/4a.webp',
+    afterSrc: '/images/4b.webp',
   },
 ] as const;
 
