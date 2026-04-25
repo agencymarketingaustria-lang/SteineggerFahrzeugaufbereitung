@@ -279,7 +279,6 @@ export default function Home() {
       </section>
 
       {/* ═══ TESTIMONIALS ═══ */}
-      {/* 
       <section className="section section--vh">
         <div className="container">
           <ScrollReveal>
@@ -304,7 +303,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      */}
 
       {/* ═══ GALLERY ═══ */}
       <section className="section section--alt" id="galerie">

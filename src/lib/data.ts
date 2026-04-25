@@ -281,6 +281,7 @@ export const faqs: FAQ[] = [
 export const trustMetrics = [
   { value: '100%', label: 'Zufriedene Kunden' },
   { value: 'Nettelkofen', label: 'Lokal verwurzelt' },
+  { value: 'Handarbeit', label: 'Mit Liebe zum Detail' },
 ];
 
 export const processSteps = [
