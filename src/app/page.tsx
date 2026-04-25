@@ -86,14 +86,18 @@ export default function Home() {
 
       {/* ═══ BRAND STORY ═══ */}
       <section className="section section--brand-story" id="ueber-uns">
+        <div className="brand-story-mobile-bg">
+          <Image src="/images/brand-story-v2.png" alt="Steinegger Fahrzeugaufbereitung — Professionelle Fahrzeugpflege" fill className="brand-story-mobile-bg__img" sizes="100vw" quality={60} priority />
+          <div className="brand-story-mobile-bg__overlay" />
+        </div>
         <div className="container brand-story">
-          <ScrollReveal direction="left">
+          <ScrollReveal direction="left" className="brand-story__img-col">
             <div className="brand-story__img-wrap">
               <div className="brand-story__img-bg" />
-              <Image src="/images/brand-story.webp" alt="Steinegger Fahrzeugaufbereitung — Detailer reinigt Ledersitz von Hand in Nettelkofen" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
+              <Image src="/images/brand-story-v2.png" alt="Steinegger Fahrzeugaufbereitung — Professionelle Fahrzeugpflege in Nettelkofen" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
             </div>
           </ScrollReveal>
-          <ScrollReveal direction="right">
+          <ScrollReveal direction="right" className="brand-story__content-col">
             <div>
               <span className="hero__label" style={{ fontFamily: 'var(--font-body)', display: 'block', marginBottom: 'var(--space-6)' }}>Dein Fahrzeugaufbereiter des Vertrauens</span>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-8)' }}>Kein Fließband. Keine Kompromisse.</h2>
