@@ -363,7 +363,7 @@ export default function Home() {
           <ScrollReveal>
             <div style={{ textAlign: 'center', marginBottom: 'var(--space-20)' }}>
               <h2 style={{ fontFamily: 'var(--font-headline)', fontSize: 'var(--text-5xl)', marginBottom: 'var(--space-6)' }}>
-                Mehr als nur Optik. <br /><span style={{ fontStyle: 'italic', color: 'rgba(255,255,255,0.7)' }}>Es ist eine Investition.</span>
+                Mehr als nur Optik. <br /><span className="hero__accent" style={{ fontStyle: 'italic' }}>Es ist eine Investition.</span>
               </h2>
               <p style={{ color: 'var(--color-on-surface-variant)', fontSize: 'var(--text-lg)', maxWidth: '40rem', margin: '0 auto' }}>
                 Professionelle Fahrzeugpflege ist kein Luxus — sie ist die klügste Entscheidung für den Werterhalt deines Autos und deinen Seelenfrieden.
