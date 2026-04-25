@@ -389,7 +389,7 @@ export const beforeAfterGallery = [
     afterSrc: '/images/2b.webp',
   },
   {
-    title: 'Tiefenreinigung im Fond',
+    title: 'Tiefenreinigung (Rückbank & Fußraum)',
     description: 'Restlose Beseitigung von Verschmutzungen im hinteren Fußraum durch professionelle Sauger und spezielle Bürsten.',
     beforeSrc: '/images/3a.webp',
     afterSrc: '/images/3b.webp',
