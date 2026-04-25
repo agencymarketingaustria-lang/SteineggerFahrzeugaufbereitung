@@ -242,17 +242,17 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    text: 'Mein Oldtimer sah noch nie so gut aus. Die Liebe zum Detail bei Steinegger ist wirklich außergewöhnlich.',
-    author: 'Hans-Georg M.',
+    text: 'Ich bin wirklich sehr zufrieden mit der Autoreinigung! Der Innenraum wurde extrem gründlich und mit viel Sorgfalt gereinigt. Alles wirkt frisch, sauber und gepflegt. Absolut empfehlenswert, ich komme gerne wieder!',
+    author: 'Roland B.',
     rating: 5,
   },
   {
-    text: 'Endlich keine Flecken mehr von den Kindern auf den Rücksitzen. Professionell, freundlich und absolut sauber.',
-    author: 'Sarah K.',
+    text: 'Wer eine professionelle Innenreinigung sucht, ist hier genau richtig. Der Vorher-Nachher-Effekt bei meinem Auto war unglaublich. Die Amaturen glänzen wieder und die Sitze sehen wieder aus wie neu. Man merkt, dass hier mit Liebe zum Detail gearbeitet wird.',
+    author: 'Celina G.',
     rating: 5,
   },
   {
-    text: 'Unkomplizierte Terminvergabe und ein Ergebnis, das meine Erwartungen bei Weitem übertroffen hat.',
+    text: 'Sehr kompetenter Service von Anfang bis Ende. Die Beratung war freundlich und transparent, das Endergebnis schlichtweg beeindruckend. Mein Fahrzeug sieht wieder aus wie am ersten Tag. Tolle Arbeit!',
     author: 'Thomas W.',
     rating: 5,
   },
@@ -379,26 +379,26 @@ export const beforeAfterGallery = [
   {
     title: 'Fußraum- & Mattenreinigung',
     description: 'Gründliche Entfernung von festsitzendem Schmutz, Sand und Laub für einen gepflegten Einstiegsbereich.',
-    beforeSrc: '/images/1a-v2.webp',
-    afterSrc: '/images/1b-v2.webp',
+    beforeSrc: '/images/fussraum-reinigung-vorher.webp',
+    afterSrc: '/images/fussraum-reinigung-nachher.webp',
   },
   {
     title: 'Intensive Cockpit-Pflege',
     description: 'Detailgetreue Reinigung von Pedalerie, Verkleidungen und Böden, um das Neuwagen-Gefühl zurückzuholen.',
-    beforeSrc: '/images/2a-v2.webp',
-    afterSrc: '/images/2b-v2.webp',
+    beforeSrc: '/images/cockpit-pflege-vorher.webp',
+    afterSrc: '/images/cockpit-pflege-nachher.webp',
   },
   {
     title: 'Tiefenreinigung (Rückbank & Fußraum)',
     description: 'Restlose Beseitigung von Verschmutzungen im hinteren Fußraum durch professionelle Sauger und spezielle Bürsten.',
-    beforeSrc: '/images/3a-v2.webp',
-    afterSrc: '/images/3b-v2.webp',
+    beforeSrc: '/images/rueckbank-fussraum-vorher.webp',
+    afterSrc: '/images/rueckbank-fussraum-nachher.webp',
   },
   {
     title: 'Polsterreinigung & Fleckenentfernung',
     description: 'Sprühextraktion löst selbst hartnäckige Ränder und tiefsitzenden Schmutz aus den Stoffsitzen.',
-    beforeSrc: '/images/4a-v2.webp',
-    afterSrc: '/images/4b-v2.webp',
+    beforeSrc: '/images/polsterreinigung-fleckenentfernung-vorher.webp',
+    afterSrc: '/images/polsterreinigung-fleckenentfernung-nachher.webp',
   },
 ] as const;
 
