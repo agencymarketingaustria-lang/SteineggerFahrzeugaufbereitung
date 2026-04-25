@@ -337,9 +337,9 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 400; }
 
 /* ── Trust Metrics ──────────────────────────── */
 .trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-8) var(--space-4); }
-@media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-8); } }
+@media (min-width: 768px) { .trust-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-8); max-width: 56rem; margin: 0 auto; } }
 .trust-item { text-align: center; }
-@media (min-width: 768px) { .trust-item { text-align: left; } }
+@media (min-width: 768px) { .trust-item { text-align: center; } }
 .trust-item__value { font-size: var(--text-3xl); font-style: italic; margin-bottom: var(--space-2); }
 .trust-item__label {
   font-size: var(--text-xs); text-transform: uppercase;
@@ -365,7 +365,7 @@ h1, h2, h3, h4, h5, h6 { line-height: 1.2; font-weight: 400; }
 .brand-story-mobile-bg__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(14, 14, 14, 0.85); /* dark overlay to ensure text readability */
+  background: rgba(255, 255, 255, 0.85); /* light overlay to ensure dark text readability */
 }
 @media (min-width: 768px) {
   .brand-story-mobile-bg { display: none; }
