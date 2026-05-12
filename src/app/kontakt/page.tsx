@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
   description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing: Telefon, WhatsApp oder e-mail. Jetzt kostenlos beraten lassen und Termin anfragen!',
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de/kontakt',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de/kontakt',
   },
   openGraph: {
     title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',

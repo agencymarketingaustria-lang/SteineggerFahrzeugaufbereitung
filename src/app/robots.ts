@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
     ],
-    sitemap: 'https://steinegger-aufbereitung.de/sitemap.xml',
+    sitemap: 'https://steinegger-fahrzeugaufbereitung.de/sitemap.xml',
   };
 }

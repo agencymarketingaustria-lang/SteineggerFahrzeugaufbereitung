@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',
   description: 'Vorher-Nachher-Bilder und Impressionen aus unserer Halle in Nettelkofen bei Grafing. Überzeuge dich selbst von unserer Arbeit. Jetzt Galerie ansehen!',
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de/galerie',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de/galerie',
   },
   openGraph: {
     title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',

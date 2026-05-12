@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',
   description: 'So läuft eine Fahrzeugaufbereitung bei Steinegger ab — von der Terminanfrage bis zur strahlenden Übergabe. In 4 einfachen Schritten zum perfekten Ergebnis. Jetzt informieren!',
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de/ablauf',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de/ablauf',
   },
   openGraph: {
     title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',
   description: 'Alle Preise für professionelle Fahrzeugaufbereitung in Grafing: Bronze, Silber & Gold Pakete für Innen- und Außenaufbereitung. Jetzt Preise vergleichen und Termin anfragen!',
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de/leistungen',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de/leistungen',
   },
   openGraph: {
     title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',

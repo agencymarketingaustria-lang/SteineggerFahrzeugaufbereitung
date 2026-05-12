@@ -7,7 +7,7 @@ export const SITE = {
   phone: '+4915203053368',
   whatsapp: '4915203053368',
   email: 'steinegger.fahrzeugaufbereitung@gmx.de',
-  url: 'https://steinegger-aufbereitung.de',
+  url: 'https://steinegger-fahrzeugaufbereitung.de',
   phoneHours: 'Mo–Fr: 08:00–16:00 Uhr',
   openingHours: {
     label: 'Termin nach Vereinbarung',

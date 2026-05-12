@@ -22,7 +22,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://steinegger-aufbereitung.de'),
+  metadataBase: new URL('https://steinegger-fahrzeugaufbereitung.de'),
   title: {
     default: 'STEINEGGER | Fahrzeugaufbereitung Nettelkofen bei Grafing',
     template: '%s | STEINEGGER Fahrzeugaufbereitung',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de',
   },
 };
 

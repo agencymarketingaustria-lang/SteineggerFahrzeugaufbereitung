@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
   description: 'Erfahre mehr über Kilian Steinegger und die Philosophie hinter der Fahrzeugaufbereitung in Nettelkofen bei Grafing. Handwerkskunst, Leidenschaft und Vertrauen. Jetzt kennenlernen!',
   alternates: {
-    canonical: 'https://steinegger-aufbereitung.de/ueber-uns',
+    canonical: 'https://steinegger-fahrzeugaufbereitung.de/ueber-uns',
   },
   openGraph: {
     title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
