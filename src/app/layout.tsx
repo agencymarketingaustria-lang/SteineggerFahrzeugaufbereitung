@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     default: 'STEINEGGER | Fahrzeugaufbereitung Nettelkofen bei Grafing',
     template: '%s | STEINEGGER Fahrzeugaufbereitung',
   },
-  description: 'Professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing. Innen- und Außenaufbereitung mit Bronze, Silber & Gold Paketen. ✓ Handwäsche ✓ Politur ✓ Keramikversiegelung',
-  keywords: ['Fahrzeugaufbereitung', 'Grafing', 'Nettelkofen', 'Auto aufbereiten', 'Car Detailing', 'Ebersberg', 'Lackpolitur', 'Keramikversiegelung', 'Innenreinigung'],
+  description: 'Professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing. Innen- und Außenaufbereitung mit Bronze, Silber & Gold Paketen. ✓ Handwäsche ✓ Politur ✓ Versiegelung',
+  keywords: ['Fahrzeugaufbereitung', 'Grafing', 'Nettelkofen', 'Auto aufbereiten', 'Car Detailing', 'Ebersberg', 'Lackpolitur', 'Innenreinigung', 'Fahrzeugveredelung'],
   openGraph: {
     type: 'website',
     locale: 'de_DE',
@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://steinegger-aufbereitung.de',
+  },
+  verification: {
+    google: 'PX12lhYkB4Szre_NgPZXHtnsGEkK2nRxygz7sL4p3Is',
   },
 };
 

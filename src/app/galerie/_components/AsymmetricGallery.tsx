@@ -16,11 +16,10 @@ function ParallaxImage({ item, index }: { item: any, index: number }) {
   // to break the grid uniformity and create depth.
   const yOffset = useTransform(scrollYProgress, [0, 1], index % 2 === 0 ? [50, -50] : [100, -100]);
 
-  // Determine span classes
+  // Use the data-driven `span` property for layout
   let spanClass = "asym-gallery__item";
-  if (index === 0) spanClass += " asym-gallery__item--large";
-  else if (index === 3 || index === 6) spanClass += " asym-gallery__item--tall";
-  else if (index === 4) spanClass += " asym-gallery__item--wide";
+  if (item.span === 'wide') spanClass += " asym-gallery__item--wide";
+  else if (item.span === 'tall') spanClass += " asym-gallery__item--tall";
 
   return (
     <div ref={ref} className={spanClass}>

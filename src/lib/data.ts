@@ -404,17 +404,9 @@ export const beforeAfterGallery = [
 ] as const;
 
 export const galleryItems = [
-  { src: '/images/bento_garage.webp', alt: 'Fahrzeugaufbereitung Halle in Nettelkofen bei Grafing – professionelle Werkstatt', caption: 'Unsere High-End Halle', span: 'wide' as const },
-  { src: '/images/bento_working.webp', alt: 'Kilian Steinegger poliert Fahrzeuglack von Hand – Detailing Grafing', caption: 'Leidenschaftliche Handarbeit', span: 'tall' as const },
-  { src: '/images/bento_tools.webp', alt: 'Professionelle Poliermaschinen und Detailing-Werkzeuge bei Steinegger', caption: 'Nur das beste Werkzeug', span: 'normal' as const },
-  { src: '/images/bento_customer.webp', alt: 'Persönliche Beratung zur Fahrzeugaufbereitung bei Steinegger in Grafing', caption: 'Beratung auf Augenhöhe', span: 'normal' as const },
-  { src: '/images/after_interior.webp', alt: 'Makelloser Fahrzeuginnenraum nach professioneller Reinigung in Nettelkofen', caption: 'Makelloser Innenraum', span: 'tall' as const },
-  { src: '/images/detailing_polisher.webp', alt: 'Professionelle Exzenter-Poliermaschine für Lackaufbereitung – Steinegger Grafing', caption: 'Exzenter-Poliermaschine', span: 'normal' as const },
-  { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Versiegelungen in der Steinegger Halle', caption: 'Nur Premium-Produkte', span: 'wide' as const },
-  { src: '/images/detailing_steam.webp', alt: 'Dampfreinigung von Ledersitzen – schonende Tiefenreinigung bei Steinegger', caption: 'Schonende Dampfreinigung', span: 'tall' as const },
-  { src: '/images/detailing_brushes.webp', alt: 'Organisierte Detailing-Pinsel und Schwämme für die Fahrzeugaufbereitung', caption: 'Präzision in jedem Pinsel', span: 'normal' as const },
-  { src: '/images/detailing_tornado.webp', alt: 'Tornado-Druckluftpistole bei der Reinigung von Fahrzeugritzen und Lüftungen', caption: 'Tornado-Druckluft', span: 'normal' as const },
-  { src: '/images/detailing_extraction.webp', alt: 'Sprühextraktion von Polstern – Tiefenreinigung der Fahrzeugsitze in Nettelkofen', caption: 'Polster-Sprühextraktion', span: 'wide' as const },
+  { src: '/images/audi-rs3-quattro-aufbereitung-halle-nettelkofen-frontal.webp', alt: 'Audi RS3 Quattro Frontalansicht in der Aufbereitungshalle Steinegger Nettelkofen bei Grafing', caption: 'Willkommen in unserer Halle', span: 'wide' as const },
+  { src: '/images/audi-rs3-fahrzeugaufbereitung-halle-nettelkofen-frontal-2.webp', alt: 'Audi RS3 Frontalansicht bei professioneller Fahrzeugaufbereitung – Steinegger Halle Nettelkofen', caption: 'Perfektion aus jedem Blickwinkel', span: 'tall' as const },
+  { src: '/images/audi-rs3-sportback-detailing-werkstatt-grafing.webp', alt: 'Audi RS3 Sportback mit schwarzen Felgen im Detailing-Atelier Steinegger Grafing', caption: 'Bereit für die Veredelung', span: 'wide' as const },
 ] as const;
 
 // ── Legal Placeholder ───────────────────────

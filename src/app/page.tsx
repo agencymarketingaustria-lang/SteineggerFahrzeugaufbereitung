@@ -319,15 +319,14 @@ export default function Home() {
               </div>
             </div>
           </ScrollReveal>
-          <div className="gallery-grid">
+          <div className="gallery-grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)' }}>
             {[
-              { src: '/images/detailing_polisher.webp', alt: 'Professionelle Exzenter-Poliermaschine für Lackaufbereitung – Steinegger Grafing', cls: '' },
-              { src: '/images/detailing_products.webp', alt: 'Premium Pflegeprodukte und Keramikversiegelungen im Steinegger Atelier', cls: ' gallery-grid__img--offset' },
-              { src: '/images/detailing_steam.webp', alt: 'Dampfreinigung von Ledersitzen – schonende Tiefenreinigung bei Steinegger', cls: '' },
-              { src: '/images/detailing_brushes.webp', alt: 'Organisierte Detailing-Pinsel und Schwämme für die Fahrzeugaufbereitung', cls: ' gallery-grid__img--offset' },
+              { src: '/images/audi-rs3-quattro-aufbereitung-halle-nettelkofen-frontal.webp', alt: 'Audi RS3 Quattro Frontalansicht in der Aufbereitungshalle Steinegger Nettelkofen bei Grafing', cls: '' },
+              { src: '/images/audi-rs3-fahrzeugaufbereitung-halle-nettelkofen-frontal-2.webp', alt: 'Audi RS3 Frontalansicht bei professioneller Fahrzeugaufbereitung – Steinegger Halle Nettelkofen', cls: ' gallery-grid__img--offset' },
+              { src: '/images/audi-rs3-sportback-detailing-werkstatt-grafing.webp', alt: 'Audi RS3 Sportback mit schwarzen Felgen im Detailing-Atelier Steinegger Grafing', cls: '' },
             ].map((img, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <Image src={img.src} alt={img.alt} width={400} height={i % 2 === 0 ? 400 : 533} className={`gallery-grid__img${img.cls}`} style={{ aspectRatio: i % 2 === 0 ? '1' : '3/4' }} sizes="(max-width: 768px) 50vw, 25vw" quality={75} loading="lazy" />
+                <Image src={img.src} alt={img.alt} width={400} height={i % 2 === 0 ? 400 : 533} className={`gallery-grid__img${img.cls}`} style={{ aspectRatio: i % 2 === 0 ? '1' : '3/4' }} sizes="(max-width: 768px) 50vw, 33vw" quality={75} loading="lazy" />
               </ScrollReveal>
             ))}
           </div>
