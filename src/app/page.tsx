@@ -87,14 +87,14 @@ export default function Home() {
       {/* ═══ BRAND STORY ═══ */}
       <section className="section section--brand-story" id="ueber-uns">
         <div className="brand-story-mobile-bg">
-          <Image src="/images/brand-story-v2.png" alt="Steinegger Fahrzeugaufbereitung — Professionelle Fahrzeugpflege" fill className="brand-story-mobile-bg__img" sizes="100vw" quality={60} priority />
+          <Image src="/images/audi-rs3-fahrzeugaufbereitung-halle-nettelkofen-frontal-2.webp" alt="Audi RS3 Fahrzeugaufbereitung Steinegger Halle Nettelkofen" fill className="brand-story-mobile-bg__img" sizes="100vw" quality={60} priority />
           <div className="brand-story-mobile-bg__overlay" />
         </div>
         <div className="container brand-story">
           <ScrollReveal direction="left" className="brand-story__img-col">
             <div className="brand-story__img-wrap">
               <div className="brand-story__img-bg" />
-              <Image src="/images/brand-story-v2.png" alt="Steinegger Fahrzeugaufbereitung — Professionelle Fahrzeugpflege in Nettelkofen" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
+              <Image src="/images/audi-rs3-fahrzeugaufbereitung-halle-nettelkofen-frontal-2.webp" alt="Audi RS3 Fahrzeugaufbereitung Steinegger Halle Nettelkofen — Professionelle Fahrzeugpflege" width={600} height={750} className="brand-story__img" sizes="(max-width: 768px) 100vw, 50vw" quality={75} />
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right" className="brand-story__content-col">
