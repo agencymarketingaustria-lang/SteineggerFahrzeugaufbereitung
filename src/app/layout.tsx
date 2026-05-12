@@ -50,9 +50,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://steinegger-aufbereitung.de',
   },
-  verification: {
-    google: 'PX12lhYkB4Szre_NgPZXHtnsGEkK2nRxygz7sL4p3Is',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
