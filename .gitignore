@@ -13,6 +13,10 @@ build/
 *.pem
 Thumbs.db
 
+# temp scripts
+check_exif.js
+rotate_images*.js
+
 # debug
 npm-debug.log*
 yarn-debug.log*
