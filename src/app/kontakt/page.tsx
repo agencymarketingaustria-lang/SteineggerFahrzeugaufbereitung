@@ -8,14 +8,14 @@ import { SITE } from '@/lib/data';
 import { generateContactPointSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
-  description: 'Kontaktiere Steinegger Fahrzeugaufbereitung in Nettelkofen bei Grafing: Telefon, WhatsApp oder e-mail. Jetzt kostenlos beraten lassen und Termin anfragen!',
+  title: 'Kontakt & Anfahrt ▸ Fahrzeugaufbereitung Grafing',
+  description: 'Jetzt Termin vereinbaren bei STEINEGGER in Nettelkofen bei Grafing ✆ Telefon, WhatsApp & E-Mail ► Kostenlose Beratung ► Hol- & Bringservice bis 5 km gratis!',
   alternates: {
     canonical: 'https://steinegger-fahrzeugaufbereitung.de/kontakt',
   },
   openGraph: {
-    title: 'Kontakt – Fahrzeugaufbereitung Grafing | STEINEGGER',
-    description: 'Kontaktiere uns für eine kostenlose Beratung und einen Terminvorschlag.',
+    title: 'Kontakt & Anfahrt ▸ Fahrzeugaufbereitung Grafing | STEINEGGER',
+    description: 'Jetzt Termin vereinbaren — kostenlose Beratung per Telefon, WhatsApp oder E-Mail. Hol- & Bringservice bis 5 km gratis!',
   },
 };
 

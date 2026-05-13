@@ -10,14 +10,14 @@ import { extendedProcessSteps, prepTips, extendedFaqs, SITE } from '@/lib/data';
 import { generateHowToSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',
-  description: 'So läuft eine Fahrzeugaufbereitung bei Steinegger ab — von der Terminanfrage bis zur strahlenden Übergabe. In 4 einfachen Schritten zum perfekten Ergebnis. Jetzt informieren!',
+  title: 'Ablauf ▸ In 4 Schritten zum perfekten Ergebnis',
+  description: 'So läuft deine Fahrzeugaufbereitung bei STEINEGGER ab: ① Terminanfrage ② Fahrzeug-Inspektion ③ Professionelle Veredelung ④ Strahlende Übergabe ► Jetzt Termin anfragen!',
   alternates: {
     canonical: 'https://steinegger-fahrzeugaufbereitung.de/ablauf',
   },
   openGraph: {
-    title: 'Ablauf der Aufbereitung | STEINEGGER Grafing',
-    description: 'In 4 Schritten zum perfekten Ergebnis. Buchung, Empfang, Veredelung, Übergabe.',
+    title: 'Ablauf ▸ In 4 Schritten zum perfekten Ergebnis | STEINEGGER',
+    description: 'Von der Terminanfrage bis zur strahlenden Übergabe — so einfach geht professionelle Fahrzeugaufbereitung in Grafing.',
   },
 };
 

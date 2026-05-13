@@ -8,14 +8,14 @@ import { generateServiceSchema, generateBreadcrumbSchema } from '@/lib/structure
 import LeistungenHero from './_components/LeistungenHero';
 
 export const metadata: Metadata = {
-  title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',
-  description: 'Alle Preise für professionelle Fahrzeugaufbereitung in Grafing: Bronze, Silber & Gold Pakete für Innen- und Außenaufbereitung. Jetzt Preise vergleichen und Termin anfragen!',
+  title: 'Preise & Pakete ▸ Fahrzeugaufbereitung ab 70 €',
+  description: 'Alle Preise für Fahrzeugaufbereitung in Grafing ► Bronze ab 70 € ► Silber ab 120 € ► Gold ab 160 € ✓ Innen & Außen ✓ Kombi-Rabatt bis 10 % ► Jetzt vergleichen & buchen!',
   alternates: {
     canonical: 'https://steinegger-fahrzeugaufbereitung.de/leistungen',
   },
   openGraph: {
-    title: 'Fahrzeugaufbereitung Preise & Pakete | STEINEGGER Grafing',
-    description: 'Bronze, Silber & Gold Pakete für professionelle Fahrzeugaufbereitung in Nettelkofen bei Grafing.',
+    title: 'Preise & Pakete ▸ Fahrzeugaufbereitung ab 70 € | STEINEGGER Grafing',
+    description: 'Bronze, Silber & Gold Pakete für professionelle Fahrzeugaufbereitung in Grafing. Ab 70 € mit bis zu 10 % Kombi-Rabatt.',
   },
 };
 

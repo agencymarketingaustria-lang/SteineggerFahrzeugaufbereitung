@@ -10,14 +10,14 @@ import { generateBreadcrumbSchema } from '@/lib/structured-data';
 import type { IconName } from '@/components/ui/Icon';
 
 export const metadata: Metadata = {
-  title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
-  description: 'Erfahre mehr über Kilian Steinegger und die Philosophie hinter der Fahrzeugaufbereitung in Nettelkofen bei Grafing. Handwerkskunst, Leidenschaft und Vertrauen. Jetzt kennenlernen!',
+  title: 'Über uns ▸ Kilian Steinegger — Dein Fahrzeugaufbereiter in Grafing',
+  description: 'Lerne Kilian Steinegger kennen — Fahrzeugaufbereiter aus Leidenschaft in Nettelkofen bei Grafing ► Handarbeit statt Fließband ► Persönliche Betreuung ► 100 % Kundenzufriedenheit',
   alternates: {
     canonical: 'https://steinegger-fahrzeugaufbereitung.de/ueber-uns',
   },
   openGraph: {
-    title: 'Über uns – Kilian Steinegger | Fahrzeugaufbereitung Grafing',
-    description: 'Bayerische Handwerkskunst trifft auf modernste Technik. Lerne uns kennen.',
+    title: 'Über uns ▸ Kilian Steinegger — Fahrzeugaufbereitung Grafing',
+    description: 'Keine große Firma — sondern ein Mensch, der für Fahrzeugpflege brennt. Handarbeit, Leidenschaft und persönliche Betreuung in Nettelkofen.',
   },
 };
 

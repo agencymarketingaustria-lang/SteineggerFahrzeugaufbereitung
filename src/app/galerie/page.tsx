@@ -9,14 +9,14 @@ import { SITE } from '@/lib/data';
 import { generateBreadcrumbSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
-  title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',
-  description: 'Vorher-Nachher-Bilder und Impressionen aus unserer Halle in Nettelkofen bei Grafing. Überzeuge dich selbst von unserer Arbeit. Jetzt Galerie ansehen!',
+  title: 'Galerie ▸ Vorher-Nachher Ergebnisse',
+  description: 'Vorher-Nachher Bilder unserer Fahrzeugaufbereitung in Grafing ► Polsterreinigung ► Lackpolitur ► Innenreinigung ► Überzeuge dich selbst von der Qualität!',
   alternates: {
     canonical: 'https://steinegger-fahrzeugaufbereitung.de/galerie',
   },
   openGraph: {
-    title: 'Galerie – Ergebnisse & Impressionen | STEINEGGER',
-    description: 'Einblicke in unsere Halle — Fahrzeugveredelung auf höchstem Niveau.',
+    title: 'Galerie ▸ Vorher-Nachher Ergebnisse | STEINEGGER Fahrzeugaufbereitung',
+    description: 'Einblicke in unsere Halle — Vorher-Nachher Bilder von Polsterreinigung, Lackpolitur und Innenreinigung auf höchstem Niveau.',
   },
 };
 
